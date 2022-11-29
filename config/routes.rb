@@ -16,8 +16,13 @@ Rails.application.routes.draw do
   resources :walks, only: %i[show] do
     resources :invitations, only: %i[create]
   end
+  resources :invitations, only: [] do
+    member do
+      patch :accept
+    end
+  end
 
-  patch ":id/accept", to: "invitation#accept"
+  resource :feed, only: :show
 
   # Defines the root path route ("/")
   # root "articles#index"
