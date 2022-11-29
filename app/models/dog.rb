@@ -1,6 +1,12 @@
 class Dog < ApplicationRecord
+  SPECIES = []
   belongs_to :user
   has_many :friendships
+  has_many :walks
+  has_many :invitations
+  has_many :reviews
+
+  validates :name, :breed, :weight, :personality, :gender, :health, :neutered, presence: true
 
   def friends
     own_friendships = Friendship.where(status: "accepted", dog_id: id).pluck(:buddy_id)
