@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_29_144249) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_29_152353) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,6 +34,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_144249) do
     t.float "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "dog_id", null: false
+    t.bigint "spot_id", null: false
+    t.index ["dog_id"], name: "index_reviews_on_dog_id"
+    t.index ["spot_id"], name: "index_reviews_on_spot_id"
   end
 
   create_table "spots", force: :cascade do |t|
@@ -82,6 +86,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_144249) do
   end
 
   add_foreign_key "dogs", "users"
+  add_foreign_key "reviews", "dogs"
+  add_foreign_key "reviews", "spots"
   add_foreign_key "spots", "users"
   add_foreign_key "walks", "dogs"
   add_foreign_key "walks", "spots"
