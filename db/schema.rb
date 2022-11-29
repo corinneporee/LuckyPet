@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema[7.0].define(version: 2022_11_29_135518) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_29_143104) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,6 +27,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_135518) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_dogs_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "content"
+    t.float "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "spots", force: :cascade do |t|
@@ -65,5 +71,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_135518) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "walks", force: :cascade do |t|
+    t.bigint "spot_id", null: false
+    t.bigint "dog_id", null: false
+    t.date "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dog_id"], name: "index_walks_on_dog_id"
+    t.index ["spot_id"], name: "index_walks_on_spot_id"
+  end
+
   add_foreign_key "dogs", "users"
+  add_foreign_key "walks", "dogs"
+  add_foreign_key "walks", "spots"
 end
