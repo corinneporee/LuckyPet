@@ -5,6 +5,7 @@ class CreateDogs < ActiveRecord::Migration[7.0]
       t.string :breed
       t.float :weight
       t.date :date_of_birth
+      t.string :personality
       t.string :gender
       t.string :health
       t.boolean :neutered
