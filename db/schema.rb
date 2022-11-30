@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_29_152353) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_29_152812) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,6 +27,27 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_152353) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_dogs_on_user_id"
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.string "status", default: "pending"
+    t.bigint "dog_id", null: false
+    t.bigint "buddy_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["buddy_id"], name: "index_friendships_on_buddy_id"
+    t.index ["dog_id"], name: "index_friendships_on_dog_id"
+  end
+
+  create_table "invitations", force: :cascade do |t|
+    t.bigint "dog_id", null: false
+    t.bigint "walk_id", null: false
+    t.string "message"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dog_id"], name: "index_invitations_on_dog_id"
+    t.index ["walk_id"], name: "index_invitations_on_walk_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -86,6 +107,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_152353) do
   end
 
   add_foreign_key "dogs", "users"
+  add_foreign_key "friendships", "dogs"
+  add_foreign_key "friendships", "dogs", column: "buddy_id"
+  add_foreign_key "invitations", "dogs"
+  add_foreign_key "invitations", "walks"
   add_foreign_key "reviews", "dogs"
   add_foreign_key "reviews", "spots"
   add_foreign_key "spots", "users"
