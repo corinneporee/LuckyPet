@@ -1,0 +1,11 @@
+<%= simple_form_for(dog) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :breed, collection: ["Chihuahua", "Labrador"] %>
+  <%= f.input :weight %>
+  <%= f.input :date_of_birth %>
+  <%= f.input :personality %>
+  <%= f.input :gender %>
+  <%= f.input :health %>
+  <%= f.input :neutered %>
+  <%= f.submit %>
+<% end %>

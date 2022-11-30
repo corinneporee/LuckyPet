@@ -7,13 +7,16 @@ class DogsController < ApplicationController
   end
 
   def new
+    @dog = Dog.new
   end
 
   def create
     @dog = Dog.new(dog_params)
-    @dog.save
-
-    redirect_to dog_path(@dog)
+    if @dog.save
+      redirect_to dog_path(@dog)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
