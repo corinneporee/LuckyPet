@@ -1,0 +1,11 @@
+<%= simple_form_for(dog) do |f| %>
+  <%= f.input :name, label: 'Nom' %>
+  <%= f.input :breed, label: 'Espèce', collection: ["Chihuahua", "Labrador"] %>
+  <%= f.input :weight, label: 'Poids en Kg' %>
+  <%= f.input :date_of_birth, label: 'Date de naissance' %>
+  <%= f.input :personality, label: 'Caractère' %>
+  <%= f.input :gender, label: 'Sexe' %>
+  <%= f.input :health, label: 'Santé' %>
+  <%= f.input :neutered, label: 'Stérilisé' %>
+  <%= f.submit 'CREER LE PROFIL' %>
+<% end %>
