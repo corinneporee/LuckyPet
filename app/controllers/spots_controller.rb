@@ -1,4 +1,4 @@
-class SpotController < ApplicationController
+class SpotsController < ApplicationController
   def index
   end
 
