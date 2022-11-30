@@ -1,10 +1,18 @@
 class Dog < ApplicationRecord
-  SPECIES = []
+  PERSONALITY = ["Sympa avec tout le monde", "Carrément timide", "J'ai mes têtes", "Faut pas me chercher", "Fou-fou"]
+  BREEDS = ["Chihuahua", "Teckel", "Golden Retriever", "Berger Australien", "Croisé"]
+  HEALTH = ["Je pète la forme", "Raplapla", "Sous traitement"]
+
+  validates :personality, inclusion: { in: PERSONALITY }
+  validates :breed, inclusion: { in: BREEDS }
+  validates :health, inclusion: { in: HEALTH }
+
   belongs_to :user
-  has_many :friendships
-  has_many :walks
-  has_many :invitations
-  has_many :reviews
+  has_many :friendships, dependent: :destroy
+  has_many :walks, dependent: :destroy
+  has_many :invitations, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+  has_one_attached :photo
 
   validates :name, :breed, :weight, :personality, :gender, :health, :neutered, presence: true
 
