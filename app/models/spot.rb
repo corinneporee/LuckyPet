@@ -1,5 +1,5 @@
 class Spot < ApplicationRecord
-  SPOT_TYPES = ["Balades", "Commerces", "Vétérinaires", "Toiletteurs"]
+  SPOT_TYPES = ["Balades", "Commerces", "Vétérinaires", "Pensions", "Toiletteurs"]
   WALK_ENVIRONMENTS = ["Forêt", "Plage", "Ville"]
   WALK_AREA = ["Petite", "Moyenne", "Grands"]
   WALK_ATTENDANCE = ["Faible", "Moyenne", "Forte"]

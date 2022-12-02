@@ -9,10 +9,11 @@
 puts "Cleaning database"
 Dog.destroy_all
 Spot.destroy_all
-Invitation.destroy_all
+Walk.destroy_all
 Review.destroy_all
 User.destroy_all
-Walk.destroy_all
+
+
 
 puts 'Creating users...'
 aurelie = User.new(first_name: "Aurélie", last_name: "Becques", email: "aurelie@me.com", password: "123456")
@@ -81,7 +82,6 @@ dog_turbo = Dog.new(name: "Turbo",
 dog_turbo.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 dog_turbo.save!
 
-
 puts 'Creating spots..'
 
 file = File.open("db/fixtures/images/foret_pont_sal.jpg")
@@ -115,41 +115,262 @@ spot_plage = Spot.new(
 spot_plage.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_plage.save!
 
-      #t.boolean :shop_cereale
-      #t.boolean :shop_vrac
-      #t.boolean :shop_insects
-      #t.boolean :pension_pro
-      #t.boolean :pension_walks
-      #t.boolean :grooming_shop
-      #t.string :vet_specialty
+file = File.open("db/fixtures/images/ville_vannes.jpg")
+spot_ville = Spot.new(
+  name: "Les Remparts de Vannes",
+  user: steven,
+  description: "Belle endroit de balade le long des remparts. Les chiens doivent être tenus en laisse.",
+  adress: "4 rue des vierges, 56000 Vannes",
+  spot_type: "Balades",
+  walk_environment: "Ville",
+  walk_area: "Moyenne",
+  walk_attendance: "Moyenne"
+)
+spot_ville.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+spot_ville.save!
 
-puts 'Invitations' #est-ce qu'on ferait pas apparaître les photos entre les 2 chiens ?
-# Invitation.create(# y a pas de name pour l'invitation? genre:"kiki invite pépette",
-#   message: "Hello ça te dit une balade avec moi aujourd'hui?",
-#   status: "pending"
-  # user ou dog?
-# )
+file = File.open("db/fixtures/images/shop_cereal.png")
+spot_shop_cereal = Spot.new(
+  name: "J'ai plus de croquettes",
+  user: steven,
+  description: "Boutique ouverte tous les jours de la semaine sauf le dimanche de
+  9h à 12h et de 14h à 19h, les chiens sont les bienvenues!",
+  adress: "19 rue Claude de Bretagne, 56500 Locmine",
+  spot_type: "Commerces"
+)
+spot_shop_cereal.photo.attach(io: file, filename: ".png", content_type: "image/png")
+spot_shop_cereal.save!
 
+file = File.open("db/fixtures/images/shop_vrac.jpg")
+spot_shop_vrac = Spot.new(
+  name: "Le bar à croquette",
+  user: corinne,
+  description: "Notre boutique met à disposition des distributeurs de croquettes de toutes sortes.
+  C'est en libre service, mais nous restons à votre disposition pour des conseils. Ouvert du lundi au vendredi de
+  9h à 18h.",
+  adress: "10 rue Carnot, 56000 Pontivy",
+  spot_type: "Commerces"
+)
+spot_shop_vrac.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+spot_shop_vrac.save!
 
-  # t.bigint "dog_id", null: false est-ce que le userID il apparaît?
-  # t.bigint "walk_id", null: false
+file = File.open("db/fixtures/images/shop_insect.jpeg")
+spot_shop_insects = Spot.new(
+  name: "Passion animal",
+  user: aurelie,
+  description: "Nous vendons des croquettes de la marque 'Tomojo' spécialisé dans les croquettes à base d'insectes.
+  La boutique est ouverte tous les jours du lundi au samedi de 10h à 18h non stop. Nos amis les chiens sont les bienvenus.",
+  adress: "Zone industrielle Du Prat, 2 avenue Gontran Bienvenu, 56000 Vannes",
+  spot_type: "Commerces"
+)
+spot_shop_insects.photo.attach(io: file, filename: ".jpeg", content_type: "image/jpeg")
+spot_shop_insects.save!
 
+file = File.open("db/fixtures/images/vet_general.jpg")
+spot_vet_general = Spot.new(
+  name: "Cabinet Levert Vétérinaire Associés",
+  user: aurelie,
+  description: "Cabinet vétérinaire, ouvert du lundi au samedi de 9h à 20h, consultations uniquement sur rdv.",
+  adress: "3 rue des Ecoles, 56400 Auray",
+  spot_type: "Vétérinaires"
+)
+spot_vet_general.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+spot_vet_general.save!
 
-puts 'Reviews'
-# Review.create!(
-#   content: "Super balade, super endroit, j'ai rencontré des copains et en même temps pas trop de monde, super spot!",
-#   rating: 5
-# dog
-# spot
-# )
+file = File.open("db/fixtures/images/vet_osteo.png")
+spot_vet_osteo = Spot.new(
+  name: "Osteovet56",
+  user: aurelie,
+  description: "Séances d'ostéopathies uniquement sur rdv.",
+  adress: "8 rue les Vents du Sud, 56000 Vannes",
+  spot_type: "Vétérinaires"
+  )
+spot_vet_osteo.photo.attach(io: file, filename: ".png", content_type: "image/png")
+spot_vet_osteo.save!
 
+file = File.open("db/fixtures/images/pension_pro_bonheur.jpg")
+spot_pension_pro_bonheur = Spot.new(
+  name: "Le Bonheur des 4 pattes",
+  user: rodolphe,
+  description: "Structure de 1000m2, pas très loin de la ville. Ouverte de 9h à 12h et de 14h à 18h. Vous pouvez venir visiter notre
+  pension uniquement sur rdv.",
+  adress: "14 route de Mériadec, Le Bois des Mûriers, 56000 Ploeren",
+  spot_type: "Pensions",
+  pension_pro: true
+  )
+spot_pension_pro_bonheur.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+spot_pension_pro_bonheur.save!
 
+file = File.open("db/fixtures/images/pension_pro_fox.jpg")
+spot_pension_pro_fox = Spot.new(
+  name: "Fox Trotte",
+  user: steven,
+  description: "Notre domaine est installé sur un parc boisé de plus de 5000m2.
+  Vous pouvez nous contacter du lundi au samedi de 9h à 18h.",
+  adress: "Parc de la Lande, 56250 Elven",
+  spot_type: "Pensions",
+  pension_pro: true
+)
+spot_pension_pro_fox.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+spot_pension_pro_fox.save!
+
+file = File.open("db/fixtures/images/pension_particulier_linette.jpg")
+spot_pension_linette = Spot.new(
+  name: "Chez Linette",
+  user: aurelie,
+  description: "Pension familiale. Vous pouvez me contacter du lundi au samedi de 9h à 18h.",
+  adress: "10 Lann Vras, 56400 Plumergat",
+  spot_type: "Pensions"
+)
+spot_pension_linette.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+spot_pension_linette.save!
+
+file = File.open("db/fixtures/images/pension_particulier_animar.png")
+spot_pension_animar = Spot.new(
+  name: "Animar",
+  user: rodolphe,
+  description: "Pension familiale acceptant jusqu'à 5 chiens. Me contacter pour avoir
+  plus de renseignements",
+  adress: "4 bis rue de la Forge, 56400 Plumergat",
+  spot_type: "Pensions"
+)
+spot_pension_animar.photo.attach(io: file, filename: ".png", content_type: "image/png")
+spot_pension_animar.save!
+
+file = File.open("db/fixtures/images/grooming_happy.jpg")
+spot_grooming_happy = Spot.new(
+  name: "Happy Dog",
+  user: rodolphe,
+  description: "Salon ouvert du lundi au samedi de 9h à 12h puis de 14h à 18h,
+  uniquement sur rdv",
+  adress: "15 avenue Wilson, 56400 Auray",
+  spot_type: "Toiletteurs"
+)
+spot_grooming_happy.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+spot_grooming_happy.save!
+
+file = File.open("db/fixtures/images/grooming_cani.jpg")
+spot_grooming_cani = Spot.new(
+  name: "Cani couaf",
+  user: aurelie,
+  description: "Salon de toilettage 'ambulant'. Lundi: Auray sur la place du marché, Mardi: Vannes, porte StVincent,
+  Mercredi: Grand champ: place de la mairie, Jeudi:Plescop, parking les 3 soleils, Vendredi: Séné, zone du Poulfanc rue Alsace.
+  Vous pouvez me contacter pour une prise de rdv",
+  adress: "10 bis rue Joseph le Brix, 56890 Saint-Avé",
+  spot_type: "Toiletteurs"
+)
+spot_grooming_cani.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+spot_grooming_cani.save!
 
 puts 'Walks'
-# mettre une photo
-# walk_1 = Walk.new(
-  # spot: spot_foret,
-  # dog: dog_kiki,
-  #date: 12.12.2022,
-# )
-# walk_1.save!
+walk_1 = Walk.new(
+  spot: spot_plage,
+  dog: dog_pepette,
+  date: Time.now
+)
+walk_1.save!
+
+walk_2 = Walk.new(
+  spot: spot_foret,
+  dog: dog_pepette,
+  date: Time.now
+)
+walk_2.save!
+
+walk_3 = Walk.new(
+  spot: spot_ville,
+  dog: dog_turbo,
+  date: Time.now
+)
+walk_3.save!
+
+puts 'Invitations'
+invitation = Invitation.new(
+  dog: dog_kiki,
+  walk: walk_1,
+  message: "Hello ça te dit une balade avec moi aujourd'hui?",
+  status: "pending"
+)
+invitation.save!
+
+puts 'Reviews'
+review_shop_vrac = Review.new(
+  content: "C'est en plein centre ville! C'est très pratique,
+  pas chère. C'est top",
+  rating: 5,
+  dog: dog_hector,
+  spot: spot_shop_vrac
+)
+review_shop_vrac.save!
+
+review_shop_cereal = Review.new(
+  content: "Super croquette de très bonnes qualités à prix abordables. Je recommande",
+  rating: 3,
+  dog: dog_pepette,
+  spot: spot_shop_cereal
+)
+review_shop_cereal.save!
+
+review_shop_insect = Review.new(
+  content: "Turbo n'a jamais voulu les manger. Je vais reprendre des croquettes plus classiques...",
+  rating: 1,
+  dog: dog_turbo,
+  spot: spot_shop_insects
+)
+review_shop_insect.save!
+
+review_vet_general = Review.new(
+  content: "Des professionnels qualifiés à l'écoute. Joignables facilement, prise de rdv rapide.",
+  rating: 5,
+  dog: dog_kiki,
+  spot: spot_vet_general
+)
+review_vet_general.save!
+
+review_vet_osteo = Review.new(
+  content: "Je recommande. Vétérinaire à l'écoute et agréable. Ma chienne remarche c'est un miracle!",
+  rating: 5,
+  dog: dog_hector,
+  spot: spot_vet_general
+)
+review_vet_osteo.save!
+
+review_pension_pro_bonheur = Review.new(
+  content: "Très satisfait de l'accueil et de l'équipe. Je recommande.",
+  rating: 5,
+  dog: dog_pepette,
+  spot: spot_pension_pro_bonheur
+)
+review_pension_pro_bonheur.save!
+
+review_pension_pro_fox = Review.new(
+  content: "A fuir. Les personnes ne sont pas du tout professionnelles.",
+  rating: 1,
+  dog: dog_turbo,
+  spot: spot_pension_pro_fox
+)
+review_pension_pro_fox.save!
+
+review_pension_particulier_linette = Review.new(
+  content: " Mon chien n'a pas été bien traité, il est revenu avec plein de blessures.",
+  rating: 1,
+  dog: dog_kiki,
+  spot: spot_pension_linette
+)
+review_pension_particulier_linette.save!
+
+review_grooming_happy = Review.new(
+  content: "Très mal fait! l'épilation pour mon teckel était complètement raté.",
+  rating: 1,
+  dog: dog_pepette,
+  spot: spot_grooming_happy
+)
+review_grooming_happy.save!
+
+review_grooming_cani = Review.new(
+  content: "Très profesionnel, et sympa! Kiki ressort encore plus beau que d'habitude!",
+  rating: 5,
+  dog: dog_kiki,
+  spot: spot_grooming_cani
+)
+review_grooming_cani.save!

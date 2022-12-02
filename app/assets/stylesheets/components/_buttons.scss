@@ -1,0 +1,121 @@
+.btn-primary {
+  border: 1px solid $black;
+  box-shadow: 2px 2px 0px $black;
+  background-color: $second;
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-family: 'Quicksand';
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: $black;
+  transition: .3s;
+}
+
+.btn-primary:hover {
+  background-color: $second;
+  border: 1px solid $black;
+  box-shadow: 0px 0px 0px $black;
+  transition: .3s;
+  transform:translateX(2px) translateY(2px);
+}
+
+.btn-secondary {
+  border: 1px solid $black;
+  box-shadow: 2px 2px 0px $black;
+  background-color: $white;
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-family: 'Quicksand';
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: $black;
+  transition: .3s;
+}
+
+.btn-secondary:hover {
+  background-color: $white;
+  border: 1px solid $black;
+  box-shadow: 0px 0px 0px $black;
+  transition: .3s;
+  transform:translateX(2px) translateY(2px);
+}
+
+.btn-square {
+  border: 1px solid $black;
+  background-color: $principal;
+  font-family: 'Quicksand';
+  color: $black;
+  border-radius: 4px;
+  width: 90px;
+  height: 90px;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  text-align: center;
+  letter-spacing: -0.2px;
+  transition: .3s;
+}
+
+.btn-square:hover {
+  border: 1px solid $black;
+  background-color: $principal;
+}
+
+.btn-square:active {
+  background-color: $second;
+  box-shadow: 2px 2px 0px $black;
+  transition: .3s;
+  transform:translateX(2px) translateY(2px);
+}
+
+.btn-form {
+  border: 1px solid $black;
+  background-color: $principal;
+  border-radius: 4px;
+  transition: .3s;
+}
+
+.btn-form:hover {
+  border: 1px solid $black;
+  background-color: $principal;
+}
+
+.btn-form:active {
+  background-color: $second;
+  box-shadow: 2px 2px 0px $black;
+  transition: .3s;
+  transform:translateX(2px) translateY(2px);
+}
+
+.btn-filter {
+  background-color: $white;
+  border: 1px solid $black;
+  font-family: 'Quicksand';
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: $black;
+  border-radius: 3px;
+  transition: .3s;
+}
+
+.btn-filter:hover {
+  border: 1px solid $black;
+  background-color: $principal;
+}
+
+.btn-filter:active {
+  background-color: $white;
+  border: 1px solid $black;
+  font-family: 'Quicksand';
+  color: $black;
+  box-shadow: 2px 2px 0px $black;
+  border-radius: 3px;
+  transition: .3s;
+  transform:translateX(2px) translateY(2px);
+}

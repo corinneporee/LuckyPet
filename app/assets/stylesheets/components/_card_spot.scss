@@ -1,0 +1,47 @@
+.card-spot {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 9px 0px 0px;
+  gap: 5px;
+  background: $white;
+  border: 1px solid $black300;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px 8px 8px 4px;
+  width: 350px;
+  height: 130px;
+  margin: 8px;
+}
+
+.card-spot img {
+  height: 100%;
+}
+
+.card-spot-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.card-spot-type {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-spot-title {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-spot-title h3 {
+  font-size: 16px;
+}
+
+.card-spot-title p {
+  font-size: 13px;
+}
+
+.card-spot-description p {
+  font-size: 13px;
+}
