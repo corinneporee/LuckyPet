@@ -1,11 +1,34 @@
-<%= simple_form_for(dog) do |f| %>
-  <%= f.input :name, label: 'Nom' %>
-  <%= f.input :breed, label: 'Espèce', collection: ["Chihuahua", "Labrador"] %>
-  <%= f.input :weight, label: 'Poids en Kg' %>
-  <%= f.input :date_of_birth, label: 'Date de naissance' %>
-  <%= f.input :personality, label: 'Caractère' %>
-  <%= f.input :gender, label: 'Sexe' %>
-  <%= f.input :health, label: 'Santé' %>
-  <%= f.input :neutered, label: 'Stérilisé' %>
-  <%= f.submit 'CREER LE PROFIL' %>
-<% end %>
+
+<div class= "text-start">
+  <%= simple_form_for(dog) do |f| %>
+    <%= f.input :name, label: 'Nom' %>
+    <%= f.input :photo, as: :file, label: "Photo de mon chien" %>
+    <%= f.submit "J'ajoute la photo de mon chien", class: "btn btn-primary" %>
+    <%= f.input :breed, label: 'Espèce', collection: Dog::BREEDS %>
+    <%= f.input :weight, as: :range, label: 'Poids en Kg' %>
+    <%= f.input :date_of_birth, label: 'Date de naissance' %>
+    <%= f.input :personality, label: 'Personnalité',
+             as: :radio_buttons,
+             collection_wrapper_tag: 'div',
+             collection_wrapper_class: 'health-wrapper',
+             item_wrapper_class: 'health-item',
+             input_html: {class: 'health-selector'},
+             collection: Dog::PERSONALITY %>
+    <%= f.input :gender, label: 'Sexe',
+             as: :radio_buttons,
+             collection_wrapper_tag: 'div',
+             collection_wrapper_class: 'health-wrapper',
+             item_wrapper_class: 'health-item',
+             input_html: {class: 'health-selector'},
+             collection: Dog::SEX %>
+    <%= f.input :health, label: 'Santé',
+             as: :radio_buttons,
+             collection_wrapper_tag: 'div',
+             collection_wrapper_class: 'health-wrapper',
+             item_wrapper_class: 'health-item',
+             input_html: {class: 'health-selector'},
+             collection: Dog::HEALTH %>
+    <%= f.input :neutered, label: 'Stérilisé' %>
+    <%= f.submit 'CREER LE PROFIL' %>
+  <% end %>
+</div>
