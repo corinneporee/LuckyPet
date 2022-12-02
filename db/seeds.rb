@@ -9,10 +9,11 @@
 puts "Cleaning database"
 Dog.destroy_all
 Spot.destroy_all
-Invitation.destroy_all
+Walk.destroy_all
 Review.destroy_all
 User.destroy_all
-Walk.destroy_all
+
+
 
 puts 'Creating users...'
 aurelie = User.new(first_name: "Aurélie", last_name: "Becques", email: "aurelie@me.com", password: "123456")
@@ -187,61 +188,54 @@ spot_vet_osteo = Spot.new(
 spot_vet_osteo.photo.attach(io: file, filename: ".png", content_type: "image/png")
 spot_vet_osteo.save!
 
-# file = File.open("db/fixtures/images/pension_pro_bonheur.jpg")
-# spot_pension_pro_bonheur = Spot.new(
-#   name: "Le Bonheur des 4 pattes",
-#   user: rodolphe,
-#   description: "Structure de 1000m2, pas très loin de la ville. Ouverte de 9h à 12h et de 14h à 18h. Vous pouvez venir visiter notre
-#   pension uniquement sur rdv.",
-#   adress: "14 route de Mériadec, Le Bois des Mûriers, 56000 Ploeren",
-#   spot_type: "Pensions"
-#   )
-# spot_pension_pro_bonheur.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
-# spot_pension_pro_bonheur.save!
+file = File.open("db/fixtures/images/pension_pro_bonheur.jpg")
+spot_pension_pro_bonheur = Spot.new(
+  name: "Le Bonheur des 4 pattes",
+  user: rodolphe,
+  description: "Structure de 1000m2, pas très loin de la ville. Ouverte de 9h à 12h et de 14h à 18h. Vous pouvez venir visiter notre
+  pension uniquement sur rdv.",
+  adress: "14 route de Mériadec, Le Bois des Mûriers, 56000 Ploeren",
+  spot_type: "Pensions",
+  pension_pro: true
+  )
+spot_pension_pro_bonheur.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+spot_pension_pro_bonheur.save!
 
-# file = File.open("db/fixtures/images/pension_pro_fox.jpg")
-# spot_pension_pro_fox = Spot.new(
-#   name: "Fox Trotte",
-#   user: steven,
-#   description: "Notre domaine est installé sur un parc boisé de plus de 5000m2.
-#   Vous pouvez nous contacter du lundi au samedi de 9h à 18h.",
-#   adress: "Parc de la Lande, 56250 Elven",
-#   spot_type: "Pensions",
-#   walk_environment: "",
-#   walk_area: "",
-#   walk_attendance: ""
-# )
-# spot_pension_pro_fox.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
-# spot_pension_pro_fox.save!
+file = File.open("db/fixtures/images/pension_pro_fox.jpg")
+spot_pension_pro_fox = Spot.new(
+  name: "Fox Trotte",
+  user: steven,
+  description: "Notre domaine est installé sur un parc boisé de plus de 5000m2.
+  Vous pouvez nous contacter du lundi au samedi de 9h à 18h.",
+  adress: "Parc de la Lande, 56250 Elven",
+  spot_type: "Pensions",
+  pension_pro: true
+)
+spot_pension_pro_fox.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+spot_pension_pro_fox.save!
 
-# file = File.open("db/fixtures/images/pension_particulier_linette.jpg")
-# spot_pension_linette = Spot.new(
-#   name: "Chez Linette",
-#   user: aurelie,
-#   description: "Pension familiale. Vous pouvez me contacter du lundi au samedi de 9h à 18h.",
-#   adress: "10 Lann Vras, 56400 Plumergat",
-#   spot_type: "Pensions",
-#   walk_environment: "",
-#   walk_area: "",
-#   walk_attendance: ""
-# )
-# spot_pension_linette.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
-# spot_pension_linette.save!
+file = File.open("db/fixtures/images/pension_particulier_linette.jpg")
+spot_pension_linette = Spot.new(
+  name: "Chez Linette",
+  user: aurelie,
+  description: "Pension familiale. Vous pouvez me contacter du lundi au samedi de 9h à 18h.",
+  adress: "10 Lann Vras, 56400 Plumergat",
+  spot_type: "Pensions"
+)
+spot_pension_linette.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+spot_pension_linette.save!
 
-# file = File.open("db/fixtures/images/pension_particulier_animar.png")
-# spot_pension_animar = Spot.new(
-#   name: "Animar",
-#   user: rodolphe,
-#   description: "Pension familiale acceptant jusqu'à 5 chiens. Me contacter pour avoir
-#   plus de renseignements",
-#   adress: "4 bis rue de la Forge, 56400 Plumergat",
-#   spot_type: "Pensions",
-#   walk_environment: "",
-#   walk_area: "",
-#   walk_attendance: ""
-# )
-# spot_pension_animar.photo.attach(io: file, filename: ".png", content_type: "image/png")
-# spot_pension_animar.save!
+file = File.open("db/fixtures/images/pension_particulier_animar.png")
+spot_pension_animar = Spot.new(
+  name: "Animar",
+  user: rodolphe,
+  description: "Pension familiale acceptant jusqu'à 5 chiens. Me contacter pour avoir
+  plus de renseignements",
+  adress: "4 bis rue de la Forge, 56400 Plumergat",
+  spot_type: "Pensions"
+)
+spot_pension_animar.photo.attach(io: file, filename: ".png", content_type: "image/png")
+spot_pension_animar.save!
 
 file = File.open("db/fixtures/images/grooming_happy.jpg")
 spot_grooming_happy = Spot.new(
@@ -250,10 +244,7 @@ spot_grooming_happy = Spot.new(
   description: "Salon ouvert du lundi au samedi de 9h à 12h puis de 14h à 18h,
   uniquement sur rdv",
   adress: "15 avenue Wilson, 56400 Auray",
-  spot_type: "Toiletteurs",
-  walk_environment: "",
-  walk_area: "",
-  walk_attendance: ""
+  spot_type: "Toiletteurs"
 )
 spot_grooming_happy.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_grooming_happy.save!
@@ -266,44 +257,41 @@ spot_grooming_cani = Spot.new(
   Mercredi: Grand champ: place de la mairie, Jeudi:Plescop, parking les 3 soleils, Vendredi: Séné, zone du Poulfanc rue Alsace.
   Vous pouvez me contacter pour une prise de rdv",
   adress: "10 bis rue Joseph le Brix, 56890 Saint-Avé",
-  spot_type: "Toiletteurs",
-  walk_environment: "",
-  walk_area: "",
-  walk_attendance: ""
+  spot_type: "Toiletteurs"
 )
 spot_grooming_cani.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_grooming_cani.save!
 
-# puts 'Walks'
-# walk_1 = Walk.new(
-#   spot: spot_plage,
-#   dog: dog_pepette,
-#   date: Time.now,
-# )
-# walk_1.save!
+puts 'Walks'
+walk_1 = Walk.new(
+  spot: spot_plage,
+  dog: dog_pepette,
+  date: Time.now
+)
+walk_1.save!
 
-# walk_2 = Walk.new(
-#   spot: spot_foret,
-#   dog: dog_pepette,
-#   date: Time.now,
-# )
-# walk_2.save!
+walk_2 = Walk.new(
+  spot: spot_foret,
+  dog: dog_pepette,
+  date: Time.now
+)
+walk_2.save!
 
-# walk_3 = Walk.new(
-#   spot: spot_ville,
-#   dog: dog_turbo,
-#   date: Time.now,
-# )
-# walk_3.save!
+walk_3 = Walk.new(
+  spot: spot_ville,
+  dog: dog_turbo,
+  date: Time.now
+)
+walk_3.save!
 
-# puts 'Invitations'
-# Invitation.create(
-#   dog: kiki_chihuahua,
-#   walk: walk_1,
-#   message: "Hello ça te dit une balade avec moi aujourd'hui?",
-#   status: "pending"
-# )
-# invitation.save!
+puts 'Invitations'
+invitation = Invitation.new(
+  dog: dog_kiki,
+  walk: walk_1,
+  message: "Hello ça te dit une balade avec moi aujourd'hui?",
+  status: "pending"
+)
+invitation.save!
 
 puts 'Reviews'
 review_shop_vrac = Review.new(
@@ -347,36 +335,29 @@ review_vet_osteo = Review.new(
 )
 review_vet_osteo.save!
 
-# review_pension_pro_bonheur = Review.new(
-#   content: "Très satisfait de l'accueil et des soins prodigués à notre chien. Merci à l'équipe
-#   qui s'en est bien occupé. Je recommande.",
-#   rating: 5,
-#   dog: Pepette,
-#   user: rodolphe,
-#   spot: "Pensions"
-# )
-# review_pension_pro_bonheur.save!
+review_pension_pro_bonheur = Review.new(
+  content: "Très satisfait de l'accueil et de l'équipe. Je recommande.",
+  rating: 5,
+  dog: dog_pepette,
+  spot: spot_pension_pro_bonheur
+)
+review_pension_pro_bonheur.save!
 
-# review_pension_pro_fox = Review.new(
-#   content: "Très mauvais accueil. Les personnes ne sont pas du tout professionnelles.
-#   Surtout ne pas y aller",
-#   rating: 1,
-#   dog: Turbo,
-#   user: steven,
-#   spot: "Pensions"
-# )
-# review_pension_pro_fox.save!
+review_pension_pro_fox = Review.new(
+  content: "A fuir. Les personnes ne sont pas du tout professionnelles.",
+  rating: 1,
+  dog: dog_turbo,
+  spot: spot_pension_pro_fox
+)
+review_pension_pro_fox.save!
 
-# review_pension_particulier_linette = Review.new(
-#   content: "Très mauvais accueil avec la personne.
-#   Mon chien n'a pas été bien traité, il est revenu avec plein de blessures.
-#   Je ne recommande pas",
-#   rating: 1,
-#   dog: Kiki,
-#   user: aurelie,
-#   spot: "Pensions"
-# )
-# review_pension_particulier_linette.save!
+review_pension_particulier_linette = Review.new(
+  content: " Mon chien n'a pas été bien traité, il est revenu avec plein de blessures.",
+  rating: 1,
+  dog: dog_kiki,
+  spot: spot_pension_linette
+)
+review_pension_particulier_linette.save!
 
 review_grooming_happy = Review.new(
   content: "Très mal fait! l'épilation pour mon teckel était complètement raté.",
@@ -387,8 +368,7 @@ review_grooming_happy = Review.new(
 review_grooming_happy.save!
 
 review_grooming_cani = Review.new(
-  content: "Très profesionnel, et sympa! Kiki ressort encore plus beau que d'habitude!
-  Un super service!",
+  content: "Très profesionnel, et sympa! Kiki ressort encore plus beau que d'habitude!",
   rating: 5,
   dog: dog_kiki,
   spot: spot_grooming_cani
