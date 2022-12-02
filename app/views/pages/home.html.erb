@@ -1,2 +1,14 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="home-container">
+  <div class="home-info">
+    <h1>tout pour le bien être de votre chien</h1>
+    <p>Lorem ipsum dolor sit amet consectetur. Laoreet volutpat ut nec ac leo risus proin euismod euismod. Vel aliquam blandit ultrices.</p>
+  </div>
+  <div class="home-log">
+    <div class="log-in">
+    <%= link_to "🐾 je me connecte", new_user_session_path, class: "btn btn-primary" %>
+    </div>
+    <div class="sign-in">
+      <%= link_to "je m'inscris", new_user_registration_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
+</div>
