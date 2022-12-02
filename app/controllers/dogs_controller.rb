@@ -4,6 +4,7 @@ class DogsController < ApplicationController
   end
 
   def show
+    @dog = Dog.find(params[:id])
   end
 
   def new
@@ -14,7 +15,7 @@ class DogsController < ApplicationController
     @dog = Dog.new(dog_params)
     @dog.user = current_user
     if @dog.save
-      redirect_to dogs_path
+      redirect_to dog_path(@dog)
     else
       render :new, status: :unprocessable_entity
     end
