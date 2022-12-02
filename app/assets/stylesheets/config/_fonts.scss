@@ -1,16 +1,35 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;600&display=swap');
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: "Quicksand", sans-serif;
+$headers-font: "BD Supper", "Helvetica";
 
-// To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
+@font-face {
+  font-family: 'BD Supper';
+  src: url('BDSupperRegular.eot');
+  src: local('BD Supper'), local('BDSupperRegular'),
+      url('BDSupperRegular.eot?#iefix') format('embedded-opentype'),
+      url('BDSupperRegular.woff2') format('woff2'),
+      url('BDSupperRegular.woff') format('woff'),
+      url('BDSupperRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BD Supper Bold';
+  src: url('BDSupperBold.eot');
+  src: local('BD Supper Bold'), local('BDSupperBold'),
+      url('BDSupperBold.eot?#iefix') format('embedded-opentype'),
+      url('BDSupperBold.woff2') format('woff2'),
+      url('BDSupperBold.woff') format('woff'),
+      url('BDSupperBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+// $bdsupperbold: "BD Supper Bold";
+// $bdsupper: "BD Supper";
