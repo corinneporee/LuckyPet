@@ -1,2 +1,7 @@
-<h1>Profil de ton chien</h1>
-<%= render "form", dog: @dog %>
+<div class="container text-center">
+  <h1>Profil de ton chien</h1>
+  <div>
+  <%= image_tag "chien_face_centre.jpg", class:"avatar-large" %>
+  </div>
+  <%= render "form", dog: @dog %>
+</div>
