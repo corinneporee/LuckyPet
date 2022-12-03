@@ -4,6 +4,8 @@ class FriendshipsController < ApplicationController
 
     if params[:query].present?
       @dogs = Dog.search_by_name(params[:query]).where.not(id: current_user.dog.id)
+    else
+      @dogs = Dog.where.not(id: current_user.dog.id)
     end
   end
 

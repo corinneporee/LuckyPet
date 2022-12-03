@@ -21,15 +21,19 @@
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
 
-<% if params[:query].present? && @dogs.any? %>
+<% if @dogs.any? %>
   <% @dogs.each do |dog| %>
     <div class="dog-card border my-4 d-flex justify-content-between align-items-center">
       <%= cl_image_tag dog.photo.key, crop: :thumb, width: 60, class: "avatar" %>
       <div>
-        <h4><%= dog.name %></h4>
+        <h4><%= link_to dog.name, dog_path(dog) %></h4>
         <span><%= dog.breed %></span>
       </div>
-      <%= link_to "Ajouter", dog_friendships_path(dog), data: { turbo_method: :post }, class: "btn btn-primary" %>
+      <% if current_user.dog.friend_with?(dog) %>
+        <p>Déjà amis</p>
+      <% else %>
+        <%= link_to "Ajouter", dog_friendships_path(dog), data: { turbo_method: :post }, class: "btn btn-primary" %>
+      <% end %>
     </div>
   <% end %>
 <% else %>
