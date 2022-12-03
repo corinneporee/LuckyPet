@@ -1,0 +1,67 @@
+<div class="spot">
+  <%= cl_image_tag @spot.photo.key, crop: :fill, width: 400 %>
+  <div class="card-spot-rating">
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-regular fa-star"></i>
+  </div>
+  <p><%= @spot.spot_type %></p>
+  <h1><%= @spot.name %></h1>
+  <p><i class="fa-solid fa-location-dot"></i> <%= @spot.adress %></p>
+  <p><%= @spot.description %></p>
+
+  <div class="spot-informations">
+    <% case @spot.spot_type %>
+    <% when "Balades" %>
+      <p><%= @spot.walk_environment %></p>
+      <p><%= @spot.walk_area %> espaces</p>
+      <p><%= @spot.walk_attendance %> fréquentation</p>
+
+      <h5>Partir en balade</h5>
+      <%= simple_form_for [@spot, @walk] do |f| %>
+        <%= f.input :date, as: :date, html5: true %>
+        <%= f.submit "On y va !", class: "btn btn-primary" %>
+      <% end %>
+    <% when "Commerces" %>
+      <% if @spot.shop_cereale %>
+        <p>Vend des céréales</p>
+      <% end %>
+      <% if @spot.shop_vrac %>
+        <p>Vend en vrac</p>
+      <% end %>
+      <% if @spot.shop_insects %>
+        <p>Vend de l'alimente à base d'insectes</p>
+      <% end %>
+    <% when "Vétérinaires" %>
+      <p>Spécialité du vétérinaire :<%= @spot.vet_specialty %></p>
+    <% when "Pensions" %>
+      <% if @spot.pension_pro %>
+        <p>Pension professionnelle</p>
+      <% end %>
+      <% if @spot.pension_walks %>
+        <p>Promenades assurées par la pension</p>
+      <% end %>
+    <% when "Toiletteurs" %>
+      <% if @spot.grooming_shop %>
+        <p>Grooming shop</p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="spot-reviews">
+    <h5>Avis</h5>
+    <% @spot.reviews.each do |review| %>
+      <div class="spot-review">
+        <div class="card-spot-rating">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+        </div>
+        <h6>Avis laissé par <%= review.dog.name %></h6>
+        <p><%= review.content %></p>
+      </div>
+    <% end %>
+  </div>
+</div>

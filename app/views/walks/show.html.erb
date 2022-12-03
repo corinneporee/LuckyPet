@@ -1,0 +1,44 @@
+<div class="spot">
+  <%= cl_image_tag @walk.spot.photo.key, crop: :fill, width: 400 %>
+  <h1>Balade à <%= @walk.spot.name %></h1>
+  <p><i class="fa-solid fa-location-dot"></i> <%= @walk.spot.adress %></p>
+  <p><%= @walk.spot.description %></p>
+
+  <h5>Inviter des copains</h5>
+  <% @friends.each do |friend| %>
+    <div class="dog-card border my-4 d-flex justify-content-between align-items-center">
+      <%= cl_image_tag friend.photo.key, crop: :thumb, width: 60, class: "avatar" %>
+      <div>
+        <h4><%= friend.name %></h4>
+        <span><%= friend.breed %></span>
+      </div>
+      <% if Invitation.find_by(dog: friend, walk: @walk) %>
+        <p>Invitation envoyée</p>
+      <% else %>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<%= friend.id %>">
+          Inviter
+        </button>
+      <% end %>
+
+      <div class="modal fade" id="exampleModal<%= friend.id %>" tabindex="-1" aria-labelledby="exampleModal<%= friend.id %>Label" aria-hidden="true">
+        <div class="modal-dialog">
+          <%= simple_form_for [@walk, @invitation] do |f| %>
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModal<%= friend.id %>Label">Inviter <%= friend.name %></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <%= f.input :dog_id, as: :hidden, input_html: { value: friend.id } %>
+                  <%= f.input :message, label: "Laissez un petit message" %>
+              </div>
+              <div class="modal-footer">
+                <%= f.submit "Envoyer l'invitation", class: "btn btn-primary" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

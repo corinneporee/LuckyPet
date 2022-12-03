@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :dogs
+  has_one :dog
   has_many :spots
 
   # Include default devise modules. Others available are:

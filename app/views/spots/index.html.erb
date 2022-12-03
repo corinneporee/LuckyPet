@@ -1,0 +1,35 @@
+<h1>Tous les spots</h1>
+
+<div class="spots">
+  <% @spots.each do |spot| %>
+    <%= link_to spot_path(spot), class: "card-spot" do %>
+      <div class="card-spot-img">
+        <%#= cl_image_tag spot.photo.key, height: 200, crop: :fill %>
+      </div>
+      <div class="card-spot-info">
+        <div class="card-spot-top">
+          <div class="card-spot-rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <div class="card-spot-type">
+            <h6><%= spot.spot_type %></h6>
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+        </div>
+        <div class="card-spot-bot">
+          <div class="card-spot-title">
+            <h3><%= spot.name %></h3>
+            <p>à 2km</p>
+          </div>
+          <div class="card-spot-description">
+            <p><%= spot.description %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+  <% end %>
+</div>

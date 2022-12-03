@@ -4,11 +4,16 @@
     <p>Lorem ipsum dolor sit amet consectetur. Laoreet volutpat ut nec ac leo risus proin euismod euismod. Vel aliquam blandit ultrices.</p>
   </div>
   <div class="home-log">
-    <div class="log-in">
-    <%= link_to "🐾 je me connecte", new_user_session_path, class: "btn btn-primary" %>
-    </div>
-    <div class="sign-in">
-      <%= link_to "je m'inscris", new_user_registration_path, class: "btn btn-secondary" %>
-    </div>
+    <% if user_signed_in? %>
+      <%= link_to "Créer le profil de mon chien", new_dog_path, class: "btn btn-primary" %>
+      <%= link_to "Voir tous les spots", spots_path, class: "btn btn-secondary" %>
+    <% else %>
+      <div class="log-in">
+      <%= link_to "🐾 je me connecte", new_user_session_path, class: "btn btn-primary" %>
+      </div>
+      <div class="sign-in">
+        <%= link_to "je m'inscris", new_user_registration_path, class: "btn btn-secondary" %>
+      </div>
+    <% end %>
   </div>
 </div>
