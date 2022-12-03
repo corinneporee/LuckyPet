@@ -184,7 +184,7 @@ spot_vet_osteo = Spot.new(
   user: aurelie,
   description: "Séances d'ostéopathies uniquement sur rdv.",
   adress: "8 rue les Vents du Sud, 56000 Vannes",
-  spot_type: "Vétérinaires"
+  spot_type: "Vétérinaires",
   vet_specialty: "Ostéopathie"
 )
 spot_vet_osteo.photo.attach(io: file, filename: ".png", content_type: "image/png")
