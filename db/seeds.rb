@@ -172,7 +172,8 @@ spot_vet_general = Spot.new(
   user: aurelie,
   description: "Cabinet vétérinaire, ouvert du lundi au samedi de 9h à 20h, consultations uniquement sur rdv.",
   adress: "3 rue des Ecoles, 56400 Auray",
-  spot_type: "Vétérinaires"
+  spot_type: "Vétérinaires",
+  vet_specialty: "Canin"
 )
 spot_vet_general.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_vet_general.save!
@@ -184,7 +185,8 @@ spot_vet_osteo = Spot.new(
   description: "Séances d'ostéopathies uniquement sur rdv.",
   adress: "8 rue les Vents du Sud, 56000 Vannes",
   spot_type: "Vétérinaires"
-  )
+  vet_specialty: "Ostéopathie"
+)
 spot_vet_osteo.photo.attach(io: file, filename: ".png", content_type: "image/png")
 spot_vet_osteo.save!
 

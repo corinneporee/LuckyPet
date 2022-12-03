@@ -1,0 +1,37 @@
+<h1>Mes amis</h1>
+
+<% @friends.each do |friend| %>
+  <%= link_to dog_path(friend), class: "dog-card border my-4 d-flex justify-content-between align-items-center" do %>
+    <%= cl_image_tag friend.photo.key, crop: :thumb, width: 60, class: "avatar" %>
+    <div>
+      <h4><%= friend.name %></h4>
+      <span><%= friend.breed %></span>
+    </div>
+    <p><%= friend.friendship_status_with(current_user.dog) %></p>
+  <% end %>
+<% end %>
+
+<h4>Ajouter un ami</h4>
+<%= form_with url: friendships_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Rechercher par nom"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
+<% if params[:query].present? && @dogs.any? %>
+  <% @dogs.each do |dog| %>
+    <div class="dog-card border my-4 d-flex justify-content-between align-items-center">
+      <%= cl_image_tag dog.photo.key, crop: :thumb, width: 60, class: "avatar" %>
+      <div>
+        <h4><%= dog.name %></h4>
+        <span><%= dog.breed %></span>
+      </div>
+      <%= link_to "Ajouter", dog_friendships_path(dog), data: { turbo_method: :post }, class: "btn btn-primary" %>
+    </div>
+  <% end %>
+<% else %>
+  <p>Aucun résultat</p>
+<% end %>

@@ -4,6 +4,13 @@ class Dog < ApplicationRecord
   HEALTH = ["Je pète la forme", "Raplapla", "Sous traitement"]
   SEX = ["Female", "Male"]
 
+  include PgSearch::Model
+  pg_search_scope :search_by_name,
+    against: [ :name ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
   validates :personality, inclusion: { in: PERSONALITY }
   validates :breed, inclusion: { in: BREEDS }
   validates :health, inclusion: { in: HEALTH }
@@ -18,12 +25,26 @@ class Dog < ApplicationRecord
   validates :name, :breed, :weight, :personality, :gender, :health, :neutered, presence: true
 
   def friends
+    own_friendships = Friendship.where(dog_id: id).pluck(:buddy_id)
+    other_friendships = Friendship.where(buddy_id: id).pluck(:dog_id)
+
+    ids = own_friendships + other_friendships
+
+    Dog.where(id: ids)
+  end
+
+  def active_friends
     own_friendships = Friendship.where(status: "accepted", dog_id: id).pluck(:buddy_id)
     other_friendships = Friendship.where(status: "accepted", buddy_id: id).pluck(:dog_id)
 
     ids = own_friendships + other_friendships
 
     Dog.where(id: ids)
+  end
+
+  def friendship_status_with(dog)
+    friendship = Friendship.find_by(buddy: dog, dog: self) || Friendship.find_by(dog: dog, buddy: self)
+    friendship.status
   end
 
   def friend_with?(dog)

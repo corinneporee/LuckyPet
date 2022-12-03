@@ -1,0 +1,38 @@
+<h1>Partage ton spot</h1>
+
+<%= simple_form_for @spot do |f| %>
+  <%= f.input :spot_type, collection: Spot::SPOT_TYPES, label: "Type de spot" %>
+  <%= f.input :name, label: "Nom" %>
+  <%= f.input :adress, label: "Adresse" %>
+  <%= f.input :description %>
+
+  <div class="spot-balade">
+    <%= f.input :walk_environment, collection: Spot::WALK_ENVIRONMENTS, label: "Type de terrain" %>
+    <%= f.input :walk_area, collection: Spot::WALK_AREA, label: "Superficie" %>
+    <%= f.input :walk_attendance, collection: Spot::WALK_ATTENDANCE, label: "Fréquentation" %>
+  </div>
+
+  <div class="spot-vet">
+    <h4>Vétérinaire</h4>
+    <%= f.input :vet_specialty, label: "Spécialité" %>
+  </div>
+  <div class="spot-shop">
+    <h4>Commerce</h4>
+    <%= f.input :shop_cereale, as: :radio_buttons, label: "Céréales" %>
+    <%= f.input :shop_vrac, as: :radio_buttons, label: "Vrac" %>
+    <%= f.input :shop_insects, as: :radio_buttons, label: "Insecte" %>
+  </div>
+  <div class="spot-pension">
+    <h4>Pension</h4>
+    <%= f.input :pension_pro, label: "Type de pension", as: :radio_buttons, collection: [[true, 'Professionnel'], [false, 'Particulier']], label_method: :second, value_method: :first %>
+    <%= f.input :pension_walks, as: :radio_buttons, label: "Balade assurée" %>
+  </div>
+  <div class="spot-grooming">
+    <h4>Toiletteur</h4>
+    <%= f.input :grooming_shop, label: "Type de boutique", as: :radio_buttons, collection: [[true, 'Boutique'], [false, 'Itinérante']], label_method: :second, value_method: :first %>
+  </div>
+
+  <%= f.input :photo, as: :file %>
+
+  <%= f.submit "Publier" %>
+<% end %>

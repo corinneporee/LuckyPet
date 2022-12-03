@@ -3,4 +3,5 @@ class Walk < ApplicationRecord
   belongs_to :spot
   belongs_to :dog
 
+  validates :date, presence: true
 end
