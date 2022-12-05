@@ -3,7 +3,7 @@
   <%= simple_form_for(dog) do |f| %>
     <%= f.input :name, label: 'Nom' %>
     <%= f.input :photo, as: :file, label: "Photo de mon chien" %>
-    <%= f.submit "J'ajoute la photo de mon chien", class: "btn btn-primary" %>
+    <%# <%= f.submit "J'ajoute la photo de mon chien", class: "btn btn-primary" %>
     <%= f.input :breed, label: 'Espèce', collection: Dog::BREEDS %>
     <%= f.input :weight, as: :range, label: 'Poids en Kg' %>
     <%= f.input :date_of_birth, label: 'Date de naissance' %>
@@ -28,7 +28,8 @@
              item_wrapper_class: 'health-item',
              input_html: {class: 'health-selector'},
              collection: Dog::HEALTH %>
-    <%= f.input :neutered, label: 'Stérilisé' %>
+    <%= f.input :neutered, label: 'Stérilisé',
+            as: :radio_buttons %>
     <%= f.submit 'CREER LE PROFIL' %>
   <% end %>
 </div>
