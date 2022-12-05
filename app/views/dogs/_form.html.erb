@@ -1,11 +1,10 @@
-
-<div class= "text-start">
+<div class= "text-start bg-purple" data-controller="form">
   <%= simple_form_for(dog) do |f| %>
     <%= f.input :name, label: 'Nom' %>
     <%= f.input :photo, as: :file, label: "Photo de mon chien" %>
-    <%= f.submit "J'ajoute la photo de mon chien", class: "btn btn-primary" %>
+    <%# <%= f.submit "J'ajoute la photo de mon chien", class: "btn btn-primary" %>
     <%= f.input :breed, label: 'Espèce', collection: Dog::BREEDS %>
-    <%= f.input :weight, as: :range, label: 'Poids en Kg' %>
+    <%= f.input :weight, as: :range, label: 'Poids en Kg', :input_html => { :data => { :form_target => "weightRange", :action => "change->form#updateValue" } } %>
     <%= f.input :date_of_birth, label: 'Date de naissance' %>
     <%= f.input :personality, label: 'Personnalité',
              as: :radio_buttons,
@@ -28,7 +27,7 @@
              item_wrapper_class: 'health-item',
              input_html: {class: 'health-selector'},
              collection: Dog::HEALTH %>
-    <%= f.input :neutered, label: 'Stérilisé' %>
-    <%= f.submit 'CREER LE PROFIL' %>
+    <%= f.input :neutered, label: 'Stérilisé'%>
+    <%= f.submit 'CREER LE PROFIL', class:"btn btn-primary" %>
   <% end %>
 </div>
