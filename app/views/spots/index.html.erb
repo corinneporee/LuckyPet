@@ -11,7 +11,7 @@
     <div class="btn-filter">Pension</div>
   </div>
   <% @spots.each do |spot| %>
-    <%= link_to spot_path(spot), class: "card-spot" do %>
+    <%= link_to spot_path(spot), :"data-aos" => "fade-up", class: "card-spot" do %>
       <div class="card-spot-img">
         <%= cl_image_tag spot.photo.key, crop: :fill %>
       </div>
