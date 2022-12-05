@@ -1,19 +1,42 @@
+<div class="back-button text-yellow">
+  <i class="fas fa-arrow-left"></i>
+  <%= link_to 'Retour', :back, class:'overtitre' %>
+</div>
+<div class="spot-wrapper">
+  <%= image_tag 'chien-mascotte.svg', class:"chien-mascotte", style:"transform:rotate(#{rand(1..360)}deg);" %>
+  <%= cl_image_tag @spot.photo.key, crop: :fill, height: 320, class:"spot-image" %>
+</div>
 <div class="spot">
-  <%= cl_image_tag @spot.photo.key, crop: :fill, width: 400 %>
-  <div class="card-spot-rating">
-    <i class="fa-solid fa-star"></i>
-    <i class="fa-solid fa-star"></i>
-    <i class="fa-solid fa-star"></i>
-    <i class="fa-regular fa-star"></i>
+  <div class="card-spot-info">
+    <div class="card-spot-rating">
+      <% @spot.rating.floor.times do %>
+        <i class="fa-solid fa-paw text-purple"></i>
+      <% end %>
+      <% if @spot.rating < 5 %>
+        <% if (@spot.rating * 2.0).round / 2.0 - @spot.rating.floor == 0%>
+          <i class="fa-solid fa-paw-purple"></i>
+        <% else %>
+          <i class="fa-solid fa-paw-half-stroke text-purple"></i>
+        <% end %>
+        <% (5 - @spot.rating.floor).times do %>
+          <i class="fa-solid fa-paw text-purple" style="opacity: 0.3"></i>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="card-spot-type">
+      <i class="fa-solid fa-location-dot text-purple me-2"></i>
+      <span class="overtitre text-purple"><%= @spot.spot_type %></span>
+    </div>
   </div>
-  <p><%= @spot.spot_type %></p>
-  <h1><%= @spot.name %></h1>
-  <p><i class="fa-solid fa-location-dot"></i> <%= @spot.adress %></p>
-  <p><%= @spot.description %></p>
+
+  <h1 class="text-purple"><%= @spot.name %></h1>
+  <p class="spot-adress"><i class="fa-solid fa-location-dot"></i> <%= @spot.address %></p>
+  <p class="spot-description"><%= @spot.description %></p>
 
   <div class="spot-informations">
     <% case @spot.spot_type %>
     <% when "Balades" %>
+
       <p><%= @spot.walk_environment %></p>
       <p><%= @spot.walk_area %> espaces</p>
       <p><%= @spot.walk_attendance %> fréquentation</p>
@@ -45,18 +68,38 @@
     <% end %>
   </div>
 
+  <h5>Partir en balade</h5>
+  <%= simple_form_for [@spot, @walk] do |f| %>
+    <%= f.input :date, as: :date, html5: true %>
+    <%= f.submit "On y va !", class: "btn btn-primary" %>
+  <% end %>
+
   <div class="spot-reviews">
     <h5>Avis</h5>
-    <%= @spot.reviews.each do |review| %>
+    <% @spot.reviews.each do |review| %>
       <div class="spot-review">
-        <div class="card-spot-rating">
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-regular fa-star"></i>
+        <div class="spot-review-info">
+          <div class="card-spot-rating">
+            <% review.rating.floor.times do %>
+              <i class="fa-solid fa-paw text-purple"></i>
+            <% end %>
+            <% if review.rating < 5 %>
+              <% if (review.rating * 2.0).round / 2.0 - review.rating.floor == 0%>
+                <i class="fa-solid fa-paw-purple"></i>
+              <% else %>
+                <i class="fa-solid fa-paw-half-stroke text-purple"></i>
+              <% end %>
+              <% (5 - review.rating.floor).times do %>
+                <i class="fa-solid fa-paw text-purple" style="opacity: 0.3"></i>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="card-spot-type">
+            <span class="overtitre text-purple"><%= review.dog.name %></span>
+            <%= cl_image_tag review.dog.photo.key, crop: :thumb, class: "avatar" %>
+          </div>
         </div>
-        <h6>Avis laissé par <%= review.dog.name %></h6>
-        <p><%= review.content %></p>
+        <p class="card-spot-review"><%= review.content %></p>
       </div>
     <% end %>
   </div>

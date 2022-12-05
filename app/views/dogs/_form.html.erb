@@ -5,7 +5,7 @@
     <%# <%= f.submit "J'ajoute la photo de mon chien", class: "btn btn-primary" %>
     <%= f.input :breed, label: 'Espèce', collection: Dog::BREEDS %>
     <%= f.input :weight, as: :range, label: 'Poids en Kg', :input_html => { :data => { :form_target => "weightRange", :action => "change->form#updateValue" } } %>
-    <%= f.input :date_of_birth, label: 'Date de naissance' %>
+    <%= f.input :date_of_birth, as: :date, label: 'Date de naissance', input_html: { max: Date.today.strftime("%Y-%m-%d") }, html5: true %>
     <%= f.input :personality, label: 'Personnalité',
              as: :radio_buttons,
              collection_wrapper_tag: 'div',

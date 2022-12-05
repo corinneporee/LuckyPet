@@ -1,3 +1,7 @@
+a:hover {
+  color:inherit;
+}
+
 .btn-primary {
   border: 1px solid $black;
   box-shadow: 2px 2px 0px $black;
@@ -102,20 +106,30 @@
   color: $black;
   border-radius: 3px;
   transition: .3s;
+  padding: 4px;
 }
 
-.btn-filter:hover {
-  border: 1px solid $black;
+.btn-filter-active {
   background-color: $principal;
-}
-
-.btn-filter:active {
-  background-color: $white;
-  border: 1px solid $black;
+  border: 1px solid $principal;
   font-family: 'Quicksand';
-  color: $black;
+  color: $white;
   box-shadow: 2px 2px 0px $black;
   border-radius: 3px;
   transition: .3s;
   transform:translateX(2px) translateY(2px);
+}
+
+.back-button {
+  position:absolute;
+  top:12px;
+  left:12px;
+  display: flex;
+  align-items: center;
+  gap:4px;
+  z-index: 9999;
+
+  a {
+    text-decoration: none !important;
+  }
 }

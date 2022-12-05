@@ -2,7 +2,7 @@
 <div class="spot">
   <%= cl_image_tag @walk.spot.photo.key, crop: :fill, width: 400 %>
   <h1>Balade à <%= @walk.spot.name %></h1>
-  <p><i class="fa-solid fa-location-dot"></i> <%= @walk.spot.adress %></p>
+  <p><i class="fa-solid fa-location-dot"></i> <%= @walk.spot.address %></p>
   <p><%= @walk.spot.description %></p>
 
   <h5>Inviter des copains</h5>

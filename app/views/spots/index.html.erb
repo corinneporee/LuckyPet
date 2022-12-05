@@ -1,10 +1,27 @@
-<h1>Tous les spots</h1>
-
+<div style="width: 100%; height: 320px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      <input type="text" class="map-search" placeholder="Rennes, 35000">
+</div>
 <div class="spots">
+  <div style="width: 100%; height: 50vh;"
+       data-controller="map"
+       data-map-markers-value="<%= @markers.to_json %>"
+       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+
+  <h3 class="text-bold">Tous les spots</h3>
+  <div class="filters">
+    <div class="btn-filter btn-filter-active">Tous</div>
+    <% Spot::SPOT_TYPES.each do |filter| %>
+      <div class="btn-filter"><%= filter %></div>
+    <% end %>
+
+  </div>
   <% @spots.each do |spot| %>
-    <%= link_to spot_path(spot), class: "card-spot" do %>
+    <%= link_to spot_path(spot), :"data-aos" => "fade-up", class: "card-spot" do %>
       <div class="card-spot-img">
-        <%#= cl_image_tag spot.photo.key, height: 200, crop: :fill %>
+        <%= cl_image_tag spot.photo.key, crop: :fill %>
       </div>
       <div class="card-spot-info">
         <div class="card-spot-top">
@@ -24,14 +41,14 @@
             <% end %>
           </div>
           <div class="card-spot-type">
-            <h6><%= spot.spot_type %></h6>
-            <i class="fa-solid fa-location-dot"></i>
+            <i class="fa-solid fa-location-dot text-purple me-2"></i>
+            <span class="overtitre text-purple"><%= spot.spot_type %></span>
           </div>
         </div>
         <div class="card-spot-bot">
           <div class="card-spot-title">
             <h3><%= spot.name %></h3>
-            <p>à 2km</p>
+            <span>à 2km</span>
           </div>
           <div class="card-spot-description">
             <p><%= spot.description.truncate(100) %></p>
@@ -41,4 +58,7 @@
     <% end %>
 
   <% end %>
+  <div>
+     <%= link_to "Crée ton spot", new_spot_path, class: "btn btn-primary" %>
+  </div>
 </div>

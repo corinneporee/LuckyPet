@@ -1,3 +1,4 @@
+
 <%#  On voit la balade %>
 <div class="container_reservation">
   <h2> Mes balades </h2>
@@ -8,5 +9,6 @@
     <% elsif item.is_a?(Invitation) %>
      <%= render partial: "invitation_info", locals: { invitation: item } %>
     <% end %>
+
   <% end %>
 </div>

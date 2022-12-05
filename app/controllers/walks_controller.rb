@@ -1,5 +1,6 @@
 class WalksController < ApplicationController
 
+
   def index
     @walks = current_user.dog.invitations_and_walks
   end

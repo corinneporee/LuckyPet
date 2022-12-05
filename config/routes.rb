@@ -13,7 +13,9 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[create]
   end
 
-  resources :walks, only: %i[show index] do
+
+  resources :walks, only: %i[index show] do
+
     resources :invitations, only: %i[create]
   end
   resources :invitations, only: [] do
