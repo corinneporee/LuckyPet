@@ -1,0 +1,21 @@
+.map-search {
+  position: absolute;
+  z-index: 999;
+  width: 200px;
+  top: 24px;
+  font-size: 16px;
+  padding: 12px;
+  left: calc(50% - 100px);
+}
+
+.spots {
+  padding:16px;
+  transform: translateY(-30px);
+  background: $white;
+  border-radius: 24px 24px 0 0;
+
+  .filters {
+    display: flex;
+    gap:8px;
+  }
+}

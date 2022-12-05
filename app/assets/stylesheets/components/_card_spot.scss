@@ -2,21 +2,27 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0px 9px 0px 0px;
-  gap: 5px;
   background: $white;
   border: 1px solid $black300;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 4px 8px 8px 4px;
-  width: 350px;
-  height: 130px;
-  margin: 8px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin: 16px 0;
   text-decoration: none;
   color: black;
+  overflow:hidden;
 }
 
-.card-spot img {
-  height: 100%;
+.card-spot-img {
+  width:100%;
+}
+.card-spot-img img {
+  height: 230px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.card-spot-info {
+  padding: 12px;
 }
 
 .card-spot-top {
@@ -33,11 +39,13 @@
 
 .card-spot-title {
   display: flex;
-  justify-content: space-around;
-}
+  align-items: flex-start;
+  gap:8px;
 
-.card-spot-title h3 {
-  font-size: 16px;
+  span {
+    color:$black700;
+    white-space: nowrap;
+  }
 }
 
 .card-spot-title p {
@@ -45,5 +53,5 @@
 }
 
 .card-spot-description p {
-  font-size: 13px;
+  color: $black500;
 }
