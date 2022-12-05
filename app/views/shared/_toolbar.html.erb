@@ -1,14 +1,8 @@
 <div class="toolbar-luckypet sticky-bot col-12">
-  <%= link_to feed_path do %>
-    <div class="icone_1">
-      <i class="fa-solid fa-house"></i>
-      <span>home</span>
-    </div>
-  <% end %>
   <%= link_to spots_path do %>
-    <div class="icone_2">
+    <div class="icone_1">
       <i class="fa-solid fa-location-dot"></i>
-      <span>Spots</span>
+      <span>home</span>
     </div>
   <% end %>
   <% if current_user %>
@@ -19,5 +13,12 @@
       </div>
     <% end %>
   <% end %>
-
+  <% if current_user %>
+    <%= link_to dog_path(current_user.dog) do %>
+      <div class="icone_3">
+        <i class="fa-solid fa-dog"></i>
+        <span>mon chien</span>
+      </div>
+    <% end %>
+  <% end %>
 </div>
