@@ -22,7 +22,7 @@ class Dog < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_one_attached :photo
 
-  validates :name, :breed, :weight, :personality, :gender, :health, :neutered, presence: true
+  validates :name, :breed, :weight, :personality, :gender, :health, presence: true
 
   def friends
     own_friendships = Friendship.where(dog_id: id).pluck(:buddy_id)
