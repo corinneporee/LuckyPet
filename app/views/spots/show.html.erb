@@ -17,12 +17,8 @@
       <p><%= @spot.walk_environment %></p>
       <p><%= @spot.walk_area %> espaces</p>
       <p><%= @spot.walk_attendance %> fréquentation</p>
+      <%= link_to "Proposer une balade ?", new_spot_walk_path(@spot) , class: "btn btn-primary" %>
 
-      <h5>Partir en balade</h5>
-      <%= simple_form_for [@spot, @walk] do |f| %>
-        <%= f.input :date, as: :date, html5: true %>
-        <%= f.submit "On y va !", class: "btn btn-primary" %>
-      <% end %>
     <% when "Commerces" %>
       <% if @spot.shop_cereale %>
         <p>Vend des céréales</p>

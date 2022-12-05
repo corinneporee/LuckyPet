@@ -9,11 +9,11 @@ Rails.application.routes.draw do
   resources :friendships, only: %i[index]
 
   resources :spots do
-    resources :walks, only: %i[create]
+    resources :walks, only: %i[new create]
     resources :reviews, only: %i[create]
   end
 
-  resources :walks, only: %i[show] do
+  resources :walks, only: %i[show index] do
     resources :invitations, only: %i[create]
   end
   resources :invitations, only: [] do

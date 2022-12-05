@@ -51,6 +51,11 @@ class Dog < ApplicationRecord
   def friend_with?(dog)
     friends.include?(dog)
   end
+
+  def invitations_and_walks
+    invitations_and_walks = self.invitations + self.walks
+    return invitations_and_walks.order(created_at: :desc)
+  end
 end
 
 # if friend_with?(dog)
