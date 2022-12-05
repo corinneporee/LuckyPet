@@ -1,4 +1,8 @@
 class WalksController < ApplicationController
+  def index
+    @walk = current_user.dog.walk.all
+  end
+
   def show
     @walk = Walk.find(params[:id])
     @friends = current_user.dog.active_friends

@@ -91,7 +91,7 @@ spot_foret = Spot.new(
   description: "Joli coin à découvrir, Belle forêt avec sentiers,
                 balade de 4km. Les chiens peuvent être sans laisse,
                 rivière du Bono permettant les baignades",
-  adress: "10 Liderff, 56400 Plougoumelen",
+  address: "10 Liderff, 56400 Plougoumelen",
   spot_type: "Balades",
   walk_environment: "Forêt",
   walk_area: "Grands",
@@ -99,6 +99,7 @@ spot_foret = Spot.new(
 )
 spot_foret.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_foret.save!
+sleep 1
 
 file = File.open("db/fixtures/images/plage_plouharnel.jpg")
 spot_plage = Spot.new(
@@ -106,7 +107,7 @@ spot_plage = Spot.new(
   user: corinne,
   description: "Magnifique plage pour marcher et se baigner. Pas trop de courant.
                Les chiens sont acceptés hors saisons",
-  adress: "10 Liderff, 56400 Plougoumelen",
+  address: "10 Liderff, 56400 Plougoumelen",
   spot_type: "Balades",
   walk_environment: "Plage",
   walk_area: "Grands",
@@ -114,13 +115,14 @@ spot_plage = Spot.new(
 )
 spot_plage.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_plage.save!
+sleep 1
 
 file = File.open("db/fixtures/images/ville_vannes.jpg")
 spot_ville = Spot.new(
   name: "Les Remparts de Vannes",
   user: steven,
   description: "Belle endroit de balade le long des remparts. Les chiens doivent être tenus en laisse.",
-  adress: "4 rue des vierges, 56000 Vannes",
+  address: "4 rue des vierges, 56000 Vannes",
   spot_type: "Balades",
   walk_environment: "Ville",
   walk_area: "Moyenne",
@@ -128,6 +130,7 @@ spot_ville = Spot.new(
 )
 spot_ville.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_ville.save!
+sleep 1
 
 file = File.open("db/fixtures/images/shop_cereal.png")
 spot_shop_cereal = Spot.new(
@@ -135,11 +138,12 @@ spot_shop_cereal = Spot.new(
   user: steven,
   description: "Boutique ouverte tous les jours de la semaine sauf le dimanche de
   9h à 12h et de 14h à 19h, les chiens sont les bienvenues!",
-  adress: "19 rue Claude de Bretagne, 56500 Locmine",
+  address: "19 rue Claude de Bretagne, 56500 Locmine",
   spot_type: "Commerces"
 )
 spot_shop_cereal.photo.attach(io: file, filename: ".png", content_type: "image/png")
 spot_shop_cereal.save!
+sleep 1
 
 file = File.open("db/fixtures/images/shop_vrac.jpg")
 spot_shop_vrac = Spot.new(
@@ -148,11 +152,12 @@ spot_shop_vrac = Spot.new(
   description: "Notre boutique met à disposition des distributeurs de croquettes de toutes sortes.
   C'est en libre service, mais nous restons à votre disposition pour des conseils. Ouvert du lundi au vendredi de
   9h à 18h.",
-  adress: "10 rue Carnot, 56000 Pontivy",
+  address: "10 rue Carnot, 56000 Pontivy",
   spot_type: "Commerces"
 )
 spot_shop_vrac.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_shop_vrac.save!
+sleep 1
 
 file = File.open("db/fixtures/images/shop_insect.jpeg")
 spot_shop_insects = Spot.new(
@@ -160,35 +165,38 @@ spot_shop_insects = Spot.new(
   user: aurelie,
   description: "Nous vendons des croquettes de la marque 'Tomojo' spécialisé dans les croquettes à base d'insectes.
   La boutique est ouverte tous les jours du lundi au samedi de 10h à 18h non stop. Nos amis les chiens sont les bienvenus.",
-  adress: "Zone industrielle Du Prat, 2 avenue Gontran Bienvenu, 56000 Vannes",
+  address: "Zone industrielle Du Prat, 2 avenue Gontran Bienvenu, 56000 Vannes",
   spot_type: "Commerces"
 )
 spot_shop_insects.photo.attach(io: file, filename: ".jpeg", content_type: "image/jpeg")
 spot_shop_insects.save!
+sleep 1
 
 file = File.open("db/fixtures/images/vet_general.jpg")
 spot_vet_general = Spot.new(
   name: "Cabinet Levert Vétérinaire Associés",
   user: aurelie,
   description: "Cabinet vétérinaire, ouvert du lundi au samedi de 9h à 20h, consultations uniquement sur rdv.",
-  adress: "3 rue des Ecoles, 56400 Auray",
+  address: "3 rue des Ecoles, 56400 Auray",
   spot_type: "Vétérinaires",
   vet_specialty: "Canin"
 )
 spot_vet_general.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_vet_general.save!
+sleep 1
 
 file = File.open("db/fixtures/images/vet_osteo.png")
 spot_vet_osteo = Spot.new(
   name: "Osteovet56",
   user: aurelie,
   description: "Séances d'ostéopathies uniquement sur rdv.",
-  adress: "8 rue les Vents du Sud, 56000 Vannes",
+  address: "8 rue les Vents du Sud, 56000 Vannes",
   spot_type: "Vétérinaires",
   vet_specialty: "Ostéopathie"
 )
 spot_vet_osteo.photo.attach(io: file, filename: ".png", content_type: "image/png")
 spot_vet_osteo.save!
+sleep 1
 
 file = File.open("db/fixtures/images/pension_pro_bonheur.jpg")
 spot_pension_pro_bonheur = Spot.new(
@@ -196,12 +204,13 @@ spot_pension_pro_bonheur = Spot.new(
   user: rodolphe,
   description: "Structure de 1000m2, pas très loin de la ville. Ouverte de 9h à 12h et de 14h à 18h. Vous pouvez venir visiter notre
   pension uniquement sur rdv.",
-  adress: "14 route de Mériadec, Le Bois des Mûriers, 56000 Ploeren",
+  address: "14 route de Mériadec, Le Bois des Mûriers, 56000 Ploeren",
   spot_type: "Pensions",
   pension_pro: true
   )
 spot_pension_pro_bonheur.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_pension_pro_bonheur.save!
+sleep 1
 
 file = File.open("db/fixtures/images/pension_pro_fox.jpg")
 spot_pension_pro_fox = Spot.new(
@@ -209,23 +218,25 @@ spot_pension_pro_fox = Spot.new(
   user: steven,
   description: "Notre domaine est installé sur un parc boisé de plus de 5000m2.
   Vous pouvez nous contacter du lundi au samedi de 9h à 18h.",
-  adress: "Parc de la Lande, 56250 Elven",
+  address: "Parc de la Lande, 56250 Elven",
   spot_type: "Pensions",
   pension_pro: true
 )
 spot_pension_pro_fox.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_pension_pro_fox.save!
+sleep 1
 
 file = File.open("db/fixtures/images/pension_particulier_linette.jpg")
 spot_pension_linette = Spot.new(
   name: "Chez Linette",
   user: aurelie,
   description: "Pension familiale. Vous pouvez me contacter du lundi au samedi de 9h à 18h.",
-  adress: "10 Lann Vras, 56400 Plumergat",
+  address: "10 Lann Vras, 56400 Plumergat",
   spot_type: "Pensions"
 )
 spot_pension_linette.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_pension_linette.save!
+sleep 1
 
 file = File.open("db/fixtures/images/pension_particulier_animar.png")
 spot_pension_animar = Spot.new(
@@ -233,11 +244,12 @@ spot_pension_animar = Spot.new(
   user: rodolphe,
   description: "Pension familiale acceptant jusqu'à 5 chiens. Me contacter pour avoir
   plus de renseignements",
-  adress: "4 bis rue de la Forge, 56400 Plumergat",
+  address: "4 bis rue de la Forge, 56400 Plumergat",
   spot_type: "Pensions"
 )
 spot_pension_animar.photo.attach(io: file, filename: ".png", content_type: "image/png")
 spot_pension_animar.save!
+sleep 1
 
 file = File.open("db/fixtures/images/grooming_happy.jpg")
 spot_grooming_happy = Spot.new(
@@ -245,11 +257,12 @@ spot_grooming_happy = Spot.new(
   user: rodolphe,
   description: "Salon ouvert du lundi au samedi de 9h à 12h puis de 14h à 18h,
   uniquement sur rdv",
-  adress: "15 avenue Wilson, 56400 Auray",
+  address: "15 avenue Wilson, 56400 Auray",
   spot_type: "Toiletteurs"
 )
 spot_grooming_happy.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_grooming_happy.save!
+sleep 1
 
 file = File.open("db/fixtures/images/grooming_cani.jpg")
 spot_grooming_cani = Spot.new(
@@ -258,11 +271,12 @@ spot_grooming_cani = Spot.new(
   description: "Salon de toilettage 'ambulant'. Lundi: Auray sur la place du marché, Mardi: Vannes, porte StVincent,
   Mercredi: Grand champ: place de la mairie, Jeudi:Plescop, parking les 3 soleils, Vendredi: Séné, zone du Poulfanc rue Alsace.
   Vous pouvez me contacter pour une prise de rdv",
-  adress: "10 bis rue Joseph le Brix, 56890 Saint-Avé",
+  address: "10 bis rue Joseph le Brix, 56890 Saint-Avé",
   spot_type: "Toiletteurs"
 )
 spot_grooming_cani.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_grooming_cani.save!
+sleep 1
 
 puts 'Walks'
 walk_1 = Walk.new(

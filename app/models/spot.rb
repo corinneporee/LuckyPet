@@ -1,4 +1,6 @@
 class Spot < ApplicationRecord
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
   SPOT_TYPES = ["Balades", "Commerces", "Vétérinaires", "Pensions", "Toiletteurs"]
   WALK_ENVIRONMENTS = ["Forêt", "Plage", "Ville"]
   WALK_AREA = ["Petite", "Moyenne", "Grands"]
@@ -14,9 +16,9 @@ class Spot < ApplicationRecord
   has_many :reviews
   has_one_attached :photo
 
-  validates :name, :adress, :spot_type, presence: true
+  validates :name, :address, :spot_type, presence: true
 
-  #validates :walk_environment, :walk_attendance, :walk_area, :shop_vrac, presence: true
-  #validates :shop_cereale, :shop_insects, :pension_pro, :pension_walks, :grooming_shop, presence: true
-  #validates :description, :walk_attendance, allow_blank: true
+  # validates :walk_environment, :walk_attendance, :walk_area, :shop_vrac, presence: true
+  # validates :shop_cereale, :shop_insects, :pension_pro, :pension_walks, :grooming_shop, presence: true
+  # validates :description, :walk_attendance, allow_blank: true
 end
