@@ -1,5 +1,10 @@
 class InvitationsController < ApplicationController
   def accept
+    @invitation = Invitation.find(params[:id])
+    @invitation.status = "accept"
+    @invitation.save
+
+    redirect_to walks_path(current_user)
   end
 
   def create

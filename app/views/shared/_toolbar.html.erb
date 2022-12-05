@@ -14,10 +14,10 @@
     <% end %>
   <% end %>
   <% if current_user %>
-    <%= link_to dog_path(current_user.dog) do %>
+    <%= link_to walks_path(current_user) do %>
       <div class="icone_3">
-        <i class="fa-solid fa-dog"></i>
-        <span>mon chien</span>
+        <i class="fa-solid fa-tree"></i>
+        <span>mes balades</span>
       </div>
     <% end %>
   <% end %>

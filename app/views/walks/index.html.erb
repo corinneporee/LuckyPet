@@ -1,0 +1,7 @@
+<div class="walks-container">
+  <%= walks.each do |walk| %>
+  <div class="walk-card">
+  <h6><%= "Balade avec #{walk.buddy}, à #{walk.spot} | #{invitation.status}" %></h6>
+  </div>
+  <% end %>
+</div>
