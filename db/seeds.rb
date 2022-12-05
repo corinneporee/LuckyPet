@@ -28,7 +28,7 @@ corinne.save!
 puts 'Creating dogs..'
 file = File.open("db/fixtures/images/maika_croise.jpeg")
 dog_maika = Dog.new(name: "Maika",
-  breed: "Croisé St Bernard X Labrador",
+  breed: "Croisé",
   weight: 54,
   date_of_birth: Date.new(2016, 11, 25),
   personality: "Sympa avec tout le monde",
