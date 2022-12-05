@@ -14,7 +14,6 @@ Walk.destroy_all
 Review.destroy_all
 User.destroy_all
 
-
 puts 'Creating users...'
 aurelie = User.new(first_name: "Aurélie", last_name: "Becques", email: "aurelie@me.com", password: "123456")
 aurelie.save!
@@ -24,11 +23,27 @@ steven = User.new(first_name: "Steven", last_name: "Dorion", email: "steven@me.c
 steven.save!
 corinne = User.new(first_name: "Corinne", last_name: "Poree", email: "corinne@me.com", password: "123456")
 corinne.save!
+clement = User.new(first_name: "Clément", last_name: "Cordeiro", email: "clement@me.com", password:"123456")
+clement.save!
+olivier = User.new(first_name: "Olivier", last_name: "Kermoal", email: "olivier@me.com", password:"123456")
+olivier.save!
+gwendal = User.new(first_name: "Gwendal", last_name: "Le Bris", email: "gwendal@me.com", password:"123456")
+gwendal.save!
+quentin = User.new(first_name: "Quentin", last_name: "Orhant", email: "quentin@me.com", password:"123456")
+quentin.save!
+gaetan = User.new(first_name: "Gaetan", last_name: "Renault", email: "gaetan@me.com", password:"123456")
+gaetan.save!
+matthieu = User.new(first_name: "Matthieu", last_name: "Nourry", email: "matthieu@me.com", password:"123456")
+matthieu.save!
+lomig = User.new(first_name: "Lomig", last_name: "Enfroy", email: "lomig@me.com", password:"123456")
+lomig.save!
+guillaume = User.new(first_name: "Guillaume", last_name: "Messieux", email: "guillaume@me.com", password:"123456")
+guillaume.save!
 
 puts 'Creating dogs..'
 file = File.open("db/fixtures/images/maika_croise.jpeg")
 dog_maika = Dog.new(name: "Maika",
-  breed: "Croisé St Bernard X Labrador",
+  breed: "Croisé",
   weight: 54,
   date_of_birth: Date.new(2016, 11, 25),
   personality: "Sympa avec tout le monde",
@@ -81,6 +96,118 @@ dog_turbo = Dog.new(name: "Turbo",
 )
 dog_turbo.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 dog_turbo.save!
+
+file = File.open("db/fixtures/images/colonel_border_terrier.jpg")
+dog_colonel = Dog.new(name: "Colonel",
+  breed: "Border Terrier",
+  weight: 6.3,
+  date_of_birth: Date.new(2020, 12, 19),
+  personality: "J'ai mes têtes",
+  gender: "Male",
+  health: "Raplapla",
+  neutered: false,
+  user: matthieu
+)
+dog_colonel.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+dog_colonel.save!
+
+file = File.open("db/fixtures/images/norisk_husky.jpg")
+dog_norisk = Dog.new(name: "Norisk",
+  breed: "Husky de Sibérie",
+  weight: 35,
+  date_of_birth: Date.new(2018, 01, 9),
+  personality: "Carrément timide",
+  gender: "Femelle",
+  health: "Sous traitement",
+  neutered: true,
+  user: olivier
+)
+dog_norisk.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+dog_norisk.save!
+
+file = File.open("db/fixtures/images/hulk_chihuahua.jpg")
+dog_hulk = Dog.new(name: "Hulk",
+  breed: "Chihuahua",
+  weight: 2.5,
+  date_of_birth: Date.new(2015, 02, 28),
+  personality: "Faut pas me chercher",
+  gender: "Male",
+  health: "Sous traitement",
+  neutered: true,
+  user: gwendal
+)
+dog_hulk.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+dog_hulk.save!
+
+file = File.open("db/fixtures/images/sa_majesté_welsh.jpg")
+dog_sa_majeste = Dog.new(name: "Sa majesté",
+  breed: "Welsh Corgi",
+  weight: 12,
+  date_of_birth: Date.new(2019, 03, 25),
+  personality: "Sympa avec tout le monde",
+  gender: "Femelle",
+  health: "Je pète la forme",
+  neutered: true,
+  user: lomig
+)
+dog_sa_majeste.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+dog_sa_majeste.save!
+
+file = File.open("db/fixtures/images/sunny_cocker.jpg")
+dog_sunny = Dog.new(name: "Sunny",
+  breed: "Cocker Spaniel",
+  weight: 12,
+  date_of_birth: Date.new(2019, 10, 10),
+  personality: "Sympa avec tout le monde",
+  gender: "Femelle",
+  health: "Je pète la forme",
+  neutered: true,
+  user: clement
+)
+dog_sunny.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+dog_sunny.save!
+
+file = File.open("db/fixtures/images/pixel_ckc.jpg")
+dog_pixel = Dog.new(name: "Pixel",
+  breed: "Cavalier King Charles",
+  weight: 8.3,
+  date_of_birth: Date.new(2015, 10, 11),
+  personality: "Carrément timide",
+  gender: "Femelle",
+  health: "Je pète la forme",
+  neutered: true,
+  user: guillaume
+)
+dog_pixel.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+dog_pixel.save!
+
+file = File.open("db/fixtures/images/typhon_staff.jpg")
+dog_typhon = Dog.new(name: "Typhon",
+  breed: "American Staffordshire Terrier",
+  weight: 35.8,
+  date_of_birth: Date.new(2021, 8, 1),
+  personality: "Fou-fou",
+  gender: "Male",
+  health: "Je pète la forme",
+  neutered: true,
+  user: quentin
+)
+dog_typhon.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+dog_typhon.save!
+
+file = File.open("db/fixtures/images/rails_berger_allemand.jpg")
+dog_rails = Dog.new(name: "Rails",
+  breed: "Berger Allemand",
+  weight: 32,
+  date_of_birth: Date.new(2012, 6, 18),
+  personality: "J'ai mes têtes",
+  gender: "Male",
+  health: "Raplapla",
+  neutered: true,
+  user: gaetan
+)
+dog_rails.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+dog_rails.save!
 
 puts 'Creating spots..'
 
