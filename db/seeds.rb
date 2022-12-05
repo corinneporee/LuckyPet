@@ -7,12 +7,12 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts "Cleaning database"
+Friendship.destroy_all
 Dog.destroy_all
 Spot.destroy_all
 Walk.destroy_all
 Review.destroy_all
 User.destroy_all
-
 
 
 puts 'Creating users...'
@@ -26,33 +26,33 @@ corinne = User.new(first_name: "Corinne", last_name: "Poree", email: "corinne@me
 corinne.save!
 
 puts 'Creating dogs..'
-file = File.open("db/fixtures/images/kiki_chihuahua.jpg")
-dog_kiki = Dog.new(name: "Kiki",
-  breed: "Chihuahua",
-  weight: 2.6,
-  date_of_birth: Date.new(2020, 5, 12),
-  personality: "Carrément timide",
-  gender: "Male",
+file = File.open("db/fixtures/images/maika_croise.jpeg")
+dog_maika = Dog.new(name: "Maika",
+  breed: "Croisé St Bernard X Labrador",
+  weight: 54,
+  date_of_birth: Date.new(2016, 11, 25),
+  personality: "Sympa avec tout le monde",
+  gender: "Femelle",
   health: "Je pète la forme",
   neutered: true,
   user: aurelie
 )
-dog_kiki.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
-dog_kiki.save!
+dog_maika.photo.attach(io: file, filename: ".jpeg", content_type: "image/jpeg")
+dog_maika.save!
 
-file = File.open("db/fixtures/images/pepette_teckel.jpg")
-dog_pepette = Dog.new(name: "Pépette",
+file = File.open("db/fixtures/images/walter_teckel.jpeg")
+dog_walter = Dog.new(name: "Walter",
   breed: "Teckel",
-  weight: 4.5,
-  date_of_birth: Date.new(2018, 9, 24),
+  weight: 4,
+  date_of_birth: Date.new(2017, 9, 3),
   personality: "Sympa avec tout le monde",
-  gender: "Femelle",
+  gender: "Male",
   health: "Sous traitement",
-  neutered: true,
+  neutered: false,
   user: rodolphe
 )
-dog_pepette.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
-dog_pepette.save!
+dog_walter.photo.attach(io: file, filename: ".jpeg", content_type: "image/jpeg")
+dog_walter.save!
 
 file = File.open("db/fixtures/images/hector_golden_retriever.jpg")
 dog_hector = Dog.new(name: "Hector",
@@ -77,7 +77,7 @@ dog_turbo = Dog.new(name: "Turbo",
   gender: "Femelle",
   health: "Je pète la forme",
   neutered: true,
-  user: steven,
+  user: steven
 )
 dog_turbo.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 dog_turbo.save!
@@ -99,6 +99,7 @@ spot_foret = Spot.new(
 )
 spot_foret.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_foret.save!
+sleep 1
 
 file = File.open("db/fixtures/images/plage_plouharnel.jpg")
 spot_plage = Spot.new(
@@ -114,6 +115,7 @@ spot_plage = Spot.new(
 )
 spot_plage.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_plage.save!
+sleep 1
 
 file = File.open("db/fixtures/images/ville_vannes.jpg")
 spot_ville = Spot.new(
@@ -128,6 +130,7 @@ spot_ville = Spot.new(
 )
 spot_ville.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_ville.save!
+sleep 1
 
 file = File.open("db/fixtures/images/shop_cereal.png")
 spot_shop_cereal = Spot.new(
@@ -140,6 +143,7 @@ spot_shop_cereal = Spot.new(
 )
 spot_shop_cereal.photo.attach(io: file, filename: ".png", content_type: "image/png")
 spot_shop_cereal.save!
+sleep 1
 
 file = File.open("db/fixtures/images/shop_vrac.jpg")
 spot_shop_vrac = Spot.new(
@@ -153,6 +157,7 @@ spot_shop_vrac = Spot.new(
 )
 spot_shop_vrac.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_shop_vrac.save!
+sleep 1
 
 file = File.open("db/fixtures/images/shop_insect.jpeg")
 spot_shop_insects = Spot.new(
@@ -165,6 +170,7 @@ spot_shop_insects = Spot.new(
 )
 spot_shop_insects.photo.attach(io: file, filename: ".jpeg", content_type: "image/jpeg")
 spot_shop_insects.save!
+sleep 1
 
 file = File.open("db/fixtures/images/vet_general.jpg")
 spot_vet_general = Spot.new(
@@ -173,10 +179,11 @@ spot_vet_general = Spot.new(
   description: "Cabinet vétérinaire, ouvert du lundi au samedi de 9h à 20h, consultations uniquement sur rdv.",
   adress: "3 rue des Ecoles, 56400 Auray",
   spot_type: "Vétérinaires",
-  vet_specialty: "Canin"
+  vet_specialty: "Généraliste"
 )
 spot_vet_general.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_vet_general.save!
+sleep 1
 
 file = File.open("db/fixtures/images/vet_osteo.png")
 spot_vet_osteo = Spot.new(
@@ -185,10 +192,11 @@ spot_vet_osteo = Spot.new(
   description: "Séances d'ostéopathies uniquement sur rdv.",
   adress: "8 rue les Vents du Sud, 56000 Vannes",
   spot_type: "Vétérinaires",
-  vet_specialty: "Ostéopathie"
+  vet_specialty: "Ostéopathe"
 )
 spot_vet_osteo.photo.attach(io: file, filename: ".png", content_type: "image/png")
 spot_vet_osteo.save!
+sleep 1
 
 file = File.open("db/fixtures/images/pension_pro_bonheur.jpg")
 spot_pension_pro_bonheur = Spot.new(
@@ -198,10 +206,12 @@ spot_pension_pro_bonheur = Spot.new(
   pension uniquement sur rdv.",
   adress: "14 route de Mériadec, Le Bois des Mûriers, 56000 Ploeren",
   spot_type: "Pensions",
-  pension_pro: true
+  pension_pro: true,
+  pension_walks: true
   )
 spot_pension_pro_bonheur.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_pension_pro_bonheur.save!
+sleep 1
 
 file = File.open("db/fixtures/images/pension_pro_fox.jpg")
 spot_pension_pro_fox = Spot.new(
@@ -211,10 +221,12 @@ spot_pension_pro_fox = Spot.new(
   Vous pouvez nous contacter du lundi au samedi de 9h à 18h.",
   adress: "Parc de la Lande, 56250 Elven",
   spot_type: "Pensions",
-  pension_pro: true
+  pension_pro: true,
+  pension_walks: false
 )
 spot_pension_pro_fox.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_pension_pro_fox.save!
+sleep 1
 
 file = File.open("db/fixtures/images/pension_particulier_linette.jpg")
 spot_pension_linette = Spot.new(
@@ -222,10 +234,12 @@ spot_pension_linette = Spot.new(
   user: aurelie,
   description: "Pension familiale. Vous pouvez me contacter du lundi au samedi de 9h à 18h.",
   adress: "10 Lann Vras, 56400 Plumergat",
-  spot_type: "Pensions"
+  spot_type: "Pensions",
+  pension_walks: true
 )
 spot_pension_linette.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_pension_linette.save!
+sleep 1
 
 file = File.open("db/fixtures/images/pension_particulier_animar.png")
 spot_pension_animar = Spot.new(
@@ -234,10 +248,12 @@ spot_pension_animar = Spot.new(
   description: "Pension familiale acceptant jusqu'à 5 chiens. Me contacter pour avoir
   plus de renseignements",
   adress: "4 bis rue de la Forge, 56400 Plumergat",
-  spot_type: "Pensions"
+  spot_type: "Pensions",
+  pension_walks: true
 )
 spot_pension_animar.photo.attach(io: file, filename: ".png", content_type: "image/png")
 spot_pension_animar.save!
+sleep 1
 
 file = File.open("db/fixtures/images/grooming_happy.jpg")
 spot_grooming_happy = Spot.new(
@@ -250,6 +266,7 @@ spot_grooming_happy = Spot.new(
 )
 spot_grooming_happy.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_grooming_happy.save!
+sleep 1
 
 file = File.open("db/fixtures/images/grooming_cani.jpg")
 spot_grooming_cani = Spot.new(
@@ -263,18 +280,19 @@ spot_grooming_cani = Spot.new(
 )
 spot_grooming_cani.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_grooming_cani.save!
+sleep 1
 
 puts 'Walks'
 walk_1 = Walk.new(
   spot: spot_plage,
-  dog: dog_pepette,
+  dog: dog_walter,
   date: Time.now
 )
 walk_1.save!
 
 walk_2 = Walk.new(
   spot: spot_foret,
-  dog: dog_pepette,
+  dog: dog_walter,
   date: Time.now
 )
 walk_2.save!
@@ -288,7 +306,7 @@ walk_3.save!
 
 puts 'Invitations'
 invitation = Invitation.new(
-  dog: dog_kiki,
+  dog: dog_maika,
   walk: walk_1,
   message: "Hello ça te dit une balade avec moi aujourd'hui?",
   status: "pending"
@@ -308,7 +326,7 @@ review_shop_vrac.save!
 review_shop_cereal = Review.new(
   content: "Super croquette de très bonnes qualités à prix abordables. Je recommande",
   rating: 3,
-  dog: dog_pepette,
+  dog: dog_walter,
   spot: spot_shop_cereal
 )
 review_shop_cereal.save!
@@ -324,7 +342,7 @@ review_shop_insect.save!
 review_vet_general = Review.new(
   content: "Des professionnels qualifiés à l'écoute. Joignables facilement, prise de rdv rapide.",
   rating: 5,
-  dog: dog_kiki,
+  dog: dog_maika,
   spot: spot_vet_general
 )
 review_vet_general.save!
@@ -340,7 +358,7 @@ review_vet_osteo.save!
 review_pension_pro_bonheur = Review.new(
   content: "Très satisfait de l'accueil et de l'équipe. Je recommande.",
   rating: 5,
-  dog: dog_pepette,
+  dog: dog_walter,
   spot: spot_pension_pro_bonheur
 )
 review_pension_pro_bonheur.save!
@@ -356,7 +374,7 @@ review_pension_pro_fox.save!
 review_pension_particulier_linette = Review.new(
   content: " Mon chien n'a pas été bien traité, il est revenu avec plein de blessures.",
   rating: 1,
-  dog: dog_kiki,
+  dog: dog_maika,
   spot: spot_pension_linette
 )
 review_pension_particulier_linette.save!
@@ -364,7 +382,7 @@ review_pension_particulier_linette.save!
 review_grooming_happy = Review.new(
   content: "Très mal fait! l'épilation pour mon teckel était complètement raté.",
   rating: 1,
-  dog: dog_pepette,
+  dog: dog_walter,
   spot: spot_grooming_happy
 )
 review_grooming_happy.save!
@@ -372,7 +390,46 @@ review_grooming_happy.save!
 review_grooming_cani = Review.new(
   content: "Très profesionnel, et sympa! Kiki ressort encore plus beau que d'habitude!",
   rating: 5,
-  dog: dog_kiki,
+  dog: dog_maika,
   spot: spot_grooming_cani
 )
 review_grooming_cani.save!
+
+review_spot_foret = Review.new(
+  content: "C'est super surtout pour les balades avec les copains",
+  rating: 5,
+  dog: dog_maika,
+  spot: spot_foret
+)
+review_spot_foret.save!
+
+review_spot_plage = Review.new(
+  content: "C'est cool d'avoir une plage où mon chien peut se baigner",
+  rating: 5,
+  dog: dog_hector,
+  spot: spot_plage
+)
+review_spot_plage.save!
+
+review_spot_ville = Review.new(
+  content: "C'est cool d'avoir une plage où mon chien peut se baigner",
+  rating: 5,
+  dog: dog_turbo,
+  spot: spot_ville
+)
+review_spot_ville.save!
+
+puts 'Friendships'
+friendship_dog_walter = Friendship.new(
+  dog: dog_maika,
+  buddy: dog_walter,
+  status: "pending"
+)
+friendship_dog_walter.save!
+
+friendship_dog_hector = Friendship.new(
+  dog: dog_maika,
+  buddy: dog_hector,
+  status: "pending"
+)
+friendship_dog_hector.save!
