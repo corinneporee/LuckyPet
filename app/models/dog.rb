@@ -1,6 +1,6 @@
 class Dog < ApplicationRecord
   PERSONALITY = ["Sympa avec tout le monde", "Carrément timide", "J'ai mes têtes", "Faut pas me chercher", "Fou-fou"]
-  BREEDS = ["Chihuahua", "Teckel", "Golden Retriever", "Berger Australien", "Croisé"]
+  BREEDS = ["Croisé", "Teckel", "Golden Retriever", "Berger Australien"]
   HEALTH = ["Je pète la forme", "Raplapla", "Sous traitement"]
   SEX = ["Female", "Male"]
 
@@ -14,6 +14,7 @@ class Dog < ApplicationRecord
   validates :personality, inclusion: { in: PERSONALITY }
   validates :breed, inclusion: { in: BREEDS }
   validates :health, inclusion: { in: HEALTH }
+  validates :neutered, inclusion: { in: [true, false] }
 
   belongs_to :user
   has_many :friendships, dependent: :destroy
@@ -22,7 +23,7 @@ class Dog < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_one_attached :photo
 
-  validates :name, :breed, :weight, :personality, :gender, :health, :neutered, presence: true
+  validates :name, :breed, :weight, :personality, :gender, :health, presence: true
 
   def friends
     own_friendships = Friendship.where(dog_id: id).pluck(:buddy_id)

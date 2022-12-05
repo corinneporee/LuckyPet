@@ -34,7 +34,7 @@
         <p>Vend de l'alimente à base d'insectes</p>
       <% end %>
     <% when "Vétérinaires" %>
-      <p>Spécialité du vétérinaire :<%= @spot.vet_specialty %></p>
+      <p>Spécialité du vétérinaire : <%= @spot.vet_specialty %></p>
     <% when "Pensions" %>
       <% if @spot.pension_pro %>
         <p>Pension professionnelle</p>
@@ -51,7 +51,7 @@
 
   <div class="spot-reviews">
     <h5>Avis</h5>
-    <%= @spot.reviews.each do |review| %>
+    <% @spot.reviews.each do |review| %>
       <div class="spot-review">
         <div class="card-spot-rating">
           <i class="fa-solid fa-star"></i>
