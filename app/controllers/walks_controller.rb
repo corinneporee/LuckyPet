@@ -17,7 +17,7 @@ class WalksController < ApplicationController
     @walk.dog = current_user.dog
 
     if @walk.save
-      redirect_to walk_path(@walk), notice: "Balade créée !"
+      redirect_to walks_path(@walk), notice: "Balade créée !"
     else
       render "spots/show", status: :unprocessable_entity
     end
