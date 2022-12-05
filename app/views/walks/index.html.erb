@@ -1,38 +1,12 @@
 <%#  On voit la balade %>
-<h1>Lorem</h1>
 <div class="container_reservation">
-  <h2 class="titre-reservation">Regarde tout ce que tu as déjà loué !</h2>
+  <h2> Mes balades </h2>
 
-  <% @bookings.each do |booking| %>
-    <div class="card-reservation">
-      <div class="p-0 h-100">
-        <%= cl_image_tag booking.chair.photo.key, crop: :fill, width: 300 %>
-      </div>
-      <div class="card-reservation-infos">
-        <div>
-          <h2><%= booking.chair.name.capitalize %></h2>
-          <div class="date-reservation">
-            <p><i class="fa-solid fa-calendar-days p-1"></i>  Date de réservation : <%= booking.start_time.strftime("%d/%m/%Y") %> - <%= booking.end_time.strftime("%d/%m/%Y") %></p>
-            <p class="price"><%= booking.total_price %> €</p>
-          </div>
-        </div>
-        <div class="price_status">
-          <% case booking.status %>
-          <% when "pending" %>
-            <p><div class="pending">En attente </div></p>
-          <% when "validated" %>
-            <p><div class="validated">Accepté</div></p>
-          <% when "denied" %>
-            <p><div class="denied">Refusé</div></p>
-          <% end %>
-          <% if booking.status == "pending" %>
-            <div class="d-flex justify-content-around">
-              <%= link_to "J'accepte", accept_owner_booking_path(booking), data: {turbo_method: :patch}, class:"button_accept" %></div>
-              <%= link_to "Je refuse", deny_owner_booking_path(booking), data: {turbo_method: :patch}, class:"button_refused" %></div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
+  <% @walks.each do |item| %>
+    <% if item.is_a?(Walk) %>
+      <%= render partial: "walk_info", locals: { walk: item } %>
+    <% elsif item.is_a?(Invitation) %>
+     <%= render partial: "invitation_info", locals: { invitation: item } %>
+    <% end %>
   <% end %>
 </div>

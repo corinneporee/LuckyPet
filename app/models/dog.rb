@@ -54,7 +54,7 @@ class Dog < ApplicationRecord
 
   def invitations_and_walks
     invitations_and_walks = self.invitations + self.walks
-    return invitations_and_walks.order(created_at: :desc)
+    return invitations_and_walks.sort! { |a, b| a.created_at <=> b.created_at }
   end
 end
 

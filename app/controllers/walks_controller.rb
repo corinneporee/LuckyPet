@@ -1,7 +1,7 @@
 class WalksController < ApplicationController
 
   def index
-    @walk = current_user.dog.walks
+    @walks = current_user.dog.invitations_and_walks
   end
 
   def show
