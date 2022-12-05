@@ -1,0 +1,49 @@
+.spot-wrapper {
+  position:relative;
+}
+
+.chien-mascotte {
+  position:absolute;
+  bottom: -55px;
+  right: -40px;
+}
+
+
+.spot-image {
+  width:101%;
+  object-fit: cover;
+}
+
+.spot {
+  padding:16px;
+
+  .card-spot-info {
+    display:flex;
+    padding:0;
+    align-items: center;
+    gap:32px;
+  }
+
+  h1 {
+    margin: 12px 0;
+  }
+  .spot-adress {
+    font-weight: 600;
+    color: $black;
+  }
+
+  .spot-description {
+    margin-top: 12px !important;
+    color:$black700;
+  }
+
+  .spot-informations {
+    background: $second;
+    padding: 16px 24px;
+    margin: 24px 0;
+    border: 1px solid $black;
+    transform: rotate(-3deg);
+    border-radius: 8px;
+    box-shadow: $custom-shadow;
+  }
+}
