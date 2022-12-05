@@ -1,6 +1,13 @@
 class SpotsController < ApplicationController
   def index
     @spots = Spot.all
+    @markers = @spots.geocoded.map do |spot|
+      {
+        lat: spot.latitude,
+        lng: spot.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { spot: spot })
+      }
+    end
   end
 
   def show
@@ -29,7 +36,7 @@ class SpotsController < ApplicationController
     params.require(:spot).permit(
       :spot_type,
       :name,
-      :adress,
+      :address,
       :description,
       :walk_environment,
       :walk_area,

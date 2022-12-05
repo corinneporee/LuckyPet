@@ -3,7 +3,8 @@
 <%= simple_form_for @spot do |f| %>
   <%= f.input :spot_type, collection: Spot::SPOT_TYPES, label: "Type de spot" %>
   <%= f.input :name, label: "Nom" %>
-  <%= f.input :adress, label: "Adresse" %>
+  <%= f.input :address, label: "Adresse", input_html: {data: {address_autocomplete_target: "address"}},
+  wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
   <%= f.input :description %>
 
   <div class="spot-balade">
