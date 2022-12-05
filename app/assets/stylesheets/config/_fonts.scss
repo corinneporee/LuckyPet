@@ -1,17 +1,12 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
 // Define fonts for body and headers
 $body-font: "Quicksand", sans-serif;
 $headers-font: "BD Supper", "Helvetica";
 
 @font-face {
   font-family: 'BD Supper';
-  src: url('BDSupperRegular.eot');
-  src: local('BD Supper'), local('BDSupperRegular'),
-      url('BDSupperRegular.eot?#iefix') format('embedded-opentype'),
-      url('BDSupperRegular.woff2') format('woff2'),
-      url('BDSupperRegular.woff') format('woff'),
-      url('BDSupperRegular.ttf') format('truetype');
+  src: url('BDSupperRegular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -19,15 +14,15 @@ $headers-font: "BD Supper", "Helvetica";
 
 @font-face {
   font-family: 'BD Supper Bold';
-  src: url('BDSupperBold.eot');
-  src: local('BD Supper Bold'), local('BDSupperBold'),
-      url('BDSupperBold.eot?#iefix') format('embedded-opentype'),
-      url('BDSupperBold.woff2') format('woff2'),
-      url('BDSupperBold.woff') format('woff'),
-      url('BDSupperBold.ttf') format('truetype');
-  font-weight: bold;
+  src: url('BDSupperBold.woff') format('woff');
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
+}
+
+h1 {
+  font-size:36px;
+  line-height:1.1;
 }
 
 // $bdsupperbold: "BD Supper Bold";

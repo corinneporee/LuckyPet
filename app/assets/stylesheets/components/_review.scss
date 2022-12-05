@@ -1,0 +1,19 @@
+.spot-review {
+  border:1px solid $principal;
+  padding:12px;
+  border-radius:8px;
+
+  .card-spot-type {
+    align-items: center;
+    gap:8px;
+  }
+  .card-spot-review {
+    color:$black700;
+  }
+}
+
+.spot-review-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

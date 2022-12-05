@@ -1,6 +1,7 @@
 // Define variables for your color scheme
 
 $principal: #9465ED;
+$principal-light: #EBE4F7;
 $second: #E8FF4F;
 $black: #121212;
 $black700: #888888;
@@ -11,4 +12,8 @@ $white: #FFFFFF;
 
 .text-purple {
   color: $principal;
+}
+
+.text-yellow {
+  color: $second;
 }

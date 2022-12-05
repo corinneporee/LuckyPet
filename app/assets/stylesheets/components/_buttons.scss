@@ -119,3 +119,17 @@ a:hover {
   transition: .3s;
   transform:translateX(2px) translateY(2px);
 }
+
+.back-button {
+  position:absolute;
+  top:12px;
+  left:12px;
+  display: flex;
+  align-items: center;
+  gap:4px;
+  z-index: 9999;
+
+  a {
+    text-decoration: none !important;
+  }
+}

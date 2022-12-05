@@ -8,7 +8,9 @@
   <h3 class="text-bold">Tous les spots</h3>
   <div class="filters">
     <div class="btn-filter btn-filter-active">Tous</div>
-    <div class="btn-filter">Pension</div>
+    <% Spot::SPOT_TYPES.each do |filter| %>
+      <div class="btn-filter"><%= filter %></div>
+    <% end %>
   </div>
   <% @spots.each do |spot| %>
     <%= link_to spot_path(spot), :"data-aos" => "fade-up", class: "card-spot" do %>
