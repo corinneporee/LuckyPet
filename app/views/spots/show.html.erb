@@ -36,9 +36,12 @@
   <div class="spot-informations">
     <% case @spot.spot_type %>
     <% when "Balades" %>
-      <p><i class="fa-solid fa-location-dot me-2"></i><%= @spot.walk_environment %></p>
-      <p><i class="fa-solid fa-location-dot me-2"></i><%= @spot.walk_area %> espaces</p>
-      <p><i class="fa-solid fa-location-dot me-2"></i><%= @spot.walk_attendance %> fréquentation</p>
+
+      <p><%= @spot.walk_environment %></p>
+      <p><%= @spot.walk_area %> espaces</p>
+      <p><%= @spot.walk_attendance %> fréquentation</p>
+      <%= link_to "Proposer une balade ?", new_spot_walk_path(@spot) , class: "btn btn-primary" %>
+
     <% when "Commerces" %>
       <% if @spot.shop_cereale %>
         <p>Vend des céréales</p>

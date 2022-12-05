@@ -1,12 +1,21 @@
 class WalksController < ApplicationController
+
+
   def index
-    @walks = current_user.dog.walks
+    @walks = current_user.dog.invitations_and_walks
   end
 
   def show
     @walk = Walk.find(params[:id])
     @friends = current_user.dog.active_friends
     @invitation = Invitation.new
+  end
+
+  def new
+    @walk = Walk.new
+    @walk.invitations.build
+
+    @friendships = current_user.dog.friendships
   end
 
   def create
@@ -23,9 +32,10 @@ class WalksController < ApplicationController
     end
   end
 
+
   private
 
   def walk_params
-    params.require(:walk).permit(:date)
+    params.require(:walk).permit(:date, invitations_attributes: [:dog_id, :message])
   end
 end

@@ -4,4 +4,6 @@ class Walk < ApplicationRecord
   belongs_to :dog
 
   validates :date, presence: true
+
+  accepts_nested_attributes_for :invitations
 end

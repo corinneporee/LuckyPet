@@ -1,7 +1,14 @@
-<div class="walks-container">
-  <%= walks.each do |walk| %>
-  <div class="walk-card">
-  <h6><%= "Balade avec #{walk.buddy}, à #{walk.spot} | #{invitation.status}" %></h6>
-  </div>
+
+<%#  On voit la balade %>
+<div class="container_reservation">
+  <h2> Mes balades </h2>
+
+  <% @walks.each do |item| %>
+    <% if item.is_a?(Walk) %>
+      <%= render partial: "walk_info", locals: { walk: item } %>
+    <% elsif item.is_a?(Invitation) %>
+     <%= render partial: "invitation_info", locals: { invitation: item } %>
+    <% end %>
+
   <% end %>
 </div>
