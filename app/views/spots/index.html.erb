@@ -14,10 +14,19 @@
       <div class="card-spot-info">
         <div class="card-spot-top">
           <div class="card-spot-rating">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-regular fa-star"></i>
+            <% spot.rating.floor.times do %>
+              <i class="fa-solid fa-paw text-purple"></i>
+            <% end %>
+            <% if spot.rating < 5 %>
+              <% if (spot.rating * 2.0).round / 2.0 - spot.rating.floor == 0%>
+                <i class="fa-solid fa-paw-purple"></i>
+              <% else %>
+                <i class="fa-solid fa-paw-half-stroke text-purple"></i>
+              <% end %>
+              <% (5 - spot.rating.floor).times do %>
+                <i class="fa-solid fa-paw text-purple" style="opacity: 0.3"></i>
+              <% end %>
+            <% end %>
           </div>
           <div class="card-spot-type">
             <h6><%= spot.spot_type %></h6>
@@ -30,7 +39,7 @@
             <p>à 2km</p>
           </div>
           <div class="card-spot-description">
-            <p><%= spot.description %></p>
+            <p><%= spot.description.truncate(100) %></p>
           </div>
         </div>
       </div>

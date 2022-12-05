@@ -2,6 +2,8 @@
   <h1>Mon chien</h1>
 <% end %>
 
+<%= cl_image_tag @dog.photo.key, height: 300, width: 400, crop: :fill %>
+
 <% if current_user.dog.friend_with?(@dog) %>
   <p><%= current_user.dog.name %> est ami(e) avec <%= @dog.name %> !</p>
 <% end %>
