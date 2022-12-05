@@ -13,6 +13,6 @@
   <body>
     <%= render "shared/flashes" %>
     <%= yield %>
-    <%= render "shared/toolbar" %>
+    <%= render "shared/toolbar" unless controller_name == "pages" || devise_controller? || (controller_name == "dogs") && action_name == "new" %>
   </body>
 </html>
