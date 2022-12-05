@@ -99,6 +99,7 @@ spot_foret = Spot.new(
 )
 spot_foret.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_foret.save!
+sleep 1
 
 file = File.open("db/fixtures/images/plage_plouharnel.jpg")
 spot_plage = Spot.new(
@@ -114,6 +115,7 @@ spot_plage = Spot.new(
 )
 spot_plage.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_plage.save!
+sleep 1
 
 file = File.open("db/fixtures/images/ville_vannes.jpg")
 spot_ville = Spot.new(
@@ -128,6 +130,7 @@ spot_ville = Spot.new(
 )
 spot_ville.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_ville.save!
+sleep 1
 
 file = File.open("db/fixtures/images/shop_cereal.png")
 spot_shop_cereal = Spot.new(
@@ -140,6 +143,7 @@ spot_shop_cereal = Spot.new(
 )
 spot_shop_cereal.photo.attach(io: file, filename: ".png", content_type: "image/png")
 spot_shop_cereal.save!
+sleep 1
 
 file = File.open("db/fixtures/images/shop_vrac.jpg")
 spot_shop_vrac = Spot.new(
@@ -153,6 +157,7 @@ spot_shop_vrac = Spot.new(
 )
 spot_shop_vrac.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_shop_vrac.save!
+sleep 1
 
 file = File.open("db/fixtures/images/shop_insect.jpeg")
 spot_shop_insects = Spot.new(
@@ -165,6 +170,7 @@ spot_shop_insects = Spot.new(
 )
 spot_shop_insects.photo.attach(io: file, filename: ".jpeg", content_type: "image/jpeg")
 spot_shop_insects.save!
+sleep 1
 
 file = File.open("db/fixtures/images/vet_general.jpg")
 spot_vet_general = Spot.new(
@@ -177,6 +183,7 @@ spot_vet_general = Spot.new(
 )
 spot_vet_general.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_vet_general.save!
+sleep 1
 
 file = File.open("db/fixtures/images/vet_osteo.png")
 spot_vet_osteo = Spot.new(
@@ -189,6 +196,7 @@ spot_vet_osteo = Spot.new(
 )
 spot_vet_osteo.photo.attach(io: file, filename: ".png", content_type: "image/png")
 spot_vet_osteo.save!
+sleep 1
 
 file = File.open("db/fixtures/images/pension_pro_bonheur.jpg")
 spot_pension_pro_bonheur = Spot.new(
@@ -198,10 +206,12 @@ spot_pension_pro_bonheur = Spot.new(
   pension uniquement sur rdv.",
   adress: "14 route de Mériadec, Le Bois des Mûriers, 56000 Ploeren",
   spot_type: "Pensions",
-  pension_pro: true
+  pension_pro: true,
+  pension_walks: true
   )
 spot_pension_pro_bonheur.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_pension_pro_bonheur.save!
+sleep 1
 
 file = File.open("db/fixtures/images/pension_pro_fox.jpg")
 spot_pension_pro_fox = Spot.new(
@@ -211,10 +221,12 @@ spot_pension_pro_fox = Spot.new(
   Vous pouvez nous contacter du lundi au samedi de 9h à 18h.",
   adress: "Parc de la Lande, 56250 Elven",
   spot_type: "Pensions",
-  pension_pro: true
+  pension_pro: true,
+  pension_walks: false
 )
 spot_pension_pro_fox.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_pension_pro_fox.save!
+sleep 1
 
 file = File.open("db/fixtures/images/pension_particulier_linette.jpg")
 spot_pension_linette = Spot.new(
@@ -222,10 +234,12 @@ spot_pension_linette = Spot.new(
   user: aurelie,
   description: "Pension familiale. Vous pouvez me contacter du lundi au samedi de 9h à 18h.",
   adress: "10 Lann Vras, 56400 Plumergat",
-  spot_type: "Pensions"
+  spot_type: "Pensions",
+  pension_walks: true
 )
 spot_pension_linette.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_pension_linette.save!
+sleep 1
 
 file = File.open("db/fixtures/images/pension_particulier_animar.png")
 spot_pension_animar = Spot.new(
@@ -234,10 +248,12 @@ spot_pension_animar = Spot.new(
   description: "Pension familiale acceptant jusqu'à 5 chiens. Me contacter pour avoir
   plus de renseignements",
   adress: "4 bis rue de la Forge, 56400 Plumergat",
-  spot_type: "Pensions"
+  spot_type: "Pensions",
+  pension_walks: true
 )
 spot_pension_animar.photo.attach(io: file, filename: ".png", content_type: "image/png")
 spot_pension_animar.save!
+sleep 1
 
 file = File.open("db/fixtures/images/grooming_happy.jpg")
 spot_grooming_happy = Spot.new(
@@ -250,6 +266,7 @@ spot_grooming_happy = Spot.new(
 )
 spot_grooming_happy.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_grooming_happy.save!
+sleep 1
 
 file = File.open("db/fixtures/images/grooming_cani.jpg")
 spot_grooming_cani = Spot.new(
@@ -263,6 +280,7 @@ spot_grooming_cani = Spot.new(
 )
 spot_grooming_cani.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_grooming_cani.save!
+sleep 1
 
 puts 'Walks'
 walk_1 = Walk.new(
@@ -376,6 +394,30 @@ review_grooming_cani = Review.new(
   spot: spot_grooming_cani
 )
 review_grooming_cani.save!
+
+review_spot_foret = Review.new(
+  content: "C'est super surtout pour les balades avec les copains",
+  rating: 5,
+  dog: dog_maika,
+  spot: spot_foret
+)
+review_spot_foret.save!
+
+review_spot_plage = Review.new(
+  content: "C'est cool d'avoir une plage où mon chien peut se baigner",
+  rating: 5,
+  dog: dog_hector,
+  spot: spot_plage
+)
+review_spot_plage.save!
+
+review_spot_ville = Review.new(
+  content: "C'est cool d'avoir une plage où mon chien peut se baigner",
+  rating: 5,
+  dog: dog_turbo,
+  spot: spot_ville
+)
+review_spot_ville.save!
 
 puts 'Friendships'
 friendship_dog_walter = Friendship.new(

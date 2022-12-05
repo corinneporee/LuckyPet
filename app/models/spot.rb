@@ -5,11 +5,14 @@ class Spot < ApplicationRecord
   WALK_ATTENDANCE = ["Faible", "Moyenne", "Forte"]
   VET_SPECIALTIES = ["Généraliste", "Ostéopathe"]
 
+
+
   validates :walk_environment, inclusion: { in: WALK_ENVIRONMENTS, allow_blank: true }
   validates :walk_area, inclusion: { in: WALK_AREA, allow_blank: true }
   validates :walk_attendance, inclusion: { in: WALK_ATTENDANCE, allow_blank: true }
   validates :spot_type, presence: true, inclusion: { in: SPOT_TYPES }
   validates :vet_specialty, inclusion: { in: VET_SPECIALTIES, allow_blank: true }
+  validates :pension_walks, inclusion: { in: [true, false], allow_blank: true }
 
   belongs_to :user
   has_many :walks
