@@ -234,7 +234,7 @@ spot_pension_linette = Spot.new(
   user: aurelie,
   description: "Pension familiale. Vous pouvez me contacter du lundi au samedi de 9h à 18h.",
 
-  adress: "10 Lann Vras, 56400 Plumergat",
+  address: "10 Lann Vras, 56400 Plumergat",
   spot_type: "Pensions",
   pension_walks: true
 
