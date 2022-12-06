@@ -68,12 +68,6 @@
     <% end %>
   </div>
 
-  <h5>Partir en balade</h5>
-  <%= simple_form_for [@spot, @walk] do |f| %>
-    <%= f.input :date, as: :date, html5: true %>
-    <%= f.submit "On y va !", class: "btn btn-primary" %>
-  <% end %>
-
   <div class="spot-reviews">
     <h5>Avis</h5>
     <% @spot.reviews.each do |review| %>
