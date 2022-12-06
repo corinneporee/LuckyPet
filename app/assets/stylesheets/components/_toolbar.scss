@@ -12,13 +12,18 @@
   padding: 7px 30px 7px 30px;
   position: sticky;
   bottom: 3%;
-  left: 10%;
+  left: calc(50% - 150px);
 }
 
 .toolbar-luckypet a {
   color: $black500;
   text-decoration: none;
   font-family: "Quicksand";
+
+  &:hover {
+    box-shadow: none;
+    color:$principal;
+  }
 }
 
 .icone_1 {
@@ -61,19 +66,16 @@
 .toolbar-luckypet .icone_1:hover {
   color: $principal;
   text-decoration: none;
-  box-shadow: 2px 2px 0px $black;
 }
 
 .toolbar-luckypet .icone_2:hover {
   color: $principal;
   text-decoration: none;
-  box-shadow: 2px 2px 0px $black;
 }
 
 .toolbar-luckypet .icone_3:hover {
   color: $principal;
   text-decoration: none;
-  box-shadow: 2px 2px 0px $black;
 }
 
 .icone_3 a {

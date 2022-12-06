@@ -107,6 +107,8 @@ a:hover {
   border-radius: 3px;
   transition: .3s;
   padding: 4px;
+  text-decoration: none;
+  height: fit-content;
 }
 
 .btn-filter-active {
@@ -117,6 +119,7 @@ a:hover {
   box-shadow: 2px 2px 0px $black;
   border-radius: 3px;
   transition: .3s;
+  margin-right: 4px;
   transform:translateX(2px) translateY(2px);
 }
 
