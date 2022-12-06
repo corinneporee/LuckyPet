@@ -1,7 +1,7 @@
 class WalksController < ApplicationController
 
   def index
-    @walks = current_user.dog.invitations_and_walks
+    @walks = current_user.dog.walks.order(date: :desc)
   end
 
   def show
@@ -33,7 +33,7 @@ class WalksController < ApplicationController
     if @walk.valid? && @invit.valid?
       @walk.save
       @invit.save
-      redirect_to walks_path(@walk), notice: "Balade créée !"
+      redirect_to walk_path(@walk), notice: "Balade créée !"
     else
       render "spots/show", status: :unprocessable_entity
     end
