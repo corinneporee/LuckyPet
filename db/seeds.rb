@@ -14,7 +14,6 @@ Walk.destroy_all
 Review.destroy_all
 User.destroy_all
 
-
 puts 'Creating users...'
 aurelie = User.new(first_name: "Aurélie", last_name: "Becques", email: "aurelie@me.com", password: "123456")
 aurelie.save!
@@ -24,6 +23,22 @@ steven = User.new(first_name: "Steven", last_name: "Dorion", email: "steven@me.c
 steven.save!
 corinne = User.new(first_name: "Corinne", last_name: "Poree", email: "corinne@me.com", password: "123456")
 corinne.save!
+clement = User.new(first_name: "Clément", last_name: "Cordeiro", email: "clement@me.com", password:"123456")
+clement.save!
+olivier = User.new(first_name: "Olivier", last_name: "Kermoal", email: "olivier@me.com", password:"123456")
+olivier.save!
+gwendal = User.new(first_name: "Gwendal", last_name: "Le Bris", email: "gwendal@me.com", password:"123456")
+gwendal.save!
+quentin = User.new(first_name: "Quentin", last_name: "Orhant", email: "quentin@me.com", password:"123456")
+quentin.save!
+gaetan = User.new(first_name: "Gaetan", last_name: "Renault", email: "gaetan@me.com", password:"123456")
+gaetan.save!
+matthieu = User.new(first_name: "Matthieu", last_name: "Nourry", email: "matthieu@me.com", password:"123456")
+matthieu.save!
+lomig = User.new(first_name: "Lomig", last_name: "Enfroy", email: "lomig@me.com", password:"123456")
+lomig.save!
+guillaume = User.new(first_name: "Guillaume", last_name: "Messieux", email: "guillaume@me.com", password:"123456")
+guillaume.save!
 
 puts 'Creating dogs..'
 file = File.open("db/fixtures/images/maika_croise.jpeg")
@@ -82,6 +97,118 @@ dog_turbo = Dog.new(name: "Turbo",
 dog_turbo.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 dog_turbo.save!
 
+file = File.open("db/fixtures/images/colonel_border_terrier.jpg")
+dog_colonel = Dog.new(name: "Colonel",
+  breed: "Border Terrier",
+  weight: 6.3,
+  date_of_birth: Date.new(2020, 12, 19),
+  personality: "J'ai mes têtes",
+  gender: "Male",
+  health: "Raplapla",
+  neutered: false,
+  user: matthieu
+)
+dog_colonel.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+dog_colonel.save!
+
+file = File.open("db/fixtures/images/norisk_husky.jpg")
+dog_norisk = Dog.new(name: "Norisk",
+  breed: "Husky de Sibérie",
+  weight: 35,
+  date_of_birth: Date.new(2018, 01, 9),
+  personality: "Carrément timide",
+  gender: "Femelle",
+  health: "Sous traitement",
+  neutered: true,
+  user: olivier
+)
+dog_norisk.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+dog_norisk.save!
+
+file = File.open("db/fixtures/images/hulk_chihuahua.jpg")
+dog_hulk = Dog.new(name: "Hulk",
+  breed: "Chihuahua",
+  weight: 2.5,
+  date_of_birth: Date.new(2015, 02, 28),
+  personality: "Faut pas me chercher",
+  gender: "Male",
+  health: "Sous traitement",
+  neutered: true,
+  user: gwendal
+)
+dog_hulk.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+dog_hulk.save!
+
+file = File.open("db/fixtures/images/sa_majesté_welsh.jpg")
+dog_sa_majeste = Dog.new(name: "Sa majesté",
+  breed: "Welsh Corgi",
+  weight: 12,
+  date_of_birth: Date.new(2019, 03, 25),
+  personality: "Sympa avec tout le monde",
+  gender: "Femelle",
+  health: "Je pète la forme",
+  neutered: true,
+  user: lomig
+)
+dog_sa_majeste.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+dog_sa_majeste.save!
+
+file = File.open("db/fixtures/images/sunny_cocker.jpg")
+dog_sunny = Dog.new(name: "Sunny",
+  breed: "Cocker Spaniel",
+  weight: 12,
+  date_of_birth: Date.new(2019, 10, 10),
+  personality: "Sympa avec tout le monde",
+  gender: "Femelle",
+  health: "Je pète la forme",
+  neutered: true,
+  user: clement
+)
+dog_sunny.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+dog_sunny.save!
+
+file = File.open("db/fixtures/images/pixel_ckc.jpg")
+dog_pixel = Dog.new(name: "Pixel",
+  breed: "Cavalier King Charles",
+  weight: 8.3,
+  date_of_birth: Date.new(2015, 10, 11),
+  personality: "Carrément timide",
+  gender: "Femelle",
+  health: "Je pète la forme",
+  neutered: true,
+  user: guillaume
+)
+dog_pixel.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+dog_pixel.save!
+
+file = File.open("db/fixtures/images/typhon_staff.jpg")
+dog_typhon = Dog.new(name: "Typhon",
+  breed: "American Staffordshire Terrier",
+  weight: 35.8,
+  date_of_birth: Date.new(2021, 8, 1),
+  personality: "Fou-fou",
+  gender: "Male",
+  health: "Je pète la forme",
+  neutered: true,
+  user: quentin
+)
+dog_typhon.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+dog_typhon.save!
+
+file = File.open("db/fixtures/images/rails_berger_allemand.jpg")
+dog_rails = Dog.new(name: "Rails",
+  breed: "Berger Allemand",
+  weight: 32,
+  date_of_birth: Date.new(2012, 6, 18),
+  personality: "J'ai mes têtes",
+  gender: "Male",
+  health: "Raplapla",
+  neutered: true,
+  user: gaetan
+)
+dog_rails.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+dog_rails.save!
+
 puts 'Creating spots..'
 
 file = File.open("db/fixtures/images/foret_pont_sal.jpg")
@@ -132,7 +259,7 @@ spot_ville.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_ville.save!
 sleep 1
 
-file = File.open("db/fixtures/images/shop_cereal.png")
+file = File.open("db/fixtures/images/shop_cereal.jpg")
 spot_shop_cereal = Spot.new(
   name: "J'ai plus de croquettes",
   user: steven,
@@ -141,7 +268,7 @@ spot_shop_cereal = Spot.new(
   address: "19 rue Claude de Bretagne, 56500 Locmine",
   spot_type: "Commerces"
 )
-spot_shop_cereal.photo.attach(io: file, filename: ".png", content_type: "image/png")
+spot_shop_cereal.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_shop_cereal.save!
 sleep 1
 
@@ -196,6 +323,22 @@ spot_vet_osteo = Spot.new(
 )
 spot_vet_osteo.photo.attach(io: file, filename: ".png", content_type: "image/png")
 spot_vet_osteo.save!
+sleep 1
+
+file = File.open("db/fixtures/images/vet_cas_referes.jpg")
+spot_vet_cas_referes = Spot.new(
+  name: "Clinique vétérinaire Benjamin Franklin",
+  user: aurelie,
+  description: "Tout vétérinaire qui le souhaite peut nous confier un animal de sa patientelle afin que nous puissions
+  intervenir en lui apportant notre aide technique et notre expérience. Notre activité exclusive en Chirurgie, en Imagerie,
+  en Médecine interne et Cancérologie, en Dermatologie. Nous ne recevons donc pas de consultation en direct,
+  de 2e avis, de consultation généraliste et nous ne vendons pas de médicaments ou d'aliments.",
+  adress: "38 rue du Danemark, 56400 AURAY",
+  spot_type: "Vétérinaires",
+  vet_specialty: "Cas référés"
+)
+spot_vet_cas_referes.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+spot_vet_cas_referes.save!
 sleep 1
 
 file = File.open("db/fixtures/images/pension_pro_bonheur.jpg")
@@ -289,14 +432,14 @@ sleep 1
 puts 'Walks'
 walk_1 = Walk.new(
   spot: spot_plage,
-  dog: dog_walter,
+  dog: dog_hector,
   date: Time.now
 )
 walk_1.save!
 
 walk_2 = Walk.new(
   spot: spot_foret,
-  dog: dog_walter,
+  dog: dog_hector,
   date: Time.now
 )
 walk_2.save!
@@ -318,38 +461,102 @@ invitation = Invitation.new(
 invitation.save!
 
 puts 'Reviews'
-review_shop_vrac = Review.new(
+review_shop_vrac_1 = Review.new(
   content: "C'est en plein centre ville! C'est très pratique,
   pas chère. C'est top",
   rating: 5,
   dog: dog_hector,
   spot: spot_shop_vrac
 )
-review_shop_vrac.save!
+review_shop_vrac_1.save!
 
-review_shop_cereal = Review.new(
+review_shop_vrac_2 = Review.new(
+  content: "Je ne connaissais pas c'est pas mal",
+  rating: 4,
+  dog: dog_walter,
+  spot: spot_shop_vrac
+)
+review_shop_vrac_2.save!
+
+review_shop_vrac_3 = Review.new(
+  content: "Y a pas de place pour se garer, la galère!",
+  rating: 1,
+  dog: dog_pixel,
+  spot: spot_shop_vrac
+)
+review_shop_vrac_3.save!
+
+review_shop_cereal_1 = Review.new(
   content: "Super croquette de très bonnes qualités à prix abordables. Je recommande",
-  rating: 3,
+  rating: 5,
   dog: dog_walter,
   spot: spot_shop_cereal
 )
-review_shop_cereal.save!
+review_shop_cereal_1.save!
 
-review_shop_insect = Review.new(
+review_shop_cereal_2 = Review.new(
+  content: "C'est pas mal en plus on peut se garer facilement",
+  rating: 4,
+  dog: dog_pixel,
+  spot: spot_shop_cereal
+)
+review_shop_cereal_2.save!
+
+review_shop_cereal_3 = Review.new(
+  content: "Les croquettes sont de bonnes qualité mais il n'y a pas beaucoup de choix.",
+  rating: 3,
+  dog: dog_turbo,
+  spot: spot_shop_cereal
+)
+review_shop_cereal_3.save!
+
+review_shop_insect_1 = Review.new(
   content: "Turbo n'a jamais voulu les manger. Je vais reprendre des croquettes plus classiques...",
   rating: 1,
   dog: dog_turbo,
   spot: spot_shop_insects
 )
-review_shop_insect.save!
+review_shop_insect_1.save!
 
-review_vet_general = Review.new(
+review_shop_insect_2 = Review.new(
+  content: "Surprenant, je ne m'y attendais pas",
+  rating: 3,
+  dog: dog_pixel,
+  spot: spot_shop_insects
+)
+review_shop_insect_2.save!
+
+review_shop_insect_3 = Review.new(
+  content: "Trop bien, et mon chien adore",
+  rating: 4,
+  dog: dog_walter,
+  spot: spot_shop_insects
+)
+review_shop_insect_3.save!
+
+review_vet_general_1 = Review.new(
   content: "Des professionnels qualifiés à l'écoute. Joignables facilement, prise de rdv rapide.",
   rating: 5,
   dog: dog_maika,
   spot: spot_vet_general
 )
-review_vet_general.save!
+review_vet_general_1.save!
+
+review_vet_general_2 = Review.new(
+  content: "Top! en plus ils font les urgences!",
+  rating: 5,
+  dog: dog_walter,
+  spot: spot_vet_general
+)
+review_vet_general_2.save!
+
+review_vet_general_3 = Review.new(
+  content: "Ils sont vraiment gentils, mais j'ai attendu un peu mon rdv!",
+  rating: 3,
+  dog: dog_pixel,
+  spot: spot_vet_general
+)
+review_vet_general_3.save!
 
 review_vet_osteo = Review.new(
   content: "Je recommande. Vétérinaire à l'écoute et agréable. Ma chienne remarche c'est un miracle!",
@@ -359,6 +566,46 @@ review_vet_osteo = Review.new(
 )
 review_vet_osteo.save!
 
+review_vet_osteo_1 = Review.new(
+  content: "Incroyable le travail que le Docteur fait. Je recommande",
+  rating: 5,
+  dog: dog_maika,
+  spot: spot_vet_general
+)
+review_vet_osteo_1.save!
+
+review_vet_osteo_2 = Review.new(
+  content: "J'y croyais pas trop, et franchement c'est miraculeux les effets sur mon chien",
+  rating: 4,
+  dog: dog_pixel,
+  spot: spot_vet_general
+)
+review_vet_osteo_2.save!
+
+review_vet_cas_referes_1 = Review.new(
+  content: "Très professionnel, c'est énorme comme structure!",
+  rating: 4,
+  dog: dog_maika,
+  spot: spot_vet_cas_referes
+)
+review_vet_cas_referes_1.save!
+
+review_vet_cas_referes_2 = Review.new(
+  content: "Affreux c'est une usine à gaz, mais il n'y a que des professionnels",
+  rating: 3,
+  dog: dog_pixel,
+  spot: spot_vet_cas_referes
+)
+review_vet_cas_referes_2.save!
+
+review_vet_cas_referes_3 = Review.new(
+  content: "Notre vétérinaire nous a envoyé là bas, ils sont vraiment compétents",
+  rating: 5,
+  dog: dog_hector,
+  spot: spot_vet_cas_referes
+)
+review_vet_cas_referes_3.save!
+
 review_pension_pro_bonheur = Review.new(
   content: "Très satisfait de l'accueil et de l'équipe. Je recommande.",
   rating: 5,
@@ -366,6 +613,22 @@ review_pension_pro_bonheur = Review.new(
   spot: spot_pension_pro_bonheur
 )
 review_pension_pro_bonheur.save!
+
+review_pension_pro_bonheur_1 = Review.new(
+  content: "Tout s'est bien passé pendant nos vacances.",
+  rating: 4,
+  dog: dog_typhon,
+  spot: spot_pension_pro_bonheur
+)
+review_pension_pro_bonheur_1.save!
+
+review_pension_pro_bonheur_2 = Review.new(
+  content: "Bof, mais j'ai connu pire",
+  rating: 2,
+  dog: dog_pixel,
+  spot: spot_pension_pro_bonheur
+)
+review_pension_pro_bonheur_2.save!
 
 review_pension_pro_fox = Review.new(
   content: "A fuir. Les personnes ne sont pas du tout professionnelles.",
@@ -383,6 +646,22 @@ review_pension_particulier_linette = Review.new(
 )
 review_pension_particulier_linette.save!
 
+review_pension_particulier_linette_1 = Review.new(
+  content: "Notre chien n'a pas été sorti du séjour, alors que c'était écrit qu'ils sortent",
+  rating: 1,
+  dog: dog_pixel,
+  spot: spot_pension_linette
+)
+review_pension_particulier_linette_1.save!
+
+review_pension_particulier_linette_2 = Review.new(
+  content: "Je n'ai pas aimé, mon chien était tout triste",
+  rating: 2,
+  dog: dog_pixel,
+  spot: spot_pension_linette
+)
+review_pension_particulier_linette_2.save!
+
 review_grooming_happy = Review.new(
   content: "Très mal fait! l'épilation pour mon teckel était complètement raté.",
   rating: 1,
@@ -391,21 +670,75 @@ review_grooming_happy = Review.new(
 )
 review_grooming_happy.save!
 
+review_grooming_happy_1 = Review.new(
+  content: "Top tout s'est bien passé.",
+  rating: 4,
+  dog: dog_maika,
+  spot: spot_grooming_happy
+)
+review_grooming_happy_1.save!
+
+review_grooming_happy_2 = Review.new(
+  content: "Bien, notre chienne était belle.",
+  rating: 3,
+  dog: dog_pixel,
+  spot: spot_grooming_happy
+)
+review_grooming_happy_2.save!
+
+
 review_grooming_cani = Review.new(
-  content: "Très profesionnel, et sympa! Kiki ressort encore plus beau que d'habitude!",
+  content: "Très profesionnel, et sympa! Maika ressort encore plus belle que d'habitude!",
   rating: 5,
   dog: dog_maika,
   spot: spot_grooming_cani
 )
 review_grooming_cani.save!
 
+review_grooming_cani_1 = Review.new(
+  content: "Bonne première expérience",
+  rating: 5,
+  dog: dog_turbo,
+  spot: spot_grooming_cani
+)
+review_grooming_cani_1.save!
+
+review_grooming_cani_2 = Review.new(
+  content: "C'était pas mal",
+  rating: 4,
+  dog: dog_hector,
+  spot: spot_grooming_cani
+)
+review_grooming_cani_2.save!
+
+file = File.open("db/fixtures/images/Maika_spot_foret.jpeg")
 review_spot_foret = Review.new(
   content: "C'est super surtout pour les balades avec les copains",
   rating: 5,
   dog: dog_maika,
   spot: spot_foret
 )
+review_spot_foret.photo.attach(io: file, filename: ".jpeg", content_type: "image/jpeg")
 review_spot_foret.save!
+
+review_spot_foret_1 = Review.new(
+  content: "C'est toujours sympa les balades en nature",
+  rating: 5,
+  dog: dog_hector,
+  spot: spot_foret
+)
+review_spot_foret_1.save!
+
+file = File.open("db/fixtures/images/typhon_spot_foret.jpg")
+review_spot_foret_2 = Review.new(
+  content: "C'est top pour que notre chien se défoule",
+  rating: 5,
+  dog: dog_typhon,
+  spot: spot_foret
+)
+review_spot_foret_2.save!
+review_spot_foret_2.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+
 
 review_spot_plage = Review.new(
   content: "C'est cool d'avoir une plage où mon chien peut se baigner",
@@ -415,13 +748,33 @@ review_spot_plage = Review.new(
 )
 review_spot_plage.save!
 
-review_spot_ville = Review.new(
-  content: "C'est cool d'avoir une plage où mon chien peut se baigner",
+file = File.open("db/fixtures/images/pixel_spot_plage.jpg")
+review_spot_plage_1 = Review.new(
+  content: "Notre chienne adore cette plage",
   rating: 5,
+  dog: dog_pixel,
+  spot: spot_plage
+)
+review_spot_plage_1.save!
+review_spot_plage_1.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+
+review_spot_ville = Review.new(
+  content: "Pas beaucoup de possibilité de balades, mais ça va",
+  rating: 3,
   dog: dog_turbo,
   spot: spot_ville
 )
 review_spot_ville.save!
+
+file = File.open("db/fixtures/images/sunny_spot_ville.jpg")
+review_spot_ville_1 = Review.new(
+  content: "C'est pas facile de se balader dans cette ville",
+  rating: 2,
+  dog: dog_sunny,
+  spot: spot_ville
+)
+review_spot_ville_1.save!
+review_spot_ville_1.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 
 puts 'Friendships'
 friendship_dog_walter = Friendship.new(
@@ -437,3 +790,31 @@ friendship_dog_hector = Friendship.new(
   status: "pending"
 )
 friendship_dog_hector.save!
+
+friendship_dog_pixel = Friendship.new(
+  dog: dog_maika,
+  buddy: dog_pixel,
+  status: "pending"
+)
+friendship_dog_pixel.save!
+
+friendship_dog_turbo = Friendship.new(
+  dog: dog_maika,
+  buddy: dog_pixel,
+  status: "pending"
+)
+friendship_dog_turbo.save!
+
+friendship_dog_sunny = Friendship.new(
+  dog: dog_maika,
+  buddy: dog_sunny,
+  status: "pending"
+)
+friendship_dog_sunny.save!
+
+#reparler de friendship et du statut
+#mettre des photos videos
+
+# "Tic tac c'est l'heure de la promenade !"
+# "N'oublie pas le comprimé de Maika !"
+# "Tadam! Aujourd'hui Maika va chez le toiletteur!"
