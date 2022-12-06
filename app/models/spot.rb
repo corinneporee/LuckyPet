@@ -3,7 +3,7 @@ class Spot < ApplicationRecord
   WALK_ENVIRONMENTS = ["Forêt", "Plage", "Ville"]
   WALK_AREA = ["Petite", "Moyenne", "Grands"]
   WALK_ATTENDANCE = ["Faible", "Moyenne", "Forte"]
-  VET_SPECIALTIES = ["Généraliste", "Ostéopathe"]
+  VET_SPECIALTIES = ["Généraliste", "Ostéopathe", "Cas référés"]
 
 
 

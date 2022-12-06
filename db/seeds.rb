@@ -325,6 +325,22 @@ spot_vet_osteo.photo.attach(io: file, filename: ".png", content_type: "image/png
 spot_vet_osteo.save!
 sleep 1
 
+file = File.open("db/fixtures/images/vet_cas_referes.png")
+spot_vet_cas_referes = Spot.new(
+  name: "Clinique vétérinaire Benjamin Franklin",
+  user: aurelie,
+  description: "Tout vétérinaire qui le souhaite peut nous confier un animal de sa patientelle afin que nous puissions
+  intervenir en lui apportant notre aide technique et notre expérience. Notre activité exclusive en Chirurgie, en Imagerie,
+  en Médecine interne et Cancérologie, en Dermatologie. Nous ne recevons donc pas de consultation en direct,
+  de 2e avis, de consultation généraliste et nous ne vendons pas de médicaments ou d'aliments.",
+  adress: "38 rue du Danemark, 56400 AURAY",
+  spot_type: "Vétérinaires",
+  vet_specialty: "Cas référés"
+)
+spot_vet_cas_referes.photo.attach(io: file, filename: ".png", content_type: "image/png")
+spot_vet_cas_referes.save!
+sleep 1
+
 file = File.open("db/fixtures/images/pension_pro_bonheur.jpg")
 spot_pension_pro_bonheur = Spot.new(
   name: "Le Bonheur des 4 pattes",
@@ -412,14 +428,14 @@ sleep 1
 puts 'Walks'
 walk_1 = Walk.new(
   spot: spot_plage,
-  dog: dog_walter,
+  dog: dog_hector,
   date: Time.now
 )
 walk_1.save!
 
 walk_2 = Walk.new(
   spot: spot_foret,
-  dog: dog_walter,
+  dog: dog_hector,
   date: Time.now
 )
 walk_2.save!
@@ -441,38 +457,102 @@ invitation = Invitation.new(
 invitation.save!
 
 puts 'Reviews'
-review_shop_vrac = Review.new(
+review_shop_vrac_1 = Review.new(
   content: "C'est en plein centre ville! C'est très pratique,
   pas chère. C'est top",
   rating: 5,
   dog: dog_hector,
   spot: spot_shop_vrac
 )
-review_shop_vrac.save!
+review_shop_vrac_1.save!
 
-review_shop_cereal = Review.new(
+review_shop_vrac_2 = Review.new(
+  content: "Je ne connaissais pas c'est pas mal",
+  rating: 4,
+  dog: dog_walter,
+  spot: spot_shop_vrac
+)
+review_shop_vrac_2.save!
+
+review_shop_vrac_3 = Review.new(
+  content: "Y a pas de place pour se garer, la galère!",
+  rating: 1,
+  dog: dog_pixel,
+  spot: spot_shop_vrac
+)
+review_shop_vrac_3.save!
+
+review_shop_cereal_1 = Review.new(
   content: "Super croquette de très bonnes qualités à prix abordables. Je recommande",
-  rating: 3,
+  rating: 5,
   dog: dog_walter,
   spot: spot_shop_cereal
 )
-review_shop_cereal.save!
+review_shop_cereal_1.save!
 
-review_shop_insect = Review.new(
+review_shop_cereal_2 = Review.new(
+  content: "C'est pas mal en plus on peut se garer facilement",
+  rating: 4,
+  dog: dog_pixel,
+  spot: spot_shop_cereal
+)
+review_shop_cereal_2.save!
+
+review_shop_cereal_3 = Review.new(
+  content: "Les croquettes sont de bonnes qualité mais il n'y a pas beaucoup de choix.",
+  rating: 3,
+  dog: dog_turbo,
+  spot: spot_shop_cereal
+)
+review_shop_cereal_3.save!
+
+review_shop_insect_1 = Review.new(
   content: "Turbo n'a jamais voulu les manger. Je vais reprendre des croquettes plus classiques...",
   rating: 1,
   dog: dog_turbo,
   spot: spot_shop_insects
 )
-review_shop_insect.save!
+review_shop_insect_1.save!
 
-review_vet_general = Review.new(
+review_shop_insect_2 = Review.new(
+  content: "Surprenant, je ne m'y attendais pas",
+  rating: 3,
+  dog: dog_pixel,
+  spot: spot_shop_insects
+)
+review_shop_insect_2.save!
+
+review_shop_insect_3 = Review.new(
+  content: "Trop bien, et mon chien adore",
+  rating: 4,
+  dog: dog_walter,
+  spot: spot_shop_insects
+)
+review_shop_insect_3.save!
+
+review_vet_general_1 = Review.new(
   content: "Des professionnels qualifiés à l'écoute. Joignables facilement, prise de rdv rapide.",
   rating: 5,
   dog: dog_maika,
   spot: spot_vet_general
 )
-review_vet_general.save!
+review_vet_general_1.save!
+
+review_vet_general_2 = Review.new(
+  content: "Top! en plus ils font les urgences!",
+  rating: 5,
+  dog: dog_walter,
+  spot: spot_vet_general
+)
+review_vet_general_2.save!
+
+review_vet_general_3 = Review.new(
+  content: "Ils sont vraiment gentils, mais j'ai attendu un peu mon rdv!",
+  rating: 3,
+  dog: dog_pixel,
+  spot: spot_vet_general
+)
+review_vet_general_3.save!
 
 review_vet_osteo = Review.new(
   content: "Je recommande. Vétérinaire à l'écoute et agréable. Ma chienne remarche c'est un miracle!",
@@ -482,6 +562,46 @@ review_vet_osteo = Review.new(
 )
 review_vet_osteo.save!
 
+review_vet_osteo_1 = Review.new(
+  content: "Incroyable le travail que le Docteur fait. Je recommande",
+  rating: 5,
+  dog: dog_maika,
+  spot: spot_vet_general
+)
+review_vet_osteo_1.save!
+
+review_vet_osteo_2 = Review.new(
+  content: "J'y croyais pas trop, et franchement c'est miraculeux les effets sur mon chien",
+  rating: 4,
+  dog: dog_pixel,
+  spot: spot_vet_general
+)
+review_vet_osteo_2.save!
+
+review_vet_cas_referes_1 = Review.new(
+  content: "Très professionnel, c'est énorme comme structure!",
+  rating: 4,
+  dog: dog_maika,
+  spot: spot_vet_cas_referes
+)
+review_vet_cas_referes_1.save!
+
+review_vet_cas_referes_2 = Review.new(
+  content: "Affreux c'est une usine à gaz, mais il n'y a que des professionnels",
+  rating: 3,
+  dog: dog_pixel,
+  spot: spot_vet_cas_referes
+)
+review_vet_cas_referes_2.save!
+
+review_vet_cas_referes_3 = Review.new(
+  content: "Notre vétérinaire nous a envoyé là bas, ils sont vraiment compétents",
+  rating: 5,
+  dog: dog_hectore,
+  spot: spot_vet_cas_referes
+)
+review_vet_cas_referes_3.save!
+
 review_pension_pro_bonheur = Review.new(
   content: "Très satisfait de l'accueil et de l'équipe. Je recommande.",
   rating: 5,
@@ -489,6 +609,22 @@ review_pension_pro_bonheur = Review.new(
   spot: spot_pension_pro_bonheur
 )
 review_pension_pro_bonheur.save!
+
+review_pension_pro_bonheur_1 = Review.new(
+  content: "Tout s'est bien passé pendant nos vacances.",
+  rating: 4,
+  dog: dog_,
+  spot: spot_pension_pro_bonheur
+)
+review_pension_pro_bonheur_1.save!
+
+review_pension_pro_bonheur_2 = Review.new(
+  content: "Bof, mais j'ai connu pire",
+  rating: 2,
+  dog: dog_,
+  spot: spot_pension_pro_bonheur
+)
+review_pension_pro_bonheur_2.save!
 
 review_pension_pro_fox = Review.new(
   content: "A fuir. Les personnes ne sont pas du tout professionnelles.",
@@ -506,6 +642,22 @@ review_pension_particulier_linette = Review.new(
 )
 review_pension_particulier_linette.save!
 
+review_pension_particulier_linette_1 = Review.new(
+  content: "Notre chien n'a pas été sorti du séjour, alors que c'était écrit qu'ils sortent",
+  rating: 1,
+  dog: dog_pixel,
+  spot: spot_pension_linette
+)
+review_pension_particulier_linette_1.save!
+
+review_pension_particulier_linette_2 = Review.new(
+  content: "Je n'ai pas aimé, mon chien était tout triste",
+  rating: 2,
+  dog: dog_pixel,
+  spot: spot_pension_linette
+)
+review_pension_particulier_linette_2.save!
+
 review_grooming_happy = Review.new(
   content: "Très mal fait! l'épilation pour mon teckel était complètement raté.",
   rating: 1,
@@ -514,13 +666,46 @@ review_grooming_happy = Review.new(
 )
 review_grooming_happy.save!
 
+review_grooming_happy_1 = Review.new(
+  content: "Top tout s'est bien passé.",
+  rating: 4,
+  dog: dog_maika,
+  spot: spot_grooming_happy
+)
+review_grooming_happy_1.save!
+
+review_grooming_happy_2 = Review.new(
+  content: "Bien, notre chienne était belle.",
+  rating: 3,
+  dog: dog_pixel,
+  spot: spot_grooming_happy
+)
+review_grooming_happy_2.save!
+
+
 review_grooming_cani = Review.new(
-  content: "Très profesionnel, et sympa! Kiki ressort encore plus beau que d'habitude!",
+  content: "Très profesionnel, et sympa! Maika ressort encore plus belle que d'habitude!",
   rating: 5,
   dog: dog_maika,
   spot: spot_grooming_cani
 )
 review_grooming_cani.save!
+
+review_grooming_cani_1 = Review.new(
+  content: "Bonne première expérience",
+  rating: 5,
+  dog: dog_turbo,
+  spot: spot_grooming_cani
+)
+review_grooming_cani_1.save!
+
+review_grooming_cani_2 = Review.new(
+  content: "C'était pas mal",
+  rating: 4,
+  dog: dog_hector,
+  spot: spot_grooming_cani
+)
+review_grooming_cani_2.save!
 
 review_spot_foret = Review.new(
   content: "C'est super surtout pour les balades avec les copains",
@@ -560,3 +745,28 @@ friendship_dog_hector = Friendship.new(
   status: "pending"
 )
 friendship_dog_hector.save!
+
+friendship_dog_pixel = Friendship.new(
+  dog: dog_maika,
+  buddy: dog_pixel,
+  status: "pending"
+)
+friendship_dog_pixel.save!
+
+friendship_dog_turbo = Friendship.new(
+  dog: dog_maika,
+  buddy: dog_pixel,
+  status: "pending"
+)
+friendship_dog_turbo.save!
+
+friendship_dog_sunny = Friendship.new(
+  dog: dog_maika,
+  buddy: dog_sunny,
+  status: "pending"
+)
+friendship_dog_sunny.save!
+
+# "Tic tac c'est l'heure de la promenade !"
+# "N'oublie pas le comprimé de Maika !"
+# "Tadam! Aujourd'hui Maika va chez le toiletteur!"
