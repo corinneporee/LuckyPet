@@ -2,6 +2,8 @@
   <h1>Mon chien</h1>
 <% end %>
 
+<%= cl_image_tag @dog.photo.key, height: 300, width: 400, crop: :fill %>
+
 <% if current_user.dog.friend_with?(@dog) %>
   <p><%= current_user.dog.name %> est ami(e) avec <%= @dog.name %> !</p>
 <% end %>
@@ -12,7 +14,6 @@
 <h2><%= @dog.gender %></h2>
 <h2><%= @dog.health %></h2>
 <h2>stérilisation?<%= @dog.neutered %></h2>
-
 <% unless current_user.dog.friend_with?(@dog) || current_user.dog == @dog  %>
   <%= link_to "Ajouter comme ami", dog_friendships_path(@dog), data: { turbo_method: :post }, class: "btn btn-primary" %>
 <% end %>

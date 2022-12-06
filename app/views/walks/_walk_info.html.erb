@@ -1,0 +1,13 @@
+<div class="card-reservation">
+  <div class="p-0 h-100">
+    <%= cl_image_tag walk.spot.photo.key, crop: :fill, width: 300 %>
+  </div>
+  <div class="card-reservation-infos">
+    <div>
+      <h2><%= walk.spot.name.capitalize %></h2>
+      <div class="date-walk">
+        <p><i class="fa-solid fa-calendar-days p-1"></i> Date de la balade : <%= walk.date.strftime("%d/%m/%Y") %> </p>
+      </div>
+    </div>
+  </div>
+</div>

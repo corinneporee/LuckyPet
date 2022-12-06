@@ -1,7 +1,9 @@
 class Dog < ApplicationRecord
   PERSONALITY = ["Sympa avec tout le monde", "Carrément timide", "J'ai mes têtes", "Faut pas me chercher", "Fou-fou"]
+
   BREEDS = ["Croisé", "Teckel", "Golden Retriever", "Berger Australien", "Border Terrier",
             "Husky de Sibérie", "Cavalier King Charles", "Welsh Corgi", "Cocker Spaniel", "American Staffordshire Terrier", "Chihuahua", "Berger Allemand"]
+
   HEALTH = ["Je pète la forme", "Raplapla", "Sous traitement"]
   SEX = ["Female", "Male"]
 
@@ -51,6 +53,11 @@ class Dog < ApplicationRecord
 
   def friend_with?(dog)
     friends.include?(dog)
+  end
+
+  def invitations_and_walks
+    invitations_and_walks = self.invitations + self.walks
+    return invitations_and_walks.sort! { |a, b| a.created_at <=> b.created_at }
   end
 end
 
