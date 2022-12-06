@@ -1,0 +1,26 @@
+.home-info {
+  padding: 40px;
+  padding-top: 158px;
+}
+
+.home-info h1 {
+  font-size: 36px;
+}
+
+.home-container {
+  height:100vh;
+  background-color: $principal;
+  width: 100%;
+}
+
+.home-info-second {
+  color: $second;
+}
+
+.home-log {
+  text-align: center;
+}
+
+.chien-mascotte-home {
+  object-position: left bottom;
+}
