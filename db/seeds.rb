@@ -259,7 +259,7 @@ spot_ville.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_ville.save!
 sleep 1
 
-file = File.open("db/fixtures/images/shop_cereal.png")
+file = File.open("db/fixtures/images/shop_cereal.jpg")
 spot_shop_cereal = Spot.new(
   name: "J'ai plus de croquettes",
   user: steven,
@@ -268,7 +268,7 @@ spot_shop_cereal = Spot.new(
   adress: "19 rue Claude de Bretagne, 56500 Locmine",
   spot_type: "Commerces"
 )
-spot_shop_cereal.photo.attach(io: file, filename: ".png", content_type: "image/png")
+spot_shop_cereal.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_shop_cereal.save!
 sleep 1
 
@@ -325,7 +325,7 @@ spot_vet_osteo.photo.attach(io: file, filename: ".png", content_type: "image/png
 spot_vet_osteo.save!
 sleep 1
 
-file = File.open("db/fixtures/images/vet_cas_referes.png")
+file = File.open("db/fixtures/images/vet_cas_referes.jpg")
 spot_vet_cas_referes = Spot.new(
   name: "Clinique vétérinaire Benjamin Franklin",
   user: aurelie,
@@ -337,7 +337,7 @@ spot_vet_cas_referes = Spot.new(
   spot_type: "Vétérinaires",
   vet_specialty: "Cas référés"
 )
-spot_vet_cas_referes.photo.attach(io: file, filename: ".png", content_type: "image/png")
+spot_vet_cas_referes.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_vet_cas_referes.save!
 sleep 1
 
@@ -597,7 +597,7 @@ review_vet_cas_referes_2.save!
 review_vet_cas_referes_3 = Review.new(
   content: "Notre vétérinaire nous a envoyé là bas, ils sont vraiment compétents",
   rating: 5,
-  dog: dog_hectore,
+  dog: dog_hector,
   spot: spot_vet_cas_referes
 )
 review_vet_cas_referes_3.save!
@@ -613,7 +613,7 @@ review_pension_pro_bonheur.save!
 review_pension_pro_bonheur_1 = Review.new(
   content: "Tout s'est bien passé pendant nos vacances.",
   rating: 4,
-  dog: dog_,
+  dog: dog_typhon,
   spot: spot_pension_pro_bonheur
 )
 review_pension_pro_bonheur_1.save!
@@ -621,7 +621,7 @@ review_pension_pro_bonheur_1.save!
 review_pension_pro_bonheur_2 = Review.new(
   content: "Bof, mais j'ai connu pire",
   rating: 2,
-  dog: dog_,
+  dog: dog_pixel,
   spot: spot_pension_pro_bonheur
 )
 review_pension_pro_bonheur_2.save!
@@ -707,13 +707,34 @@ review_grooming_cani_2 = Review.new(
 )
 review_grooming_cani_2.save!
 
+file = File.open("db/fixtures/images/Maika_spot_foret.jpeg")
 review_spot_foret = Review.new(
   content: "C'est super surtout pour les balades avec les copains",
   rating: 5,
   dog: dog_maika,
   spot: spot_foret
 )
+review_spot_foret.photo.attach(io: file, filename: ".jpeg", content_type: "image/jpeg")
 review_spot_foret.save!
+
+review_spot_foret_1 = Review.new(
+  content: "C'est toujours sympa les balades en nature",
+  rating: 5,
+  dog: dog_hector,
+  spot: spot_foret
+)
+review_spot_foret_1.save!
+
+file = File.open("db/fixtures/images/typhon_spot_foret.jpg")
+review_spot_foret_2 = Review.new(
+  content: "C'est top pour que notre chien se défoule",
+  rating: 5,
+  dog: dog_typhon,
+  spot: spot_foret
+)
+review_spot_foret_2.save!
+review_spot_foret_2.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+
 
 review_spot_plage = Review.new(
   content: "C'est cool d'avoir une plage où mon chien peut se baigner",
@@ -723,13 +744,33 @@ review_spot_plage = Review.new(
 )
 review_spot_plage.save!
 
-review_spot_ville = Review.new(
-  content: "C'est cool d'avoir une plage où mon chien peut se baigner",
+file = File.open("db/fixtures/images/pixel_spot_plage.jpg")
+review_spot_plage_1 = Review.new(
+  content: "Notre chienne adore cette plage",
   rating: 5,
+  dog: dog_pixel,
+  spot: spot_plage
+)
+review_spot_plage_1.save!
+review_spot_plage_1.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+
+review_spot_ville = Review.new(
+  content: "Pas beaucoup de possibilité de balades, mais ça va",
+  rating: 3,
   dog: dog_turbo,
   spot: spot_ville
 )
 review_spot_ville.save!
+
+file = File.open("db/fixtures/images/sunny_spot_ville.jpg")
+review_spot_ville_1 = Review.new(
+  content: "C'est pas facile de se balader dans cette ville",
+  rating: 2,
+  dog: dog_sunny,
+  spot: spot_ville
+)
+review_spot_ville_1.save!
+review_spot_ville_1.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 
 puts 'Friendships'
 friendship_dog_walter = Friendship.new(
@@ -766,6 +807,9 @@ friendship_dog_sunny = Friendship.new(
   status: "pending"
 )
 friendship_dog_sunny.save!
+
+#reparler de friendship et du statut
+#mettre des photos videos
 
 # "Tic tac c'est l'heure de la promenade !"
 # "N'oublie pas le comprimé de Maika !"
