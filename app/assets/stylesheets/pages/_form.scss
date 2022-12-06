@@ -3,13 +3,9 @@ abbr {
 }
 
 .health-wrapper {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.health-item {
-  flex: 0 0 30%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:16px;
 }
 
 .health-selector {
@@ -17,9 +13,66 @@ abbr {
   transform: scale(0);
 }
 
+.collection_radio_buttons {
+  background-size:50%;
+  background-position: center 40px;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  font-weight:700;
+  padding: 8px;
+  aspect-ratio: 1 / 1;
+}
 
 #dog_personality_sympa_avec_tout_le_monde + label {
   background-image: asset-url('form-icons/sympa.svg');
+}
+
+#dog_personality_carrément_timide + label {
+  background-image: asset-url('form-icons/timide.svg');
+}
+
+#dog_personality_jai_mes_têtes + label {
+  background-image: asset-url('form-icons/jai-tetes.svg');
+}
+
+#dog_personality_faut_pas_me_chercher + label {
+  background-image: asset-url('form-icons/faut-pas-chercher.svg');
+}
+
+#dog_personality_fou-fou + label {
+  background-image: asset-url('form-icons/foufou.svg');
+}
+
+#dog_gender_female + label {
+  background-image: asset-url('form-icons/female.svg');
+}
+#dog_gender_male + label {
+  background-image: asset-url('form-icons/male.svg');
+}
+
+#dog_health_je_pète_la_forme + label {
+  background-image: asset-url('form-icons/pete-forme.svg');
+}
+
+#dog_health_raplapla + label {
+  background-image: asset-url('form-icons/raplapla.svg');
+}
+
+#dog_health_sous_traitement + label {
+  background-image: asset-url('form-icons/pets-hospital.svg');
+}
+
+
+
+
+.radio_buttons:checked + label {
+  background:$second;
+  background-size:50%;
+  background-position: center 40px;
+  background-repeat: no-repeat;
+  box-shadow: $custom-shadow;
+  transform:rotate(3deg)
 }
 /*
 
