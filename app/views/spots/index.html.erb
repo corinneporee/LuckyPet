@@ -9,6 +9,7 @@
        data-controller="map"
        data-map-markers-value="<%= @markers.to_json %>"
        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 
   <h3 class="text-bold">Tous les spots</h3>
   <div class="filters">
@@ -16,8 +17,8 @@
     <% Spot::SPOT_TYPES.each do |filter| %>
       <div class="btn-filter"><%= filter %></div>
     <% end %>
-
   </div>
+
   <% @spots.each do |spot| %>
     <%= link_to spot_path(spot), :"data-aos" => "fade-up", class: "card-spot" do %>
       <div class="card-spot-img">

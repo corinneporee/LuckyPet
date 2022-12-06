@@ -1,6 +1,5 @@
 class WalksController < ApplicationController
 
-
   def index
     @walks = current_user.dog.invitations_and_walks
   end
@@ -21,11 +20,19 @@ class WalksController < ApplicationController
   def create
     @spot = Spot.find(params[:spot_id])
 
-    @walk = Walk.new(walk_params)
+    @walk = Walk.new(date: walk_params[:date])
     @walk.spot = @spot
     @walk.dog = current_user.dog
 
-    if @walk.save
+    invited_dog = Dog.find(walk_params[:invitations_attributes]["0".to_sym][:dog_id])
+    @invit = Invitation.new(message: walk_params[:invitations_attributes]["0".to_sym][:message])
+    @invit.walk = @walk
+    @invit.dog = invited_dog
+
+
+    if @walk.valid? && @invit.valid?
+      @walk.save
+      @invit.save
       redirect_to walks_path(@walk), notice: "Balade créée !"
     else
       render "spots/show", status: :unprocessable_entity
