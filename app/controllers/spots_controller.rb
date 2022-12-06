@@ -1,6 +1,11 @@
 class SpotsController < ApplicationController
   def index
-    @spots = Spot.all
+    if params[:spots_type].blank?
+      @spots = Spot.all
+    else
+      @spots = Spot.where(spot_type: params[:spots_type].capitalize)
+    end
+
     @markers = @spots.geocoded.map do |spot|
       {
         lat: spot.latitude,

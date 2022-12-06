@@ -1,16 +1,18 @@
 .spot-wrapper {
   position:relative;
+  overflow:hidden;
 }
 
 .chien-mascotte {
   position:absolute;
-  bottom: -55px;
+  bottom: 15px;
   right: -40px;
+  animation: breatheDog 1s infinite alternate-reverse;
 }
 
 
 .spot-image {
-  width:101%;
+  width:100%;
   object-fit: cover;
 }
 
@@ -45,5 +47,15 @@
     transform: rotate(-3deg);
     border-radius: 8px;
     box-shadow: $custom-shadow;
+  }
+}
+
+@keyframes breatheDog {
+  0% {
+    transform:scale(0.9);
+  }
+
+  100% {
+    transform:scale(1);
   }
 }
