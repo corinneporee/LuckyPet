@@ -16,6 +16,7 @@ a:hover {
   text-transform: uppercase;
   color: $black;
   transition: .3s;
+  display: block;
 }
 
 .btn-primary:hover {
@@ -50,7 +51,7 @@ a:hover {
   transform:translateX(2px) translateY(2px);
 }
 
-.btn-square {
+.btn-square, .collection_radio_buttons {
   border: 1px solid $black;
   background-color: $principal;
   font-family: 'Quicksand';
@@ -71,7 +72,7 @@ a:hover {
   background-color: $principal;
 }
 
-.btn-square:active {
+.btn-square-active {
   background-color: $second;
   box-shadow: 2px 2px 0px $black;
   transition: .3s;
@@ -107,6 +108,8 @@ a:hover {
   border-radius: 3px;
   transition: .3s;
   padding: 4px;
+  text-decoration: none;
+  height: fit-content;
 }
 
 .btn-filter-active {
@@ -117,6 +120,7 @@ a:hover {
   box-shadow: 2px 2px 0px $black;
   border-radius: 3px;
   transition: .3s;
+  margin-right: 4px;
   transform:translateX(2px) translateY(2px);
 }
 

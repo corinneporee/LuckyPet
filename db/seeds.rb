@@ -333,7 +333,7 @@ spot_vet_cas_referes = Spot.new(
   intervenir en lui apportant notre aide technique et notre expérience. Notre activité exclusive en Chirurgie, en Imagerie,
   en Médecine interne et Cancérologie, en Dermatologie. Nous ne recevons donc pas de consultation en direct,
   de 2e avis, de consultation généraliste et nous ne vendons pas de médicaments ou d'aliments.",
-  adress: "38 rue du Danemark, 56400 AURAY",
+  address: "38 rue du Danemark, 56400 AURAY",
   spot_type: "Vétérinaires",
   vet_specialty: "Cas référés"
 )
@@ -800,7 +800,7 @@ friendship_dog_pixel.save!
 
 friendship_dog_turbo = Friendship.new(
   dog: dog_maika,
-  buddy: dog_pixel,
+  buddy: dog_typhon,
   status: "pending"
 )
 friendship_dog_turbo.save!

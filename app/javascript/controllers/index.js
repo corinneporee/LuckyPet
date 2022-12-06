@@ -14,4 +14,3 @@ application.register("map", MapController)
 
 import FormController from "./form_controller"
 application.register("form", FormController)
-

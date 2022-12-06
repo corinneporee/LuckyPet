@@ -6,7 +6,7 @@
   <%= image_tag 'chien-mascotte.svg', class:"chien-mascotte", style:"transform:rotate(#{rand(1..360)}deg);" %>
   <%= cl_image_tag @spot.photo.key, crop: :fill, height: 320, class:"spot-image" %>
 </div>
-<div class="spot">
+<div class="spot mb-5">
   <div class="card-spot-info">
     <div class="card-spot-rating">
       <% @spot.rating.floor.times do %>
