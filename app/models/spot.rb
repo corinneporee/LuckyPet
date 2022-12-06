@@ -4,6 +4,9 @@ class Spot < ApplicationRecord
   WALK_AREA = ["Petite", "Moyenne", "Grands"]
   WALK_ATTENDANCE = ["Faible", "Moyenne", "Forte"]
 
+  VET_SPECIALTIES = ["Généraliste", "Ostéopathe", "Cas référés"]
+
+
   validates :walk_environment, inclusion: { in: WALK_ENVIRONMENTS, allow_blank: true }
   validates :walk_area, inclusion: { in: WALK_AREA, allow_blank: true }
   validates :walk_attendance, inclusion: { in: WALK_ATTENDANCE, allow_blank: true }
