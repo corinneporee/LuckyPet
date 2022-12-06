@@ -17,3 +17,4 @@
 <% unless current_user.dog.friend_with?(@dog) || current_user.dog == @dog  %>
   <%= link_to "Ajouter comme ami", dog_friendships_path(@dog), data: { turbo_method: :post }, class: "btn btn-primary" %>
 <% end %>
+<%= link_to "se deconnecter", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-primary" %>
