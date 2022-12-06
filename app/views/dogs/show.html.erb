@@ -1,20 +1,32 @@
 <% if current_user.dog == @dog %>
-  <h1>Mon chien</h1>
 <% end %>
+<div class="dog-profile bg-purple text-center py-4">
+  <%= cl_image_tag @dog.photo.key, crop: :fill, class:"avatar-large" %>
 
-<%= cl_image_tag @dog.photo.key, height: 300, width: 400, crop: :fill %>
+  <div class="dog-profile-main-infos">
+    <span class="overtitre text-yellow"><%= @dog.date_of_birth %></span>
+    <h2 class="m-0"><%= @dog.name.capitalize %></h2>
+    <span class="overtitre text-yellow"><%= @dog.breed %></span>
+  </div>
+</div>
 
-<% if current_user.dog.friend_with?(@dog) %>
-  <p><%= current_user.dog.name %> est ami(e) avec <%= @dog.name %> !</p>
-<% end %>
-
-<h2><%= @dog.name %></h2>
-<h2><%= @dog.breed %></h2>
-<h2><%= @dog.personality %></h2>
-<h2><%= @dog.gender %></h2>
-<h2><%= @dog.health %></h2>
-<h2>stérilisation?<%= @dog.neutered %></h2>
-<% unless current_user.dog.friend_with?(@dog) || current_user.dog == @dog  %>
-  <%= link_to "Ajouter comme ami", dog_friendships_path(@dog), data: { turbo_method: :post }, class: "btn btn-primary" %>
-<% end %>
-<%= link_to "se deconnecter", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-primary" %>
+<div class="dog-infos">
+  <div class="dog-infos-weight">
+    <div class="d-flex justify-content-between align-items-center">
+      <h3>Poids</h3>
+      <a href="" class="dog-weight">Changer le poids</a>
+    </div>
+    <p><%= @dog.weight %> kg</p>
+  </div>
+  <h2><%= @dog.personality %></h2>
+  <h2><%= @dog.gender %></h2>
+  <h2><%= @dog.health %></h2>
+  <% if current_user.dog.friend_with?(@dog) %>
+    <p><%= current_user.dog.name %> est ami(e) avec <%= @dog.name %> !</p>
+  <% end %>
+  <h2>stérilisation?<%= @dog.neutered %></h2>
+  <% unless current_user.dog.friend_with?(@dog) || current_user.dog == @dog  %>
+    <%= link_to "Ajouter comme ami", dog_friendships_path(@dog), data: { turbo_method: :post }, class: "btn btn-primary" %>
+  <% end %>
+  <%= link_to "se deconnecter", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-primary" %>
+  </div>

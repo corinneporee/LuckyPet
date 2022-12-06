@@ -1,0 +1,15 @@
+.dog-profile {
+  .avatar-large {
+    box-shadow: $custom-shadow;
+    border:2px solid $black;
+  }
+}
+
+.dog-infos {
+  padding:16px;
+}
+
+.dog-weight {
+  color: $principal-light;
+  text-decoration: none;
+}
