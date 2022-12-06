@@ -18,5 +18,10 @@
     display: flex;
     gap:8px;
     overflow: scroll;
+    height: 40px;
+
+    .btn-filter-active {
+      transform:translateX(2px) translateY(0px);
+    }
   }
 }
