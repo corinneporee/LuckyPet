@@ -1,12 +1,12 @@
 <div class="home-container">
   <div class="home-info">
-    <h1>tout pour le bien être de votre chien</h1>
-    <p>Lorem ipsum dolor sit amet consectetur. Laoreet volutpat ut nec ac leo risus proin euismod euismod. Vel aliquam blandit ultrices.</p>
+    <h1 class="text-center">TOUT POUR LE <div class="home-info-second">BIEN-ÊTRE</div> DE VOTRE CHIEN</h1>
+    <p>Un véto, une pension sympa, ou encore une balade entre pet friends, tout ce qu'il vous faut pour prendre soin de votre toutou, à côté de chez vous.</p>
   </div>
   <div class="home-log">
     <% if user_signed_in? %>
       <%= link_to "Créer le profil de mon chien", new_dog_path, class: "btn btn-primary" %>
-      <%= link_to "Voir tous les spots", spots_path, class: "btn btn-secondary" %>
+      <%= link_to "Voir tous les spots", spots_path, class: "btn btn-secondary mt-3" %>
     <% else %>
       <div class="log-in">
       <%= link_to "🐾 je me connecte", new_user_session_path, class: "btn btn-primary" %>
@@ -14,6 +14,12 @@
       <div class="sign-in">
         <%= link_to "je m'inscris", new_user_registration_path, class: "btn btn-secondary" %>
       </div>
+      <div class="sign_out">
+      <%= link_to "log out", destroy_user_session_path, class: "btn btn-secondary" %>
+      </div>
     <% end %>
+  </div>
+  <div class="chien-mascotte-home">
+  <%= image_tag 'chien-mascotte.svg'%>
   </div>
 </div>
