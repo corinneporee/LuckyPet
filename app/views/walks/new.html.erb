@@ -1,13 +1,18 @@
 <!-- >
 On remet le formulaire de création avec la date + demander un ami
 <! -->
-
-<h5>Partir en balade</h5>
-<%= simple_form_for @walk, url: spot_walks_path, method: :post do |f| %>
-  <%= f.input :date, as: :date, html5: true %>
-  <%= f.simple_fields_for :invitations do |i| %>
-    <%= i.select :dog_id, @friendships.map { |friendship| [friendship.buddy.name, friendship.buddy.id] }, include_blank: true %>
-    <%= i.input :message, html5: true %>
-  <% end %>
-  <%= f.submit "On y va !", class: "btn btn-primary" %>
-<% end %>
+<div class="container py-4 text-center bg-purple min-vh-100">
+  <h1>Partir en balade</h1>
+  <div class="text-start">
+    <%= simple_form_for @walk, url: spot_walks_path, method: :post do |f| %>
+      <%= f.input :date, as: :date, html5: true %>
+     <div id="walk-select" >
+      <%= f.simple_fields_for :invitations do |i| %>
+        <%= i.select :dog_id, @friendships.map { |friendship| [friendship.buddy.name, friendship.buddy.id] }, include_blank: true %>
+        <%= i.input :message, html5: true %>
+      <% end %>
+      </div>
+      <%= f.submit "On y va !", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
