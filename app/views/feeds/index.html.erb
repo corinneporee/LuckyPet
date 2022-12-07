@@ -33,7 +33,7 @@
     <%= link_to "On y va!", walk_path(invitation.walk) %>
     <% end %>
   </div>
-  <h6>Spots qui pourraient vous intéresser</h6>
+  <h4>Spots qui pourraient vous intéresser</h4>
   <% @spots.each do |spot| %>
       <%= link_to spot_path(spot), class: "card-spot" do %>
         <div class="card-spot-img">
