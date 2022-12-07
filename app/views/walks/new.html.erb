@@ -6,10 +6,12 @@ On remet le formulaire de création avec la date + demander un ami
   <div class="text-start">
     <%= simple_form_for @walk, url: spot_walks_path, method: :post do |f| %>
       <%= f.input :date, as: :date, html5: true %>
+     <div id="walk-select" >
       <%= f.simple_fields_for :invitations do |i| %>
-        <%= i.select :dog_id, @friendships.map { |friendship| [friendship.buddy.name, friendship.buddy.id] }, class:"form-select", include_blank: true %>
+        <%= i.select :dog_id, @friendships.map { |friendship| [friendship.buddy.name, friendship.buddy.id] }, include_blank: true %>
         <%= i.input :message, html5: true %>
       <% end %>
+      </div>
       <%= f.submit "On y va !", class: "btn btn-primary" %>
     <% end %>
   </div>
