@@ -33,7 +33,7 @@ class WalksController < ApplicationController
     if @walk.valid? && @invit.valid?
       @walk.save
       @invit.save
-      redirect_to walks_path, notice: "Balade créée !"
+      redirect_to walk_path(@walk), notice: "Balade créée !"
     else
       render "spots/show", status: :unprocessable_entity
     end

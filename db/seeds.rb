@@ -292,7 +292,8 @@ spot_shop_cereal = Spot.new(
   description: "Boutique ouverte tous les jours de la semaine sauf le dimanche de
   9h à 12h et de 14h à 19h, les chiens sont les bienvenues!",
   address: "19 rue Claude de Bretagne, 56500 Locmine",
-  spot_type: "Commerces"
+  spot_type: "Commerces",
+  shop_cereal: true
 )
 spot_shop_cereal.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_shop_cereal.save!
@@ -306,7 +307,8 @@ spot_shop_vrac = Spot.new(
   C'est en libre service, mais nous restons à votre disposition pour des conseils. Ouvert du lundi au vendredi de
   9h à 18h.",
   address: "10 rue Carnot, 56000 Pontivy",
-  spot_type: "Commerces"
+  spot_type: "Commerces",
+  shop_vrac: true
 )
 spot_shop_vrac.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_shop_vrac.save!
@@ -319,7 +321,8 @@ spot_shop_insects = Spot.new(
   description: "Nous vendons des croquettes de la marque 'Tomojo' spécialisé dans les croquettes à base d'insectes.
   La boutique est ouverte tous les jours du lundi au samedi de 10h à 18h non stop. Nos amis les chiens sont les bienvenus.",
   address: "Zone industrielle Du Prat, 2 avenue Gontran Bienvenu, 56000 Vannes",
-  spot_type: "Commerces"
+  spot_type: "Commerces",
+  shop_insect: true
 )
 spot_shop_insects.photo.attach(io: file, filename: ".jpeg", content_type: "image/jpeg")
 spot_shop_insects.save!
@@ -824,7 +827,10 @@ spot_feed_2 = Spot.new(
   user: steven,
   description: "Le nouveau bar à chien de Vannes, venez accompagné de votre compagnon preféré!",
   address: "6 Pl. de la Libération, 56000 Vannes",
-  spot_type: "Commerces"
+  spot_type: "Commerces",
+  shop_vrac: true,
+  shop_insect: true,
+  shop_cereal: true
 )
 spot_feed_2.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_feed_2.save!

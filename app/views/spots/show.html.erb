@@ -40,7 +40,6 @@
       <p><%= @spot.walk_environment %></p>
       <p><%= @spot.walk_area %> espaces</p>
       <p><%= @spot.walk_attendance %> fréquentation</p>
-      <%= link_to "Proposer une balade ?", new_spot_walk_path(@spot) , class: "btn btn-primary" %>
 
     <% when "Commerces" %>
       <% if @spot.shop_cereale %>
@@ -67,7 +66,9 @@
       <% end %>
     <% end %>
   </div>
-
+  <div class="">
+      <%= link_to "Proposer une balade ?", new_spot_walk_path(@spot) , class: "btn btn-primary" %>
+  </div>
   <div class="spot-reviews">
     <h5>Avis</h5>
     <% @spot.reviews.each do |review| %>
