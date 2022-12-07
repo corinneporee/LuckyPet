@@ -4,7 +4,7 @@ class InvitationsController < ApplicationController
     @invitation.status = "Acceptée"
     @invitation.save
 
-    redirect_to walks_path(current_user)
+    redirect_to walk_path(@invitation.walk)
   end
 
   def create

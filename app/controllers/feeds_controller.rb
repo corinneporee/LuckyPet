@@ -17,4 +17,10 @@ class FeedsController < ApplicationController
     fs.refuse!
     redirect_to "/feeds", notice: "Vous avez refusé l'invitation de la part de #{fs.dog.name}"
   end
+
+  def accept_invit
+    invit = Invitation.find(params[:invitation_id])
+    invit.accept_inv!
+    redirect_to "/feeds", notice: "Vous avez accepté la balade de #{invit.walk.dog.name}"
+  end
 end

@@ -6,6 +6,12 @@
   <% end %>
 </div>
 <div class="">
+  <% @invitations.each do |invitation| %>
+  <p><%= invitation.walk.dog.name %> vous propose de partir en balade"</p>
+  <%= link_to "On y va!", walk_path(invitation.walk) %>
+  <% end %>
+</div>
+<div class="">
   <% @posts.each do |post| %>
   <div class="">
   <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill %>
