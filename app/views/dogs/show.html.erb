@@ -5,28 +5,43 @@
 
   <div class="dog-profile-main-infos">
     <span class="overtitre text-yellow"><%= @dog.date_of_birth %></span>
-    <h2 class="m-0"><%= @dog.name.capitalize %></h2>
+    <h2 class="m-0"><%= @dog.name.capitalize %> <%= image_tag("form-icons/#{@dog.gender.downcase}.svg") %></h2>
     <span class="overtitre text-yellow"><%= @dog.breed %></span>
   </div>
 </div>
 
 <div class="dog-infos">
-  <div class="dog-infos-weight">
+  <div class="dog-infos-weight border-bottom">
     <div class="d-flex justify-content-between align-items-center">
       <h3>Poids</h3>
       <a href="" class="dog-weight">Changer le poids</a>
     </div>
-    <p><%= @dog.weight %> kg</p>
+    <p class="pb-1"><%= @dog.weight %> kg</p>
   </div>
-  <h2><%= @dog.personality %></h2>
-  <h2><%= @dog.gender %></h2>
-  <h2><%= @dog.health %></h2>
+  <div class="d-flex my-4 gap-4 justify-content-between">
+    <div class="btn-square-active col" style="transform:rotate(<%= rand(-5..5) %>deg) translate(2px, 2px) !important;">
+      <%= @dog.personality %>
+    </div>
+
+    <div class="btn-square-active col" style="transform:rotate(<%= rand(-5..5) %>deg) translate(2px, 2px) !important;">
+      <%= @dog.health %>
+    </div>
+    <div class="btn-square-active col" style="transform:rotate(<%= rand(-5..5) %>deg) translate(2px, 2px) !important;">
+      <% if @dog.neutered %>
+        <span>Stérilisé</span>
+      <% else %>
+        <span>Pas Stérilisé</span>
+      <% end %>
+    </div>
+  </div>
+
   <% if current_user.dog.friend_with?(@dog) %>
     <p><%= current_user.dog.name %> est ami(e) avec <%= @dog.name %> !</p>
   <% end %>
-  <h2>stérilisation?<%= @dog.neutered %></h2>
   <% unless current_user.dog.friend_with?(@dog) || current_user.dog == @dog  %>
     <%= link_to "Ajouter comme ami", dog_friendships_path(@dog), data: { turbo_method: :post }, class: "btn btn-primary" %>
   <% end %>
-  <%= link_to "se deconnecter", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-primary" %>
+  <% if current_user.dog == @dog %>
+    <%= link_to "se deconnecter", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-primary" %>
+  <% end %>
   </div>
