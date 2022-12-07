@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts "Cleaning database"
+Post.destroy_all
 Friendship.destroy_all
 Dog.destroy_all
 Spot.destroy_all
@@ -55,7 +56,7 @@ dog_maika = Dog.new(name: "Maika",
 dog_maika.photo.attach(io: file, filename: ".jpeg", content_type: "image/jpeg")
 dog_maika.save!
 
-file = File.open("db/fixtures/images/walter_teckel.jpeg")
+file_walter = File.open("db/fixtures/images/walter_teckel.jpeg")
 dog_walter = Dog.new(name: "Walter",
   breed: "Teckel",
   weight: 4,
@@ -66,10 +67,15 @@ dog_walter = Dog.new(name: "Walter",
   neutered: false,
   user: rodolphe
 )
-dog_walter.photo.attach(io: file, filename: ".jpeg", content_type: "image/jpeg")
+dog_walter.photo.attach(io: file_walter, filename: ".jpeg", content_type: "image/jpeg")
 dog_walter.save!
+post = Post.create(content: "C'etait une trop belle journée avec #{dog_walter.name}", dog: dog_walter)
+file_walter.close
+file_walter = File.open("db/fixtures/images/walter_teckel.jpeg")
+post.photo.attach(io: file_walter, filename: "#{dog_walter.name}.jpg", content_type: "image/jpg")
+post.save!
 
-file = File.open("db/fixtures/images/hector_golden_retriever.jpg")
+file_hector = File.open("db/fixtures/images/hector_golden_retriever.jpg")
 dog_hector = Dog.new(name: "Hector",
   breed: "Golden Retriever",
   weight: 35,
@@ -80,8 +86,13 @@ dog_hector = Dog.new(name: "Hector",
   neutered: true,
   user: corinne
 )
-dog_hector.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+dog_hector.photo.attach(io: file_hector, filename: ".jpg", content_type: "image/jpg")
 dog_hector.save!
+post = Post.create(content: "C'etait une trop belle journée avec #{dog_hector.name}", dog: dog_hector)
+file_hector.close
+file_hector = File.open("db/fixtures/images/hector_golden_retriever.jpg")
+post.photo.attach(io: file_hector, filename: "#{dog_hector.name}.jpg", content_type: "image/jpg")
+post.save!
 
 file = File.open("db/fixtures/images/turbo_berger_australien.jpg")
 dog_turbo = Dog.new(name: "Turbo",
@@ -153,7 +164,7 @@ dog_sa_majeste = Dog.new(name: "Sa majesté",
 dog_sa_majeste.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 dog_sa_majeste.save!
 
-file = File.open("db/fixtures/images/sunny_cocker.jpg")
+file_sunny = File.open("db/fixtures/images/sunny_cocker.jpg")
 dog_sunny = Dog.new(name: "Sunny",
   breed: "Cocker Spaniel",
   weight: 12,
@@ -164,10 +175,15 @@ dog_sunny = Dog.new(name: "Sunny",
   neutered: true,
   user: clement
 )
-dog_sunny.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+dog_sunny.photo.attach(io: file_sunny, filename: ".jpg", content_type: "image/jpg")
 dog_sunny.save!
+post = Post.create(content: "C'etait une trop belle journée avec #{dog_sunny.name}", dog: dog_sunny)
+file_sunny.close
+file_sunny = File.open("db/fixtures/images/sunny_cocker.jpg")
+post.photo.attach(io: file_sunny, filename: "#{dog_sunny.name}.jpg", content_type: "image/jpg")
+post.save!
 
-file = File.open("db/fixtures/images/pixel_ckc.jpg")
+file_pixel = File.open("db/fixtures/images/pixel_ckc.jpg")
 dog_pixel = Dog.new(name: "Pixel",
   breed: "Cavalier King Charles",
   weight: 8.3,
@@ -178,10 +194,15 @@ dog_pixel = Dog.new(name: "Pixel",
   neutered: true,
   user: guillaume
 )
-dog_pixel.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+dog_pixel.photo.attach(io: file_pixel, filename: ".jpg", content_type: "image/jpg")
 dog_pixel.save!
+post = Post.create(content: "C'etait une trop belle journée avec #{dog_pixel.name}", dog: dog_pixel)
+file_pixel.close
+file_pixel = File.open("db/fixtures/images/pixel_ckc.jpg")
+post.photo.attach(io: file_pixel, filename: "#{dog_pixel.name}.jpg", content_type: "image/jpg")
+post.save!
 
-file = File.open("db/fixtures/images/typhon_staff.jpg")
+file_typhon = File.open("db/fixtures/images/typhon_staff.jpg")
 dog_typhon = Dog.new(name: "Typhon",
   breed: "American Staffordshire Terrier",
   weight: 35.8,
@@ -192,8 +213,13 @@ dog_typhon = Dog.new(name: "Typhon",
   neutered: true,
   user: quentin
 )
-dog_typhon.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+dog_typhon.photo.attach(io: file_typhon, filename: ".jpg", content_type: "image/jpg")
 dog_typhon.save!
+post = Post.create(content: "C'etait une trop belle journée avec #{dog_typhon.name}", dog: dog_typhon)
+file_typhon.close
+file_typhon = File.open("db/fixtures/images/typhon_staff.jpg")
+post.photo.attach(io: file_typhon, filename: "#{dog_typhon.name}.jpg", content_type: "image/jpg")
+post.save!
 
 file = File.open("db/fixtures/images/rails_berger_allemand.jpg")
 dog_rails = Dog.new(name: "Rails",
@@ -811,9 +837,6 @@ friendship_dog_sunny = Friendship.new(
   status: "pending"
 )
 friendship_dog_sunny.save!
-
-#reparler de friendship et du statut
-#mettre des photos videos
 
 # "Tic tac c'est l'heure de la promenade !"
 # "N'oublie pas le comprimé de Maika !"

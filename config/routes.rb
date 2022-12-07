@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :feed, only: :show
+  get "/feeds", to: "feeds#index"
 
   # Defines the root path route ("/")
   # root "articles#index"
