@@ -1,20 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Le serveur a rencontré une erreur (500)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>
+  <head>
+    <title>Le serveur a rencontré une erreur (500)</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+  body {
+        background-color: #9465ED;
+        margin: -8px;
+      }
 
-  </style>
-</head>
+      .dialog h1 {
+        font-size: 20px;
+        text-align:center ;
+        font-family: "BD Supper", "Helvetica";
+        font-weight: 500;
+        line-height: 1.2;
 
-<body class="rails-default-error-page">
-  <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>Oups, il semblerait que nos developpeurs soient en cartons!</h1>
+      }
+    </style>
+  </head>
+
+  <body class="rails-default-error-page">
+    <!-- This file lives in public/404.html -->
+    <div class="dialog">
+      <div>
+        <img src="meta-image.png" alt="" width="100%" height="200px">
+        <h1 style="
+        padding: 30px;">Erreur 500 <br> Oups il semblerait que nos developpeurs soient en cartons...</h1>
+      </div>
     </div>
-    <!-- <p>If you are the application owner check the logs for more information.</p> -->
-  </div>
-</body>
+  </body>
+
 </html>
