@@ -20,4 +20,6 @@ class FriendshipsController < ApplicationController
       redirect_to friendships_path, alert: "Une erreur est survenue"
     end
   end
+
+
 end

@@ -20,12 +20,21 @@
   </div>
   <div class="d-flex my-4 gap-4 justify-content-between">
     <div class="btn-square-active col" style="transform:rotate(<%= rand(-5..5) %>deg) translate(2px, 2px) !important;">
+      <% case @dog.personality %>
+      <% when "Sympa avec tout le monde" %>
+        <%= image_tag 'form-icons/sympa.svg' %>
+      <% end %>
       <%= @dog.personality %>
     </div>
 
     <div class="btn-square-active col" style="transform:rotate(<%= rand(-5..5) %>deg) translate(2px, 2px) !important;">
+      <% case @dog.health %>
+      <% when "Je pète la forme" %>
+        <%= image_tag 'form-icons/pete-forme.svg' %>
+      <% end %>
       <%= @dog.health %>
     </div>
+
     <div class="btn-square-active col" style="transform:rotate(<%= rand(-5..5) %>deg) translate(2px, 2px) !important;">
       <% if @dog.neutered %>
         <span>Stérilisé</span>

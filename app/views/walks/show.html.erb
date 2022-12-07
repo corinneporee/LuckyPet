@@ -1,3 +1,56 @@
+<div class="back-button text-yellow">
+  <i class="fas fa-arrow-left"></i>
+  <%= link_to 'Retour', :back, class:'overtitre' %>
+</div>
+<div class="spot-wrapper">
+  <%= image_tag 'chien-mascotte.svg', class:"chien-mascotte", style:"transform:rotate(#{rand(1..360)}deg);" %>
+  <%= cl_image_tag @walk.spot.photo.key, crop: :fill, height: 320, class:"spot-image" %>
+</div>
+<div class="spot mb-5">
+  <div class="card-spot-info">
+    <div class="card-spot-rating">
+      <% @walk.spot.rating.floor.times do %>
+        <i class="fa-solid fa-paw text-purple"></i>
+      <% end %>
+      <% if @walk.spot.rating < 5 %>
+        <% if (@walk.spot.rating * 2.0).round / 2.0 - @walk.spot.rating.floor == 0%>
+          <i class="fa-solid fa-paw-purple"></i>
+        <% else %>
+          <i class="fa-solid fa-paw-half-stroke text-purple"></i>
+        <% end %>
+        <% (5 - @walk.spot.rating.floor).times do %>
+          <i class="fa-solid fa-paw text-purple" style="opacity: 0.3"></i>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="card-spot-type">
+      <i class="fa-solid fa-location-dot text-purple me-2"></i>
+      <span class="overtitre text-purple"><%= @walk.spot.spot_type %></span>
+    </div>
+  </div>
+
+  <h1 class="text-purple"><%= @walk.spot.name %></h1>
+  <p class="spot-adress"><i class="fa-solid fa-location-dot"></i> <%= @walk.spot.address %></p>
+  <p class="spot-description"><%= @walk.spot.description %></p>
+
+  <p><%= @walk.spot.walk_environment %></p>
+  <p><%= @walk.spot.walk_area %> espaces</p>
+  <p><%= @walk.spot.walk_attendance %> fréquentation</p>
+  <div class="spot-informations">
+
+    <p></p>
+    <% invitation = Invitation.find_by(dog: current_user.dog, walk: @walk) %>
+    <% if invitation && invitation.status == "pending" %>
+      <h6><%= @walk.dog.name %> vous propose de partir en balade le <%= @walk.date.strftime("%d/%m/%Y") %></h6>
+      <p><%= invitation.message %></p>
+      <%= link_to "On y va !", accept_invitation_path(invitation), data: {turbo_method: :patch}, class: "btn btn-primary" %>
+    <% elsif invitation && invitation.status == "Acceptée" %>
+      <h6>Balade prévue avec <%= @walk.dog.name %> le <%= @walk.date.strftime("%d/%m/%Y") %></h6>
+    <% end %>
+  </div>
+</div>
+
+
 <!-- >
 <div class="spot">
   <%= cl_image_tag @walk.spot.photo.key, crop: :fill, width: 400 %>
