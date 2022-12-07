@@ -24,6 +24,7 @@ class Dog < ApplicationRecord
   has_many :walks, dependent: :destroy
   has_many :invitations, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_many :posts, dependent: :destroy
   has_one_attached :photo
 
   validates :name, :breed, :weight, :personality, :gender, :health, presence: true
