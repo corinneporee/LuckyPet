@@ -73,10 +73,12 @@ a:hover {
 }
 
 .btn-square-active {
+  border: 1px solid $black;
   background-color: $second;
   box-shadow: 2px 2px 0px $black;
   transition: .3s;
   transform:translateX(2px) translateY(2px);
+  padding:8px;
 }
 
 .btn-form {
