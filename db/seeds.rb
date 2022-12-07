@@ -802,6 +802,64 @@ review_spot_ville_1 = Review.new(
 review_spot_ville_1.save!
 review_spot_ville_1.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 
+# 3 last spots for feed ------------------------------------------------------------------------------------------------
+file = File.open("db/fixtures/images/broceliande.jpg")
+spot_feed_1 = Spot.new(
+  name: "Forêt de Brocéliande",
+  user: steven,
+  description: "Un lieu mystique où on y croiserait des Elfes et des lutins",
+  address: "Forêt de Paimpont, 35380 Paimpont",
+  spot_type: "Balades",
+  walk_environment: "Forêt",
+  walk_area: "Grands",
+  walk_attendance: "Moyenne"
+)
+spot_feed_1.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+spot_feed_1.save!
+sleep 1
+
+file = File.open("db/fixtures/images/bar_toutou.jpg")
+spot_feed_2 = Spot.new(
+  name: "Bar à toutou",
+  user: steven,
+  description: "Le nouveau bar à chien de Vannes, venez accompagné de votre compagnon preféré!",
+  address: "6 Pl. de la Libération, 56000 Vannes",
+  spot_type: "Commerces"
+)
+spot_feed_2.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+spot_feed_2.save!
+sleep 1
+
+file = File.open("db/fixtures/images/sunny_spot_ville.jpg")
+review_spot_feed_1 = Review.new(
+  content: "Super endroit pour se promener avec son chien, on a meme croisé un lutin!",
+  rating: 4,
+  dog: dog_sunny,
+  spot: spot_feed_1
+)
+review_spot_feed_1.save!
+review_spot_feed_1.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+
+file = File.open("db/fixtures/images/walter_teckel.jpeg")
+review_spot_ville_1 = Review.new(
+  content: "Ce bar est top, j'y retournerai pour sûr !!",
+  rating: 5,
+  dog: dog_walter,
+  spot: spot_feed_2
+)
+review_spot_ville_1.save!
+review_spot_ville_1.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+
+file = File.open("db/fixtures/images/sunny_spot_ville.jpg")
+review_spot_feed_2 = Review.new(
+  content: "Je n'ai pas apprécié mon experience car il y avait trop de monde, dommage",
+  rating: 2,
+  dog: dog_typhon,
+  spot: spot_feed_2
+)
+review_spot_feed_2.save!
+review_spot_feed_2.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+# ----------------------------------------------------------------------------------------------------------------------
 puts 'Friendships'
 friendship_dog_walter = Friendship.new(
   dog: dog_maika,
