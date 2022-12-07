@@ -286,17 +286,17 @@ spot_ville.save!
 sleep 1
 
 file = File.open("db/fixtures/images/shop_cereal.jpg")
-spot_shop_cereal = Spot.new(
+spot_shop_cereale = Spot.new(
   name: "J'ai plus de croquettes",
   user: steven,
   description: "Boutique ouverte tous les jours de la semaine sauf le dimanche de
   9h à 12h et de 14h à 19h, les chiens sont les bienvenues!",
   address: "19 rue Claude de Bretagne, 56500 Locmine",
   spot_type: "Commerces",
-  shop_cereal: true
+  shop_cereale: true
 )
-spot_shop_cereal.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
-spot_shop_cereal.save!
+spot_shop_cereale.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+spot_shop_cereale.save!
 sleep 1
 
 file = File.open("db/fixtures/images/shop_vrac.jpg")
@@ -322,7 +322,7 @@ spot_shop_insects = Spot.new(
   La boutique est ouverte tous les jours du lundi au samedi de 10h à 18h non stop. Nos amis les chiens sont les bienvenus.",
   address: "Zone industrielle Du Prat, 2 avenue Gontran Bienvenu, 56000 Vannes",
   spot_type: "Commerces",
-  shop_insect: true
+  shop_insects: true
 )
 spot_shop_insects.photo.attach(io: file, filename: ".jpeg", content_type: "image/jpeg")
 spot_shop_insects.save!
@@ -515,29 +515,29 @@ review_shop_vrac_3 = Review.new(
 )
 review_shop_vrac_3.save!
 
-review_shop_cereal_1 = Review.new(
+review_shop_cereale_1 = Review.new(
   content: "Super croquette de très bonnes qualités à prix abordables. Je recommande",
   rating: 5,
   dog: dog_walter,
-  spot: spot_shop_cereal
+  spot: spot_shop_cereale
 )
-review_shop_cereal_1.save!
+review_shop_cereale_1.save!
 
-review_shop_cereal_2 = Review.new(
+review_shop_cereale_2 = Review.new(
   content: "C'est pas mal en plus on peut se garer facilement",
   rating: 4,
   dog: dog_pixel,
-  spot: spot_shop_cereal
+  spot: spot_shop_cereale
 )
-review_shop_cereal_2.save!
+review_shop_cereale_2.save!
 
-review_shop_cereal_3 = Review.new(
+review_shop_cereale_3 = Review.new(
   content: "Les croquettes sont de bonnes qualité mais il n'y a pas beaucoup de choix.",
   rating: 3,
   dog: dog_turbo,
-  spot: spot_shop_cereal
+  spot: spot_shop_cereale
 )
-review_shop_cereal_3.save!
+review_shop_cereale_3.save!
 
 review_shop_insect_1 = Review.new(
   content: "Turbo n'a jamais voulu les manger. Je vais reprendre des croquettes plus classiques...",
@@ -829,8 +829,8 @@ spot_feed_2 = Spot.new(
   address: "6 Pl. de la Libération, 56000 Vannes",
   spot_type: "Commerces",
   shop_vrac: true,
-  shop_insect: true,
-  shop_cereal: true
+  shop_insects: true,
+  shop_cereale: true
 )
 spot_feed_2.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_feed_2.save!
@@ -868,15 +868,15 @@ review_spot_feed_2.photo.attach(io: file, filename: ".jpg", content_type: "image
 # ----------------------------------------------------------------------------------------------------------------------
 puts 'Friendships'
 friendship_dog_walter = Friendship.new(
-  dog: dog_maika,
-  buddy: dog_walter,
+  dog: dog_walter,
+  buddy: dog_maika,
   status: "pending"
 )
 friendship_dog_walter.save!
 
 friendship_dog_hector = Friendship.new(
-  dog: dog_maika,
-  buddy: dog_hector,
+  dog: dog_hector,
+  buddy: dog_maika,
   status: "pending"
 )
 friendship_dog_hector.save!
