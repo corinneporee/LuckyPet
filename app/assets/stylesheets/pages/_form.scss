@@ -144,6 +144,12 @@ input[type=range]::-webkit-slider-runnable-track  {
   background: transparent;
 }
 
+
+.search-form {
+  display: flex;
+  gap: 8px;
+}
+
 /* Walk form */
 
 .walk_invitations_message input {

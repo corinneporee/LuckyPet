@@ -1,6 +1,7 @@
 <div class="home-container bg-purple friendship-container">
 
-<h1 class="d-flex gap-2">MES <div class="home-info-second">AMIS</div></h1>
+
+<h1 style="padding-top: 12px;" class="d-flex gap-2">MES <div class="home-info-second">AMIS</div></h1>
 
 <% @friends.each do |friend| %>
   <%= link_to dog_path(friend), class: "dog-card border my-4 d-flex justify-content-between align-items-center" do %>
@@ -9,12 +10,19 @@
       <h4><%= friend.name %></h4>
       <span><%= friend.breed %></span>
     </div>
-    <p><%= friend.friendship_status_with(current_user.dog) %></p>
+    <% case friend.friendship_status_with(current_user.dog) %>
+    <% when "pending" %>
+      <p class="text-yellow">en attente</p>
+    <% when "accepted" %>
+      <p class="text-success">validée</p>
+    <% when "refused" %>
+      <p class="text-danger">refusée</p>
+    <% end %>
   <% end %>
 <% end %>
 
 <h4>Ajouter un ami</h4>
-<%= form_with url: friendships_path, method: :get, class: "d-flex" do %>
+<%= form_with url: friendships_path, method: :get, class: "search-form" do %>
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
@@ -23,7 +31,7 @@
   <%= submit_tag "Rechercher", class: "btn btn-primary" %>
 <% end %>
 
-<% if @dogs.any? %>
+<% if @dogs.present? %>
   <% @dogs.each do |dog| %>
     <div class="dog-card border my-4 d-flex justify-content-between align-items-center">
       <%= cl_image_tag dog.photo.key, crop: :thumb, width: 60, class: "avatar" %>

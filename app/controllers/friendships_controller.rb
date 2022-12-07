@@ -3,9 +3,8 @@ class FriendshipsController < ApplicationController
     @friends = current_user.dog.friends
 
     if params[:query].present?
-      @dogs = Dog.search_by_name(params[:query]).where.not(id: current_user.dog.id)
-    else
-      @dogs = Dog.where.not(id: current_user.dog.id)
+      sql_query = "name ILIKE :query"
+      @dogs = Dog.where(sql_query, query: "%#{params[:query]}%").where.not(id: current_user.dog.id)
     end
   end
 
