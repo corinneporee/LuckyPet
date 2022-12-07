@@ -1,4 +1,13 @@
 .dog-card {
   text-decoration: none;
   color: black;
+  padding: 8px;
+  border-radius: 12px;
+  h4 {
+    color: $second;
+  }
+}
+
+.infos-card-dog {
+  text-align: center;
 }
