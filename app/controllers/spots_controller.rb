@@ -10,7 +10,8 @@ class SpotsController < ApplicationController
       {
         lat: spot.latitude,
         lng: spot.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { spot: spot })
+        info_window: render_to_string(partial: "info_window", locals: { spot: spot }),
+        image_url: helpers.asset_url("map-icons/#{spot.spot_type}.svg")
       }
     end
   end

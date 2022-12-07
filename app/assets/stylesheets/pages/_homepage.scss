@@ -1,5 +1,5 @@
 .home-info {
-  padding: 40px;
+  padding: 32px;
   padding-top: 158px;
 }
 
@@ -11,6 +11,7 @@
   height:100vh;
   background-color: $principal;
   width: 100%;
+  padding: 0px 12px;
 }
 
 .home-info-second {
@@ -21,6 +22,32 @@
   text-align: center;
 }
 
+.home-paw {
+  position: absolute;
+  width: 150px;
+  right: -50px;
+  top: -30px;
+}
+
 .chien-mascotte-home {
   object-position: left bottom;
+  position: absolute;
+  bottom: -60px;
+  left: -70px;
+  img {
+    width: 310px;
+  }
+}
+
+.rotate {
+  animation: rotation 6s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
