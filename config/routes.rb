@@ -13,7 +13,6 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[create]
   end
 
-
   resources :walks, only: %i[index show] do
 
     resources :invitations, only: %i[create]
@@ -24,8 +23,11 @@ Rails.application.routes.draw do
     end
   end
 
-  get "/feeds", to: "feeds#index"
+  get "/feeds", to: "feeds#index", as: "feeds"
+  get "/feeds/:friendship_id/accept", to: "feeds#accept_friend"
+  get "/feeds/:friendship_id/refuse", to: "feeds#refuse_friend"
 
+  get "/feeds/:invitation_id/accept", to: "feeds#accept_invit"
   # Defines the root path route ("/")
   # root "articles#index"
 end
