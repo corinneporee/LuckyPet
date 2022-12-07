@@ -8,6 +8,9 @@ On remet le formulaire de création avec la date + demander un ami
       <%= f.input :date, as: :date, html5: true %>
      <div id="walk-select" >
       <%= f.simple_fields_for :invitations do |i| %>
+        <label for="dog_id">
+        Invite un copain
+        </label>
         <%= i.select :dog_id, @friendships.map { |friendship| [friendship.buddy.name, friendship.buddy.id] }, include_blank: true %>
         <%= i.input :message, html5: true %>
       <% end %>
