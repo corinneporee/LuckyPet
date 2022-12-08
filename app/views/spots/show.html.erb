@@ -44,23 +44,32 @@
       </div>
       <div class="d-flex gap-2">
         <%= image_tag("spot-type-icons/#{@spot.walk_area}.svg") %>
-        <%= @spot.walk_area %> espaces</p>
+        <%= @spot.walk_area %> espaces
       </div>
 
       <div class="d-flex gap-2">
         <%= image_tag("spot-type-icons/#{@spot.walk_attendance}.svg") %>
-        <%= @spot.walk_attendance %> fréquentation</p>
+        <%= @spot.walk_attendance %> fréquentation
       </div>
 
     <% when "Commerces" %>
       <% if @spot.shop_cereale %>
-        <p>Vend des céréales</p>
+        <div class="d-flex gap-2">
+          <%= image_tag("spot-type-icons/Cereal.svg") %>
+          Vend des céréales
+        </div>
       <% end %>
       <% if @spot.shop_vrac %>
-        <p>Vend en vrac</p>
+        <div class="d-flex gap-2">
+          <%= image_tag("spot-type-icons/Vrac.svg") %>
+          Vend en vrac
+        </div>
       <% end %>
       <% if @spot.shop_insects %>
-        <p>Vend des aliments à base d'insectes</p>
+        <div class="d-flex gap-2">
+          <%= image_tag("spot-type-icons/Insect.svg") %>
+          Vend des aliments à base d'insectes
+        </div>
       <% end %>
     <% when "Vétérinaires" %>
       <p>Spécialité du vétérinaire : <%= @spot.vet_specialty %></p>
@@ -79,7 +88,9 @@
   </div>
 
   <% if @spot.spot_type == "Balades" %>
-    <%= link_to "Proposer une balade ", new_spot_walk_path(@spot) , class: "btn btn-primary my-3" %>
+
+    <%= link_to "Proposer une balade", new_spot_walk_path(@spot) , class: "btn btn-primary my-3" %>
+
   <% end %>
 
   <div class="spot-reviews">
