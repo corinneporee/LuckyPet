@@ -459,13 +459,13 @@ spot_grooming_cani.photo.attach(io: file, filename: ".jpg", content_type: "image
 spot_grooming_cani.save!
 sleep 1
 
-puts 'Walks'
-walk_1 = Walk.new(
-  spot: spot_plage,
-  dog: dog_hector,
-  date: Time.now
-)
-walk_1.save!
+# puts 'Walks'
+# walk_1 = Walk.new(
+#   spot: spot_plage,
+#   dog: dog_hector,
+#   date: Time.now
+# )
+# walk_1.save!
 
 walk_2 = Walk.new(
   spot: spot_foret,
@@ -482,13 +482,13 @@ walk_3 = Walk.new(
 walk_3.save!
 
 puts 'Invitations'
-invitation = Invitation.new(
-  dog: dog_maika,
-  walk: walk_1,
-  message: "Hello ça te dit une balade avec moi aujourd'hui?",
-  status: "pending"
-)
-invitation.save!
+# invitation = Invitation.new(
+#   dog: dog_maika,
+#   walk: walk_1,
+#   message: "Hello ça te dit une balade avec moi aujourd'hui?",
+#   status: "pending"
+# )
+# invitation.save!
 
 puts 'Reviews'
 review_shop_vrac_1 = Review.new(
