@@ -36,7 +36,7 @@
   <div class="spot-informations">
     <% case @spot.spot_type %>
     <% when "Balades" %>
-
+    
       <%#= @spot.walk_environment %>
       <div class="d-flex gap-2">
         <%= image_tag("spot-type-icons/#{@spot.walk_environment}.svg") %>
@@ -60,7 +60,7 @@
         <p>Vend en vrac</p>
       <% end %>
       <% if @spot.shop_insects %>
-        <p>Vend de l'alimente à base d'insectes</p>
+        <p>Vend des aliments à base d'insectes</p>
       <% end %>
     <% when "Vétérinaires" %>
       <p>Spécialité du vétérinaire : <%= @spot.vet_specialty %></p>
@@ -77,7 +77,9 @@
       <% end %>
     <% end %>
   </div>
+
   <%= link_to "Proposer une balade ?", new_spot_walk_path(@spot) , class: "btn btn-primary my-3" %>
+
   <div class="spot-reviews">
     <h5>Avis</h5>
     <% @spot.reviews.each do |review| %>

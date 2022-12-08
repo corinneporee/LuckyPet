@@ -36,9 +36,8 @@
   <p><%= @walk.spot.walk_environment %></p>
   <p><%= @walk.spot.walk_area %> espaces</p>
   <p><%= @walk.spot.walk_attendance %> fréquentation</p>
-  <div class="spot-informations">
 
-    <p></p>
+  <div class="spot-informations">
     <% invitation = Invitation.find_by(dog: current_user.dog, walk: @walk) %>
     <% if invitation && invitation.status == "pending" %>
       <h6><%= @walk.dog.name %> vous propose de partir en balade le <%= @walk.date.strftime("%d/%m/%Y") %></h6>

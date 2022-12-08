@@ -1,24 +1,26 @@
-<div class="card-reservation">
-  <div class="p-0 h-100">
-    <%= cl_image_tag invitation.walk.spot.photo.key, crop: :fill, width: 300 %>
-  </div>
-  <div class="card-reservation-infos">
-    <div>
-      <h2><%= invitation.walk.spot.name.capitalize %></h2>
-      <div class="date-walk">
-        <p><i class="fa-solid fa-calendar-days p-1"></i> Date de la balade : <%= invitation.walk.date.strftime("%d/%m/%Y") %> </p>
+<%= link_to walk_path(walk), :"data-aos" => "fade-up", class: "card-spot" do %>
+  <div class="card-reservation">
+    <div class="card-spot-img">
+      <%= cl_image_tag invitation.walk.spot.photo.key, crop: :fill, width: 300 %>
+    </div>
+    <div class="card-spot-info">
+      <div>
+        <h2><%= invitation.walk.spot.name.capitalize %></h2>
+        <div class="card-spot-bot">
+          <p><i class="fa-solid fa-calendar-days p-1"></i> Date de la balade : <%= invitation.walk.date.strftime("%d/%m/%Y") %> </p>
+        </div>
+      </div>
+      <div class="price_status">
+      <%= invitation.dog.name%>
+        <% case invitation.status %>
+        <% when "pending" %>
+          <p><div class="pending">En attente</div></p>
+        <% when "validated" %>
+          <p><div class="validated">Acceptée</div></p>
+        <% when "denied" %>
+          <p><div class="denied">Refusée</div></p>
+        <% end %>
       </div>
     </div>
-    <div class="price_status">
-    <%= invitation.dog.name%>
-      <% case invitation.status %>
-      <% when "pending" %>
-        <p><div class="pending">En attente</div></p>
-      <% when "validated" %>
-        <p><div class="validated">Acceptée</div></p>
-      <% when "denied" %>
-        <p><div class="denied">Refusée</div></p>
-      <% end %>
-    </div>
   </div>
-</div>
+<% end %>

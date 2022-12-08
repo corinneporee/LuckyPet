@@ -18,4 +18,11 @@
       </div>
     <% end %>
   <% end %>
+  <% if current_user && current_user.dog %>
+    <%= link_to friendships_path(current_user.dog) do %>
+      <div class="icone_3">
+        <i class="fa-solid fa-user-group"></i>
+      </div>
+    <% end %>
+  <% end %>
 </div>

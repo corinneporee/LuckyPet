@@ -1,21 +1,84 @@
-<div class="">
-  <p><%= @friendships.count %></p>
-  <% @friendships.each do |friendship| %>
-  <%= link_to "accepter", "/feeds/#{friendship.id}/accept" %>
-  <%= link_to "refuser", "/feeds/#{friendship.id}/refuse" %>
-  <% end %>
-</div>
-<div class="">
-  <% @invitations.each do |invitation| %>
-  <p><%= invitation.walk.dog.name %> vous propose de partir en balade"</p>
-  <%= link_to "On y va!", walk_path(invitation.walk) %>
-  <% end %>
-</div>
-<div class="">
-  <% @posts.each do |post| %>
-  <div class="">
-  <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill %>
-  <p><%= post.content %></p>
+ <div class="">
+  <div class="header">
+    <div class="top">
+      <h5>Lucky<br>Pets</h5>
+    </div>
+    <div class="avatar">
+      <%= cl_image_tag @dog.photo.key, crop: :fill, class:"avatar-large" %>
+    </div>
+    <% if user_signed_in? %>
+    <div class="friends">
+      <div class="friends-count">
+        <h6><%= @dog.name %></h6>
+        <p><%= @my_friends.count %> Amis</p>
+      </div>
+      <% @my_friends.last(4).each do |friend| %>
+      <div class="display-friends">
+        <%= cl_image_tag friend.dog.photo.key, crop: :fill, class:"avatar-large" %>
+      </div>
+      <% end %>
+    <% end %>
+    </div>
   </div>
-  <% end %>
+  <div class="">
+    <% @friendships.each do |friendship| %>
+    <p><%= friendship.dog.name %> vous a envoyé une demande d'ami</p>
+    <%= link_to "accepter", "/feeds/#{friendship.id}/accept" %>
+    <%= link_to "refuser", "/feeds/#{friendship.id}/refuse" %>
+    <% end %>
+  </div>
+  <div class="">
+    <% @invitations.each do |invitation| %>
+    <p><%= invitation.walk.dog.name %> vous propose de partir en balade"</p>
+    <%= link_to "On y va!", walk_path(invitation.walk) %>
+    <% end %>
+  </div>
+  <h4>Spots qui pourraient vous intéresser</h4>
+  <% @spots.each do |spot| %>
+      <%= link_to spot_path(spot), class: "card-spot" do %>
+        <div class="card-spot-img">
+          <%= cl_image_tag spot.photo.key, crop: :fill %>
+        </div>
+        <div class="card-spot-info">
+          <div class="card-spot-top">
+            <div class="card-spot-rating">
+              <% spot.rating.floor.times do %>
+                <i class="fa-solid fa-paw text-purple"></i>
+              <% end %>
+              <% if spot.rating < 5 %>
+                <% if (spot.rating * 2.0).round / 2.0 - spot.rating.floor == 0%>
+                  <i class="fa-solid fa-paw-purple"></i>
+                <% else %>
+                  <i class="fa-solid fa-paw-half-stroke text-purple"></i>
+                <% end %>
+                <% (5 - spot.rating.floor).times do %>
+                  <i class="fa-solid fa-paw text-purple" style="opacity: 0.3"></i>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="card-spot-type">
+              <i class="fa-solid fa-location-dot text-purple me-2"></i>
+              <span class="overtitre text-purple"><%= spot.spot_type %></span>
+            </div>
+          </div>
+          <div class="card-spot-bot">
+            <div class="card-spot-title">
+              <h3><%= spot.name %></h3>
+              <span>à 2km</span>
+            </div>
+            <div class="card-spot-description">
+              <p><%= spot.description.truncate(100) %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <div class="">
+    <% @posts.each do |post| %>
+    <div class="">
+    <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill %>
+    <p><%= post.content %></p>
+    </div>
+    <% end %>
+  </div>
 </div>
