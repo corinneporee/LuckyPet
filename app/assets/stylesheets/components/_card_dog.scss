@@ -5,9 +5,10 @@
   border-radius: 12px;
   h4 {
     color: $second;
+    margin-bottom:-4px;
   }
 }
 
-.infos-card-dog {
-  text-align: center;
+.dog-card:not(:first-child) {
+  margin-top:16px;
 }

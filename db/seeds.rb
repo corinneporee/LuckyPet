@@ -743,7 +743,7 @@ review_grooming_cani_2.save!
 
 file = File.open("db/fixtures/images/Maika_spot_foret.jpeg")
 review_spot_foret = Review.new(
-  content: "C'est super surtout pour les balades avec les copains",
+  content: "Maika : J'ai kiffé ma balade avec les potos",
   rating: 5,
   dog: dog_maika,
   spot: spot_foret
@@ -752,7 +752,7 @@ review_spot_foret.photo.attach(io: file, filename: ".jpeg", content_type: "image
 review_spot_foret.save!
 
 review_spot_foret_1 = Review.new(
-  content: "C'est toujours sympa les balades en nature",
+  content: "Hector : J'adoooooore la nature",
   rating: 5,
   dog: dog_hector,
   spot: spot_foret
@@ -761,7 +761,7 @@ review_spot_foret_1.save!
 
 file = File.open("db/fixtures/images/typhon_spot_foret.jpg")
 review_spot_foret_2 = Review.new(
-  content: "C'est top pour que notre chien se défoule",
+  content: "Typhon : J'étais comme un dingue dans cette forêt",
   rating: 5,
   dog: dog_typhon,
   spot: spot_foret
@@ -771,7 +771,7 @@ review_spot_foret_2.photo.attach(io: file, filename: ".jpg", content_type: "imag
 
 
 review_spot_plage = Review.new(
-  content: "C'est cool d'avoir une plage où mon chien peut se baigner",
+  content: "Hector : Trop cool de sauter dans les vagues",
   rating: 5,
   dog: dog_hector,
   spot: spot_plage
@@ -780,7 +780,7 @@ review_spot_plage.save!
 
 file = File.open("db/fixtures/images/pixel_spot_plage.jpg")
 review_spot_plage_1 = Review.new(
-  content: "Notre chienne adore cette plage",
+  content: "Pixel : J'ai couru après la balle 15 fois c'était trop cool !",
   rating: 5,
   dog: dog_pixel,
   spot: spot_plage
@@ -789,8 +789,8 @@ review_spot_plage_1.save!
 review_spot_plage_1.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 
 review_spot_ville = Review.new(
-  content: "Pas beaucoup de possibilité de balades, mais ça va",
-  rating: 3,
+  content: "Turbo : Je me fais marcher sur les pattes. Je déteste",
+  rating: 1,
   dog: dog_turbo,
   spot: spot_ville
 )
@@ -798,7 +798,7 @@ review_spot_ville.save!
 
 file = File.open("db/fixtures/images/sunny_spot_ville.jpg")
 review_spot_ville_1 = Review.new(
-  content: "C'est pas facile de se balader dans cette ville",
+  content: "Sunny : Personne me voit, mais je passe entre les jambes easy.",
   rating: 2,
   dog: dog_sunny,
   spot: spot_ville
@@ -871,35 +871,35 @@ puts 'Friendships'
 friendship_dog_walter = Friendship.new(
   dog: dog_walter,
   buddy: dog_maika,
-  status: "pending"
+  status: "accepted"
 )
 friendship_dog_walter.save!
 
 friendship_dog_hector = Friendship.new(
   dog: dog_hector,
   buddy: dog_maika,
-  status: "pending"
+  status: "accepted"
 )
 friendship_dog_hector.save!
 
 friendship_dog_pixel = Friendship.new(
   dog: dog_maika,
   buddy: dog_pixel,
-  status: "pending"
+  status: "accepted"
 )
 friendship_dog_pixel.save!
 
 friendship_dog_turbo = Friendship.new(
   dog: dog_maika,
   buddy: dog_typhon,
-  status: "pending"
+  status: "accepted"
 )
 friendship_dog_turbo.save!
 
 friendship_dog_sunny = Friendship.new(
   dog: dog_maika,
   buddy: dog_sunny,
-  status: "pending"
+  status: "accepted"
 )
 friendship_dog_sunny.save!
 

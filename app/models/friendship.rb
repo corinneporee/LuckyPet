@@ -4,6 +4,8 @@ class Friendship < ApplicationRecord
 
   validates :status, presence: true
 
+# Les différents status : "pending", "accepted", "refused"
+
   def accept!
     self.status = "accepted"
     self.save
