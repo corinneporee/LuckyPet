@@ -1,0 +1,68 @@
+.card-walk-request {
+  height: 180px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: $principal-light;
+  margin:16px 0;
+  padding:16px;
+  position:relative;
+  overflow: hidden;
+  border:1px solid $principal;
+  margin:0 16px;
+
+  .card-walk-dog-photo {
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: absolute;
+    right: -50px;
+    bottom: -11px;
+  }
+
+  p, a {
+    width: 50%;
+  }
+
+  p {
+    font-family: 'BD Supper';
+    font-size:20px;
+    line-height: 1.1;
+    color:$principal;
+  }
+}
+
+.card-walk-request a {
+  color: $black;
+}
+
+.card-friends-request {
+  margin:16px 0;
+  padding:16px;
+  background-color: $principal-light;
+  align-items: center;
+}
+
+.card-friends-infos {
+  margin-left:12px;
+  flex-grow:1;
+  h6 {
+    margin:0;
+  }
+}
+
+.card-friends-request a {
+  color: $black500;
+  transition: 0.3s;
+}
+
+.card-friends-request a:hover {
+  transition: 0.3s;
+  color: $principal;
+}
+
+.card-friends-request p {
+  color: $black500;
+}

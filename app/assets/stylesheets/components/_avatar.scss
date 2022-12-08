@@ -20,3 +20,18 @@
   border-radius: 50%;
   object-fit: cover;
 }
+
+.avatar-small {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatar-middle {
+  box-shadow: $custom-shadow;
+  border:2px solid $black;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
