@@ -811,7 +811,7 @@ file = File.open("db/fixtures/images/broceliande.jpg")
 spot_feed_1 = Spot.new(
   name: "Forêt de Brocéliande",
   user: steven,
-  description: "Un lieu mystique où on y croiserait des Elfes et des lutins",
+  description: "Un lieu mystique, on y croiserait des Elfes et des lutins...",
   address: "Forêt de Paimpont, 35380 Paimpont",
   spot_type: "Balades",
   walk_environment: "Forêt",
