@@ -6,7 +6,7 @@ class FeedsController < ApplicationController
     @friendships = Friendship.where(buddy_id: current_user.dog.id).where(status: "pending")
     @my_friends = Friendship.where(buddy_id: current_user.dog.id).where(status: "accepted")
     @invitations = Invitation.where(dog_id: current_user.dog.id).where(status: "pending")
-    @spots = Spot.last(2)
+    @spots = Spot.last(3)
   end
 
   def accept_friend
