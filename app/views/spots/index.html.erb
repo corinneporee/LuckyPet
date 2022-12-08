@@ -43,7 +43,7 @@
           <div class="card-spot-bot">
             <div class="card-spot-title">
               <h3><%= spot.name %></h3>
-              <span>à 2km</span>
+              <span>à <%= rand(1..5) %>km</span>
             </div>
             <div class="card-spot-description">
               <p><%= spot.description.truncate(100) %></p>
