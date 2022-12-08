@@ -6,9 +6,11 @@
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
-      placeholder: "Cherche un dog"
+      placeholder: "Recherche ton ami ici !"
     %>
-    <%= submit_tag "Rechercher", class: "btn btn-primary" %>
+     <%= button_tag :submit, class: "btn-search" do %>
+        <i class="fa fa-search"></i>
+      <% end %>
   <% end %>
 
   <h4 class="mt-4">Ma meute</h4>

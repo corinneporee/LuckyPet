@@ -20,8 +20,16 @@
   <div class="dog-comportement">
     <div class="btn-square-active col" style="transform:rotate(<%= rand(-5..5) %>deg) translate(2px, 2px) !important;">
       <% case @dog.personality %>
-      <% when "Sympa avec tout le monde" %>
-        <%= image_tag 'form-icons/sympa.svg' %>
+        <% when "Sympa avec tout le monde" %>
+          <%= image_tag 'form-icons/sympa.svg' %>
+        <% when "Carrément timide" %>
+          <%= image_tag 'form-icons/timide.svg' %>
+        <% when "J'ai mes têtes" %>
+          <%= image_tag 'form-icons/jai-tetes.svg' %>
+        <% when "Faut pas me chercher" %>
+        <%= image_tag 'form-icons/faut-pas-chercher.svg' %>
+        <% when "Fou-fou" %>
+        <%= image_tag 'form-icons/foufou.svg' %>
       <% end %>
       <%= @dog.personality %>
     </div>

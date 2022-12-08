@@ -146,10 +146,15 @@ input[type=range]::-webkit-slider-runnable-track  {
 
 
 .search-form {
+  width: 100%;
+  position: relative;
   display: flex;
-  gap: 8px;
-}
+  height: 54px;
 
+  input {
+    border: 1px solid rgba($black, 0.8)
+  }
+}
 /* Walk form */
 
 .walk_invitations_message input {
