@@ -1,8 +1,8 @@
 class FeedsController < ApplicationController
   def index
     @dog = current_user.dog
-    buddies_id = current_user.dog.friendships.map(&:buddy_id)
-    @posts = current_user.dog.friends.map(&:posts).flatten
+    # buddies_id = current_user.dog.friendships.map(&:buddy_id)
+    @posts = current_user.dog.active_friends.map(&:posts).flatten
     @friendships = Friendship.where(buddy_id: current_user.dog.id).where(status: "pending")
     @my_friends = Friendship.where(buddy_id: current_user.dog.id).where(status: "accepted")
     @invitations = Invitation.where(dog_id: current_user.dog.id).where(status: "pending")
