@@ -1,7 +1,7 @@
  <div class="feeds-container">
   <div class="header">
     <div class="header-top">
-      <h5>Lucky<br>Pets</h5>
+      <h5>Lucky<br>Pet</h5>
     </div>
     <% if user_signed_in? %>
     <div class="friends">
@@ -30,17 +30,13 @@
       <div class="">
         <%= cl_image_tag friendship.dog.photo.key, crop: :fill, width: 100, class:"avatar-small" %>
       </div>
-      <div class="">
-        <h6><%= friendship.dog.name %> vous a envoyé une demande d'ami</h6>
+      <div class="card-friends-infos">
+        <h6>Demande d’ami de <%= friendship.dog.name %></h6>
         <p><%= friendship.dog.breed %></p>
       </div>
-      <div class="d-flex flex-column">
-        <div class="">
-          <%= link_to "accepter", "/feeds/#{friendship.id}/accept" %>
-        </div>
-        <div class="">
-          <%= link_to "refuser", "/feeds/#{friendship.id}/refuse" %>
-        </div>
+      <div class="d-flex flex-column text-end">
+        <%= link_to "Accepter", "/feeds/#{friendship.id}/accept", class:"text-purple" %>
+        <%= link_to "Refuser", "/feeds/#{friendship.id}/refuse" %>
       </div>
     </div>
     <% end %>

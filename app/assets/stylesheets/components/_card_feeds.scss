@@ -5,8 +5,8 @@
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   background-color: $principal-light;
+  margin:16px 0;
 }
 
 .card-walk-request a {
@@ -14,7 +14,18 @@
 }
 
 .card-friends-request {
+  margin:16px 0;
+  padding:16px;
   background-color: $principal-light;
+  align-items: center;
+}
+
+.card-friends-infos {
+  margin-left:12px;
+  flex-grow:1;
+  h6 {
+    margin:0;
+  }
 }
 
 .card-friends-request a {
