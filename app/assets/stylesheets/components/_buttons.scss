@@ -144,3 +144,28 @@ a:hover {
     text-decoration: none !important;
   }
 }
+
+.btn-search {
+  color: $black;
+  background-color: $second;
+  border: 1px solid $black;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  text-align: center;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+  box-shadow: none;
+  padding: 0 1rem;
+  transition: .5s;
+  transform: none;
+}
+.btn-search:hover {
+  color: $second;
+  background-color: $black;
+  border-left: none !important;
+  transition: .5s;
+  transform: none;
+}
