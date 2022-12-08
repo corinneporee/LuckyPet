@@ -14,7 +14,7 @@ class WalksController < ApplicationController
     @walk = Walk.new
     @walk.invitations.build
 
-    @friendships = current_user.dog.friendships
+    @friends = current_user.dog.friends
   end
 
   def create
@@ -29,7 +29,6 @@ class WalksController < ApplicationController
     @invit.walk = @walk
     @invit.dog = invited_dog
 
-
     if @walk.valid? && @invit.valid?
       @walk.save
       @invit.save
@@ -38,7 +37,6 @@ class WalksController < ApplicationController
       render "spots/show", status: :unprocessable_entity
     end
   end
-
 
   private
 

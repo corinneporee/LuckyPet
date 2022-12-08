@@ -878,7 +878,7 @@ friendship_dog_walter.save!
 friendship_dog_hector = Friendship.new(
   dog: dog_hector,
   buddy: dog_maika,
-  status: "accepted"
+  status: "pending"
 )
 friendship_dog_hector.save!
 

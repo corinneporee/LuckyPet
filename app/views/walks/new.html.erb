@@ -11,7 +11,7 @@ On remet le formulaire de création avec la date + demander un ami
         <label for="dog_id">
         Invite un copain
         </label>
-        <%= i.select :dog_id, @friendships.map { |friendship| [friendship.buddy.name, friendship.buddy.id] }, include_blank: true %>
+        <%= i.select :dog_id, @friends.map { |friend| [friend.name, friend.id] }, include_blank: true %>
         <%= i.input :message, html5: true %>
       <% end %>
       </div>
