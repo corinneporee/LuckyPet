@@ -12,8 +12,6 @@
         <i class="fa fa-search"></i>
       <% end %>
   <% end %>
-
-  <h4 class="mt-4">Ma meute</h4>
   <% if @dogs.present? %>
     <% @dogs.each do |dog| %>
       <div class="dog-card border my-4 d-flex justify-content-between align-items-center">
@@ -30,7 +28,7 @@
       </div>
     <% end %>
   <% end %>
-
+  <h4 class="mt-4">Ma meute</h4>
   <% @friends.each do |friend| %>
     <%= link_to dog_path(friend), class: "dog-card border d-flex gap-4 align-items-center" do %>
       <%= cl_image_tag friend.photo.key, crop: :thumb, width: 60, class: "avatar avatar-bordered" %>
