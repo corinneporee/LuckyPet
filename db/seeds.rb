@@ -69,7 +69,7 @@ dog_walter = Dog.new(name: "Walter",
 )
 dog_walter.photo.attach(io: file_walter, filename: ".jpeg", content_type: "image/jpeg")
 dog_walter.save!
-post = Post.create(content: "C'etait une trop belle journée avec #{dog_walter.name}", dog: dog_walter)
+post = Post.create!(content: "Jamais sans mon doudou", dog: dog_walter)
 file_walter.close
 file_walter = File.open("db/fixtures/images/walter_teckel.jpeg")
 post.photo.attach(io: file_walter, filename: "#{dog_walter.name}.jpg", content_type: "image/jpg")
@@ -88,7 +88,7 @@ dog_hector = Dog.new(name: "Hector",
 )
 dog_hector.photo.attach(io: file_hector, filename: ".jpg", content_type: "image/jpg")
 dog_hector.save!
-post = Post.create(content: "C'etait une trop belle journée avec #{dog_hector.name}", dog: dog_hector)
+post = Post.create!(content: "Trop cool de sauter dans les vagues", dog: dog_hector)
 file_hector.close
 file_hector = File.open("db/fixtures/images/hector_golden_retriever.jpg")
 post.photo.attach(io: file_hector, filename: "#{dog_hector.name}.jpg", content_type: "image/jpg")
@@ -163,7 +163,7 @@ dog_sa_majeste = Dog.new(name: "Sa majesté",
 )
 dog_sa_majeste.photo.attach(io: file_sa_majeste, filename: ".jpg", content_type: "image/jpg")
 dog_sa_majeste.save!
-post = Post.create(content: "#{dog_sa_majeste.name} : Cette forêt est un enchantement!!", dog: dog_sa_majeste)
+post = Post.create!(content: "Cette forêt est un enchantement!!", dog: dog_sa_majeste)
 file_sa_majeste.close
 file_sa_majeste = File.open("db/fixtures/images/sa_majeste_spot_foret.jpg")
 post.photo.attach(io: file_sa_majeste, filename: "#{dog_sa_majeste.name}.jpg", content_type: "image/jpg")
@@ -197,7 +197,7 @@ dog_pixel = Dog.new(name: "Pixel",
 )
 dog_pixel.photo.attach(io: file_pixel, filename: ".jpg", content_type: "image/jpg")
 dog_pixel.save!
-post = Post.create(content: "#{dog_pixel.name} : J'ai trop bien joué avec mon humain !", dog: dog_pixel)
+post = Post.create(content: "J'ai trop bien joué avec mon humain !", dog: dog_pixel)
 file_pixel.close
 file_pixel = File.open("db/fixtures/images/pixel_spot_plage.jpg")
 post.photo.attach(io: file_pixel, filename: "#{dog_pixel.name}.jpg", content_type: "image/jpg")
@@ -216,7 +216,7 @@ dog_typhon = Dog.new(name: "Typhon",
 )
 dog_typhon.photo.attach(io: file_typhon, filename: ".jpg", content_type: "image/jpg")
 dog_typhon.save!
-post = Post.create(content: "#{dog_typhon.name} : La balade la nuit, je kiffe grave!", dog: dog_typhon)
+post = Post.create(content: "La balade la nuit, je kiffe grave!", dog: dog_typhon)
 file_typhon.close
 file_typhon = File.open("db/fixtures/images/typhon_spot_foret.jpg")
 post.photo.attach(io: file_typhon, filename: "#{dog_typhon.name}.jpg", content_type: "image/jpg")
@@ -743,7 +743,7 @@ review_grooming_cani_2.save!
 
 file = File.open("db/fixtures/images/Maika_spot_foret.jpeg")
 review_spot_foret = Review.new(
-  content: "Maika : J'ai kiffé ma balade avec les potos",
+  content: "J'ai kiffé ma balade avec les potos",
   rating: 5,
   dog: dog_maika,
   spot: spot_foret
@@ -752,7 +752,7 @@ review_spot_foret.photo.attach(io: file, filename: ".jpeg", content_type: "image
 review_spot_foret.save!
 
 review_spot_foret_1 = Review.new(
-  content: "Hector : J'adoooooore la nature",
+  content: "J'adoooooore la nature",
   rating: 5,
   dog: dog_hector,
   spot: spot_foret
@@ -761,7 +761,7 @@ review_spot_foret_1.save!
 
 file = File.open("db/fixtures/images/typhon_spot_foret.jpg")
 review_spot_foret_2 = Review.new(
-  content: "Typhon : J'étais comme un dingue dans cette forêt",
+  content: "J'étais comme un dingue dans cette forêt",
   rating: 5,
   dog: dog_typhon,
   spot: spot_foret
@@ -771,7 +771,7 @@ review_spot_foret_2.photo.attach(io: file, filename: ".jpg", content_type: "imag
 
 
 review_spot_plage = Review.new(
-  content: "Hector : Trop cool de sauter dans les vagues",
+  content: "Trop cool de sauter dans les vagues",
   rating: 5,
   dog: dog_hector,
   spot: spot_plage
@@ -780,7 +780,7 @@ review_spot_plage.save!
 
 file = File.open("db/fixtures/images/pixel_spot_plage.jpg")
 review_spot_plage_1 = Review.new(
-  content: "Pixel : J'ai couru après la balle 15 fois c'était trop cool !",
+  content: "J'ai couru après la balle 15 fois c'était trop cool !",
   rating: 5,
   dog: dog_pixel,
   spot: spot_plage
@@ -789,7 +789,7 @@ review_spot_plage_1.save!
 review_spot_plage_1.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 
 review_spot_ville = Review.new(
-  content: "Turbo : Je me fais marcher sur les pattes. Je déteste",
+  content: "Je me fais marcher sur les pattes. Je déteste",
   rating: 1,
   dog: dog_turbo,
   spot: spot_ville
@@ -798,7 +798,7 @@ review_spot_ville.save!
 
 file = File.open("db/fixtures/images/sunny_spot_ville.jpg")
 review_spot_ville_1 = Review.new(
-  content: "Sunny : Personne me voit, mais je passe entre les jambes easy.",
+  content: "Personne me voit, mais je passe entre les jambes easy.",
   rating: 2,
   dog: dog_sunny,
   spot: spot_ville
@@ -849,7 +849,7 @@ review_spot_feed_1.photo.attach(io: file, filename: ".jpg", content_type: "image
 
 file = File.open("db/fixtures/images/walter_teckel.jpeg")
 review_spot_ville_1 = Review.new(
-  content: "Ce bar est top, j'y retournerai pour sûr !!",
+  content: "Trop cool ce bar, en plus on me sert à boire",
   rating: 5,
   dog: dog_walter,
   spot: spot_feed_2
@@ -859,7 +859,7 @@ review_spot_ville_1.photo.attach(io: file, filename: ".jpg", content_type: "imag
 
 file = File.open("db/fixtures/images/sunny_spot_ville.jpg")
 review_spot_feed_2 = Review.new(
-  content: "Je n'ai pas apprécié mon experience car il y avait trop de monde, dommage",
+  content: "Trop naze ce bar, y avait pas de meuf, j'etais seul tout",
   rating: 2,
   dog: dog_typhon,
   spot: spot_feed_2
@@ -883,25 +883,25 @@ friendship_dog_hector = Friendship.new(
 friendship_dog_hector.save!
 
 friendship_dog_pixel = Friendship.new(
-  dog: dog_maika,
-  buddy: dog_pixel,
+  dog: dog_pixel,
+  buddy: dog_maika,
   status: "accepted"
 )
 friendship_dog_pixel.save!
 
 friendship_dog_turbo = Friendship.new(
-  dog: dog_maika,
-  buddy: dog_typhon,
+  dog: dog_typhon,
+  buddy: dog_maika,
   status: "accepted"
 )
 friendship_dog_turbo.save!
 
-friendship_dog_sunny = Friendship.new(
-  dog: dog_maika,
-  buddy: dog_sunny,
-  status: "accepted"
+friendship_dog_sa_majeste = Friendship.new(
+  dog: dog_sa_majeste,
+  buddy: dog_maika,
+  status: "pending"
 )
-friendship_dog_sunny.save!
+friendship_dog_sa_majeste.save!
 
 # "Tic tac c'est l'heure de la promenade !"
 # "N'oublie pas le comprimé de Maika !"
