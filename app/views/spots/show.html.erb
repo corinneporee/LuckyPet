@@ -36,7 +36,7 @@
   <div class="spot-informations">
     <% case @spot.spot_type %>
     <% when "Balades" %>
-    
+
       <%#= @spot.walk_environment %>
       <div class="d-flex gap-2">
         <%= image_tag("spot-type-icons/#{@spot.walk_environment}.svg") %>
@@ -81,7 +81,7 @@
   <%= link_to "Proposer une balade ?", new_spot_walk_path(@spot) , class: "btn btn-primary my-3" %>
 
   <div class="spot-reviews">
-    <h5>Avis</h5>
+    <h5>T'as kiffé ou pas ?</h5>
     <% @spot.reviews.each do |review| %>
       <div class="spot-review">
         <div class="spot-review-info">
