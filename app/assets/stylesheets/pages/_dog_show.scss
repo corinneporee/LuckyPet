@@ -13,3 +13,9 @@
   color: $black500;
   text-decoration: none;
 }
+
+.dog-profile-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
