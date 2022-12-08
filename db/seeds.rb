@@ -286,16 +286,17 @@ spot_ville.save!
 sleep 1
 
 file = File.open("db/fixtures/images/shop_cereal.jpg")
-spot_shop_cereal = Spot.new(
+spot_shop_cereale = Spot.new(
   name: "J'ai plus de croquettes",
   user: steven,
   description: "Boutique ouverte tous les jours de la semaine sauf le dimanche de
   9h à 12h et de 14h à 19h, les chiens sont les bienvenues!",
   address: "19 rue Claude de Bretagne, 56500 Locmine",
-  spot_type: "Commerces"
+  spot_type: "Commerces",
+  shop_cereale: true
 )
-spot_shop_cereal.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
-spot_shop_cereal.save!
+spot_shop_cereale.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+spot_shop_cereale.save!
 sleep 1
 
 file = File.open("db/fixtures/images/shop_vrac.jpg")
@@ -306,7 +307,8 @@ spot_shop_vrac = Spot.new(
   C'est en libre service, mais nous restons à votre disposition pour des conseils. Ouvert du lundi au vendredi de
   9h à 18h.",
   address: "10 rue Carnot, 56000 Pontivy",
-  spot_type: "Commerces"
+  spot_type: "Commerces",
+  shop_vrac: true
 )
 spot_shop_vrac.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 spot_shop_vrac.save!
@@ -319,7 +321,8 @@ spot_shop_insects = Spot.new(
   description: "Nous vendons des croquettes de la marque 'Tomojo' spécialisé dans les croquettes à base d'insectes.
   La boutique est ouverte tous les jours du lundi au samedi de 10h à 18h non stop. Nos amis les chiens sont les bienvenus.",
   address: "Zone industrielle Du Prat, 2 avenue Gontran Bienvenu, 56000 Vannes",
-  spot_type: "Commerces"
+  spot_type: "Commerces",
+  shop_insects: true
 )
 spot_shop_insects.photo.attach(io: file, filename: ".jpeg", content_type: "image/jpeg")
 spot_shop_insects.save!
@@ -512,29 +515,29 @@ review_shop_vrac_3 = Review.new(
 )
 review_shop_vrac_3.save!
 
-review_shop_cereal_1 = Review.new(
+review_shop_cereale_1 = Review.new(
   content: "Super croquette de très bonnes qualités à prix abordables. Je recommande",
   rating: 5,
   dog: dog_walter,
-  spot: spot_shop_cereal
+  spot: spot_shop_cereale
 )
-review_shop_cereal_1.save!
+review_shop_cereale_1.save!
 
-review_shop_cereal_2 = Review.new(
+review_shop_cereale_2 = Review.new(
   content: "C'est pas mal en plus on peut se garer facilement",
   rating: 4,
   dog: dog_pixel,
-  spot: spot_shop_cereal
+  spot: spot_shop_cereale
 )
-review_shop_cereal_2.save!
+review_shop_cereale_2.save!
 
-review_shop_cereal_3 = Review.new(
+review_shop_cereale_3 = Review.new(
   content: "Les croquettes sont de bonnes qualité mais il n'y a pas beaucoup de choix.",
   rating: 3,
   dog: dog_turbo,
-  spot: spot_shop_cereal
+  spot: spot_shop_cereale
 )
-review_shop_cereal_3.save!
+review_shop_cereale_3.save!
 
 review_shop_insect_1 = Review.new(
   content: "Turbo n'a jamais voulu les manger. Je vais reprendre des croquettes plus classiques...",
@@ -802,17 +805,78 @@ review_spot_ville_1 = Review.new(
 review_spot_ville_1.save!
 review_spot_ville_1.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 
+# 3 last spots for feed ------------------------------------------------------------------------------------------------
+file = File.open("db/fixtures/images/broceliande.jpg")
+spot_feed_1 = Spot.new(
+  name: "Forêt de Brocéliande",
+  user: steven,
+  description: "Un lieu mystique où on y croiserait des Elfes et des lutins",
+  address: "Forêt de Paimpont, 35380 Paimpont",
+  spot_type: "Balades",
+  walk_environment: "Forêt",
+  walk_area: "Grands",
+  walk_attendance: "Moyenne"
+)
+spot_feed_1.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+spot_feed_1.save!
+sleep 1
+
+file = File.open("db/fixtures/images/bar_toutou.jpg")
+spot_feed_2 = Spot.new(
+  name: "Bar à toutou",
+  user: steven,
+  description: "Le nouveau bar à chien de Vannes, venez accompagné de votre compagnon preféré!",
+  address: "6 Pl. de la Libération, 56000 Vannes",
+  spot_type: "Commerces",
+  shop_vrac: true,
+  shop_insects: true,
+  shop_cereale: true
+)
+spot_feed_2.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+spot_feed_2.save!
+sleep 1
+
+file = File.open("db/fixtures/images/sunny_spot_ville.jpg")
+review_spot_feed_1 = Review.new(
+  content: "Super endroit pour se promener avec son chien, on a meme croisé un lutin!",
+  rating: 4,
+  dog: dog_sunny,
+  spot: spot_feed_1
+)
+review_spot_feed_1.save!
+review_spot_feed_1.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+
+file = File.open("db/fixtures/images/walter_teckel.jpeg")
+review_spot_ville_1 = Review.new(
+  content: "Ce bar est top, j'y retournerai pour sûr !!",
+  rating: 5,
+  dog: dog_walter,
+  spot: spot_feed_2
+)
+review_spot_ville_1.save!
+review_spot_ville_1.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+
+file = File.open("db/fixtures/images/sunny_spot_ville.jpg")
+review_spot_feed_2 = Review.new(
+  content: "Je n'ai pas apprécié mon experience car il y avait trop de monde, dommage",
+  rating: 2,
+  dog: dog_typhon,
+  spot: spot_feed_2
+)
+review_spot_feed_2.save!
+review_spot_feed_2.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+# ----------------------------------------------------------------------------------------------------------------------
 puts 'Friendships'
 friendship_dog_walter = Friendship.new(
-  dog: dog_maika,
-  buddy: dog_walter,
+  dog: dog_walter,
+  buddy: dog_maika,
   status: "pending"
 )
 friendship_dog_walter.save!
 
 friendship_dog_hector = Friendship.new(
-  dog: dog_maika,
-  buddy: dog_hector,
+  dog: dog_hector,
+  buddy: dog_maika,
   status: "pending"
 )
 friendship_dog_hector.save!
