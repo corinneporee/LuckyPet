@@ -15,7 +15,7 @@
       <h3>Poids</h3>
       <span class="text-purple">Changer le poids</span>
     </div>
-    <p class="pb-1"><%= @dog.weight %> kg</p>
+    <p class="pb-1 dog-weight"><%= @dog.weight %> kg</p>
   </div>
   <div class="dog-comportement">
     <div class="btn-square-active col" style="transform:rotate(<%= rand(-5..5) %>deg) translate(2px, 2px) !important;">
@@ -31,7 +31,7 @@
         <% when "Fou-fou" %>
         <%= image_tag 'form-icons/foufou.svg' %>
       <% end %>
-      <%= @dog.personality %>
+      <span><%= @dog.personality %></span>
     </div>
 
     <div class="btn-square-active col" style="transform:rotate(<%= rand(-5..5) %>deg) translate(2px, 2px) !important;">
@@ -39,10 +39,10 @@
       <% when "Je pète la forme" %>
         <%= image_tag 'form-icons/pete-forme.svg' %>
       <% end %>
-      <%= @dog.health %>
+      <span><%= @dog.health %></span>
     </div>
 
-    <div class="btn-square-active col" style="transform:rotate(<%= rand(-5..5) %>deg) translate(2px, 2px) !important;">
+    <div class="btn-square-active col dog-comportement-neutered" style="transform:rotate(<%= rand(-5..5) %>deg) translate(2px, 2px) !important;">
       <% if @dog.neutered %>
         <span>Stérilisé</span>
       <% else %>

@@ -26,5 +26,29 @@
   display: flex;
   justify-content: space-between;
   gap: 18px;
-  margin-top: 58px;
+  margin-top: 24px;
+  text-align:center;
+
+  img {
+    width:54px;
+  }
+
+  span {
+    font-size:12px;
+    line-height:1.2;
+    font-weight:700;
+  }
+  .btn-square {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .dog-comportement-neutered {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    span {
+      font-size:16px;
+    }
+  }
 }
