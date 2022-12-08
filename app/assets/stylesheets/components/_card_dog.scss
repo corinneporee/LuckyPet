@@ -1,10 +1,12 @@
 .dog-card {
+  background-color: $principal-light;
   text-decoration: none;
-  color: black;
+  color: $black500;
   padding: 8px;
   border-radius: 12px;
+  border: 3px solid $second !important;
   h4 {
-    color: $second;
+    color: $black;
     margin-bottom:-4px;
   }
 }
