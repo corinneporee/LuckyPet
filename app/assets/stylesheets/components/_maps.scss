@@ -4,6 +4,10 @@
 
 .mapboxgl-popup {
   max-width: 200px;
+
+  h2 {
+    margin-bottom:0;
+  }
 }
 
 .mapboxgl-popup-content {

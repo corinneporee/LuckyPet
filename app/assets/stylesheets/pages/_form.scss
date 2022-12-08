@@ -153,5 +153,9 @@ input[type=range]::-webkit-slider-runnable-track  {
 /* Walk form */
 
 .walk_invitations_message input {
-  height:170px;
+  padding-bottom: 72px;
+}
+
+.walk_invitations_message {
+  margin-top: 16px;
 }

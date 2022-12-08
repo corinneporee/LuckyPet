@@ -24,7 +24,7 @@
       <% end %>
     </div>
     <div class="card-spot-type">
-      <i class="fa-solid fa-location-dot text-purple me-2"></i>
+      <%= image_tag("spot-type-icons/#{@spot.spot_type}.svg") %>
       <span class="overtitre text-purple"><%= @spot.spot_type %></span>
     </div>
   </div>
@@ -36,10 +36,21 @@
   <div class="spot-informations">
     <% case @spot.spot_type %>
     <% when "Balades" %>
+    
+      <%#= @spot.walk_environment %>
+      <div class="d-flex gap-2">
+        <%= image_tag("spot-type-icons/#{@spot.walk_environment}.svg") %>
+        <%= @spot.walk_environment %>
+      </div>
+      <div class="d-flex gap-2">
+        <%= image_tag("spot-type-icons/#{@spot.walk_area}.svg") %>
+        <%= @spot.walk_area %> espaces</p>
+      </div>
 
-      <p><%= @spot.walk_environment %></p>
-      <p><%= @spot.walk_area %> espaces</p>
-      <p><%= @spot.walk_attendance %> fréquentation</p>
+      <div class="d-flex gap-2">
+        <%= image_tag("spot-type-icons/#{@spot.walk_attendance}.svg") %>
+        <%= @spot.walk_attendance %> fréquentation</p>
+      </div>
 
     <% when "Commerces" %>
       <% if @spot.shop_cereale %>
@@ -66,9 +77,9 @@
       <% end %>
     <% end %>
   </div>
-  <div class="">
-      <%= link_to "Proposer une balade ?", new_spot_walk_path(@spot) , class: "btn btn-primary" %>
-  </div>
+
+  <%= link_to "Proposer une balade ?", new_spot_walk_path(@spot) , class: "btn btn-primary my-3" %>
+
   <div class="spot-reviews">
     <h5>Avis</h5>
     <% @spot.reviews.each do |review| %>

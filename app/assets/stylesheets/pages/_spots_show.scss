@@ -1,6 +1,7 @@
 .spot-wrapper {
   position:relative;
   overflow:hidden;
+  z-index: -1;
 }
 
 .chien-mascotte {
@@ -17,7 +18,11 @@
 }
 
 .spot {
-  padding:16px;
+  padding:24px 16px;
+  border-radius: 32px 32px;
+  margin-top: -32px;
+  z-index: 999;
+  background: white;
 
   .card-spot-info {
     display:flex;
@@ -47,6 +52,10 @@
     transform: rotate(-3deg);
     border-radius: 8px;
     box-shadow: $custom-shadow;
+    display: flex;
+    flex-direction:column;
+    gap:16px;
+    font-weight:700;
   }
 }
 

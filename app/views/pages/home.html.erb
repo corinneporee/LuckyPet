@@ -7,7 +7,7 @@
   <div class="home-log">
     <% if user_signed_in? %>
       <%= link_to "Créer le profil de mon chien", new_dog_path, class: "btn btn-primary" %>
-      <%= link_to "Déjà un profil ? C'est parti", feeds_path, class: "btn btn-secondary mt-3" %>
+      <%= link_to "Déjà un profil ? C'est parti", feeds_path, class: "btn btn-secondary" %>
     <% else %>
       <div class="log-in">
       <%= link_to "🐾 je me connecte", new_user_session_path, class: "btn btn-primary" %>
