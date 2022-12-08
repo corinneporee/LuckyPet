@@ -5,7 +5,7 @@ class Dog < ApplicationRecord
             "Husky de Sibérie", "Cavalier King Charles", "Welsh Corgi", "Cocker Spaniel", "American Staffordshire Terrier", "Chihuahua", "Berger Allemand"]
 
   HEALTH = ["Je pète la forme", "Raplapla", "Sous traitement"]
-  SEX = ["Female", "Male"]
+  SEX = ["Femelle", "Male"]
 
   include PgSearch::Model
   pg_search_scope :search_by_name,

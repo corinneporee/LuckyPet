@@ -150,7 +150,7 @@ dog_hulk = Dog.new(name: "Hulk",
 dog_hulk.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
 dog_hulk.save!
 
-file = File.open("db/fixtures/images/sa_majesté_welsh.jpg")
+file_sa_majeste = File.open("db/fixtures/images/sa_majeste_welsh.jpg")
 dog_sa_majeste = Dog.new(name: "Sa majesté",
   breed: "Welsh Corgi",
   weight: 12,
@@ -161,8 +161,13 @@ dog_sa_majeste = Dog.new(name: "Sa majesté",
   neutered: true,
   user: lomig
 )
-dog_sa_majeste.photo.attach(io: file, filename: ".jpg", content_type: "image/jpg")
+dog_sa_majeste.photo.attach(io: file_sa_majeste, filename: ".jpg", content_type: "image/jpg")
 dog_sa_majeste.save!
+post = Post.create(content: "#{dog_sa_majeste.name} : Cette forêt est un enchantement!!", dog: dog_sa_majeste)
+file_sa_majeste.close
+file_sa_majeste = File.open("db/fixtures/images/sa_majeste_spot_foret.jpg")
+post.photo.attach(io: file_sa_majeste, filename: "#{dog_sa_majeste.name}.jpg", content_type: "image/jpg")
+post.save!
 
 file_sunny = File.open("db/fixtures/images/sunny_cocker.jpg")
 dog_sunny = Dog.new(name: "Sunny",
@@ -177,11 +182,7 @@ dog_sunny = Dog.new(name: "Sunny",
 )
 dog_sunny.photo.attach(io: file_sunny, filename: ".jpg", content_type: "image/jpg")
 dog_sunny.save!
-post = Post.create(content: "C'etait une trop belle journée avec #{dog_sunny.name}", dog: dog_sunny)
-file_sunny.close
-file_sunny = File.open("db/fixtures/images/sunny_cocker.jpg")
-post.photo.attach(io: file_sunny, filename: "#{dog_sunny.name}.jpg", content_type: "image/jpg")
-post.save!
+
 
 file_pixel = File.open("db/fixtures/images/pixel_ckc.jpg")
 dog_pixel = Dog.new(name: "Pixel",
@@ -196,9 +197,9 @@ dog_pixel = Dog.new(name: "Pixel",
 )
 dog_pixel.photo.attach(io: file_pixel, filename: ".jpg", content_type: "image/jpg")
 dog_pixel.save!
-post = Post.create(content: "C'etait une trop belle journée avec #{dog_pixel.name}", dog: dog_pixel)
+post = Post.create(content: "#{dog_pixel.name} : J'ai trop bien joué avec mon humain !", dog: dog_pixel)
 file_pixel.close
-file_pixel = File.open("db/fixtures/images/pixel_ckc.jpg")
+file_pixel = File.open("db/fixtures/images/pixel_spot_plage.jpg")
 post.photo.attach(io: file_pixel, filename: "#{dog_pixel.name}.jpg", content_type: "image/jpg")
 post.save!
 
@@ -215,9 +216,9 @@ dog_typhon = Dog.new(name: "Typhon",
 )
 dog_typhon.photo.attach(io: file_typhon, filename: ".jpg", content_type: "image/jpg")
 dog_typhon.save!
-post = Post.create(content: "C'etait une trop belle journée avec #{dog_typhon.name}", dog: dog_typhon)
+post = Post.create(content: "#{dog_typhon.name} : La balade la nuit, je kiffe grave!", dog: dog_typhon)
 file_typhon.close
-file_typhon = File.open("db/fixtures/images/typhon_staff.jpg")
+file_typhon = File.open("db/fixtures/images/typhon_spot_foret.jpg")
 post.photo.attach(io: file_typhon, filename: "#{dog_typhon.name}.jpg", content_type: "image/jpg")
 post.save!
 
@@ -491,9 +492,9 @@ invitation.save!
 
 puts 'Reviews'
 review_shop_vrac_1 = Review.new(
-  content: "C'est en plein centre ville! C'est très pratique,
-  pas chère. C'est top",
-  rating: 5,
+  content: "C'est en plein centre ville! C'est pas pratique, mais
+  pas cher.",
+  rating: 3,
   dog: dog_hector,
   spot: spot_shop_vrac
 )
@@ -501,7 +502,7 @@ review_shop_vrac_1.save!
 
 review_shop_vrac_2 = Review.new(
   content: "Je ne connaissais pas c'est pas mal",
-  rating: 4,
+  rating: 3,
   dog: dog_walter,
   spot: spot_shop_vrac
 )
@@ -516,7 +517,7 @@ review_shop_vrac_3 = Review.new(
 review_shop_vrac_3.save!
 
 review_shop_cereale_1 = Review.new(
-  content: "Super croquette de très bonnes qualités à prix abordables. Je recommande",
+  content: "Super croquettes de très bonne qualité à prix abordables. Je recommande",
   rating: 5,
   dog: dog_walter,
   spot: spot_shop_cereale
@@ -532,7 +533,7 @@ review_shop_cereale_2 = Review.new(
 review_shop_cereale_2.save!
 
 review_shop_cereale_3 = Review.new(
-  content: "Les croquettes sont de bonnes qualité mais il n'y a pas beaucoup de choix.",
+  content: "Les croquettes sont de bonne qualité mais il n'y a pas beaucoup de choix.",
   rating: 3,
   dog: dog_turbo,
   spot: spot_shop_cereale
@@ -540,8 +541,8 @@ review_shop_cereale_3 = Review.new(
 review_shop_cereale_3.save!
 
 review_shop_insect_1 = Review.new(
-  content: "Turbo n'a jamais voulu les manger. Je vais reprendre des croquettes plus classiques...",
-  rating: 1,
+  content: "Turbo a adoré. Je vais en reprendre...",
+  rating: 5,
   dog: dog_turbo,
   spot: spot_shop_insects
 )
@@ -549,7 +550,7 @@ review_shop_insect_1.save!
 
 review_shop_insect_2 = Review.new(
   content: "Surprenant, je ne m'y attendais pas",
-  rating: 3,
+  rating: 4,
   dog: dog_pixel,
   spot: spot_shop_insects
 )
@@ -557,7 +558,7 @@ review_shop_insect_2.save!
 
 review_shop_insect_3 = Review.new(
   content: "Trop bien, et mon chien adore",
-  rating: 4,
+  rating: 5,
   dog: dog_walter,
   spot: spot_shop_insects
 )
