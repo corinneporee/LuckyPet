@@ -30,7 +30,7 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
+  <body style="height: 100vh;">
     <%= render "shared/flashes" %>
     <%= yield %>
     <%= render "shared/toolbar" unless controller_name == "pages" || devise_controller? || (controller_name == "dogs") && action_name == "new" %>
