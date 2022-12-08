@@ -1,39 +1,60 @@
- <div class="">
+ <div class="feeds-container">
   <div class="header">
-    <div class="top">
+    <div class="header-top">
       <h5>Lucky<br>Pets</h5>
-    </div>
-    <div class="avatar">
-      <%= cl_image_tag @dog.photo.key, crop: :fill, class:"avatar-large" %>
     </div>
     <% if user_signed_in? %>
     <div class="friends">
-      <div class="friends-count">
-        <h6><%= @dog.name %></h6>
-        <p><%= @my_friends.count %> Amis</p>
+      <div class="friends-container">
+        <div class="dog-name">
+          <h2><%= @dog.name %></h2>
+        </div>
+        <div class="friends-avatar">
+          <span class="bold"><%= @my_friends.count %></span><p> Amis</p>
+          <div class="display-friends">
+            <% @my_friends.last(4).each do |friend| %>
+            <%= cl_image_tag friend.dog.photo.key, crop: :fill, width: 100, class:"avatar-small" %>
+            <% end %>
+          </div>
+        </div>
       </div>
-      <% @my_friends.last(4).each do |friend| %>
-      <div class="display-friends">
-        <%= cl_image_tag friend.dog.photo.key, crop: :fill, class:"avatar-large" %>
+      <div class="feeds-avatar">
+        <%= cl_image_tag @dog.photo.key, crop: :fill, width: 200, class:"avatar-middle" %>
       </div>
-      <% end %>
-    <% end %>
     </div>
-  </div>
-  <div class="">
-    <% @friendships.each do |friendship| %>
-    <p><%= friendship.dog.name %> vous a envoyé une demande d'ami</p>
-    <%= link_to "accepter", "/feeds/#{friendship.id}/accept" %>
-    <%= link_to "refuser", "/feeds/#{friendship.id}/refuse" %>
     <% end %>
   </div>
-  <div class="">
+  <div class="friends-request-container">
+    <% @friendships.each do |friendship| %>
+    <div class="card-friends-request d-flex">
+      <div class="">
+        <%= cl_image_tag friendship.dog.photo.key, crop: :fill, width: 100, class:"avatar-small" %>
+      </div>
+      <div class="">
+        <h6><%= friendship.dog.name %> vous a envoyé une demande d'ami</h6>
+        <p><%= friendship.dog.breed %></p>
+      </div>
+      <div class="d-flex flex-column">
+        <div class="">
+          <%= link_to "accepter", "/feeds/#{friendship.id}/accept" %>
+        </div>
+        <div class="">
+          <%= link_to "refuser", "/feeds/#{friendship.id}/refuse" %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <div class="card-walk-request">
     <% @invitations.each do |invitation| %>
     <p><%= invitation.walk.dog.name %> vous propose de partir en balade"</p>
-    <%= link_to "On y va!", walk_path(invitation.walk) %>
+    <div class="btn btn-primary">
+      <%= link_to "On y va!", walk_path(invitation.walk) %>
+    </div>
     <% end %>
   </div>
   <h4>Spots qui pourraient vous intéresser</h4>
+  <div class="">
   <% @spots.each do |spot| %>
       <%= link_to spot_path(spot), class: "card-spot" do %>
         <div class="card-spot-img">
@@ -73,6 +94,7 @@
         </div>
       <% end %>
     <% end %>
+  </div>
   <div class="">
     <% @posts.each do |post| %>
     <div class="">

@@ -22,3 +22,19 @@
   border-radius: 50%;
   object-fit: cover;
 }
+
+.avatar-small {
+  box-shadow: $custom-shadow;
+  border:2px solid $black;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.avatar-middle {
+  box-shadow: $custom-shadow;
+  border:2px solid $black;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}

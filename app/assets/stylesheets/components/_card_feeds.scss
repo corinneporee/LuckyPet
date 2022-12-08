@@ -1,0 +1,32 @@
+.card-walk-request {
+  height: 180px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-color: $principal-light;
+}
+
+.card-walk-request a {
+  color: $black;
+}
+
+.card-friends-request {
+  background-color: $principal-light;
+}
+
+.card-friends-request a {
+  color: $black500;
+  transition: 0.3s;
+}
+
+.card-friends-request a:hover {
+  transition: 0.3s;
+  color: $principal;
+}
+
+.card-friends-request p {
+  color: $black500;
+}
