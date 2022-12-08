@@ -3,10 +3,35 @@
   color: white;
   font-size: 24px;
   font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   background-color: $principal-light;
   margin:16px 0;
+  padding:16px;
+  position:relative;
+  overflow: hidden;
+  border:1px solid $principal;
+  margin:0 16px;
+
+  .card-walk-dog-photo {
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: absolute;
+    right: -50px;
+    bottom: -11px;
+  }
+
+  p, a {
+    width: 50%;
+  }
+
+  p {
+    font-family: 'BD Supper';
+    font-size:20px;
+    line-height: 1.1;
+    color:$principal;
+  }
 }
 
 .card-walk-request a {

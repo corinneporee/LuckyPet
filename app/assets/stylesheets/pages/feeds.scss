@@ -70,4 +70,54 @@
   .walks-request {
     background-color: $principal-light;
   }
+
+  .spots-wrapper {
+    display:flex;
+    gap:16px;
+    overflow: hidden;
+    width: 200%;
+    position: relative;
+    .card-spot {
+      width:320px;
+      margin-top:0;
+    }
+  }
+
+  .spots-overflow {
+    overflow-x: scroll;
+    margin-left:16px;
+  }
+
+  .post-card {
+    border-radius:8px;
+    margin:24px 0;
+    border:1px solid $black300;
+    overflow: hidden;
+    &:not(:first-child) {
+      margin-top:0px;
+    }
+    .post-card-info {
+      padding:16px;
+    }
+    h6 {
+      margin:0;
+    }
+    p {
+      color:$black500
+    }
+    .post-photo {
+      border-radius:0 0 8px 8px;
+      width:100%;
+      object-fit: cover;
+    }
+  }
+  h4 {
+    margin-left:16px;
+  }
+  .posts-wrapper {
+    padding:0 16px;
+    h4 {
+      margin-left:0;
+    }
+  }
 }

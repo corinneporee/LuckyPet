@@ -10,7 +10,9 @@
           <h2><%= @dog.name %></h2>
         </div>
         <div class="friends-avatar">
-          <span class="bold"><%= @my_friends.count %></span><p> Amis</p>
+          <div class="d-flex gap-1">
+            <span class="bold"><%= @my_friends.count %></span><p> Amis</p>
+          </div>
           <div class="display-friends">
             <% @my_friends.last(4).each do |friend| %>
             <%= cl_image_tag friend.dog.photo.key, crop: :fill, width: 100, class:"avatar-small" %>
@@ -41,62 +43,68 @@
     </div>
     <% end %>
   </div>
-  <div class="card-walk-request">
-    <% @invitations.each do |invitation| %>
-    <p><%= invitation.walk.dog.name %> vous propose de partir en balade"</p>
-    <div class="btn btn-primary">
-      <%= link_to "On y va!", walk_path(invitation.walk) %>
+  <% @invitations.each do |invitation| %>
+    <div class="card-walk-request">
+      <%= cl_image_tag invitation.walk.dog.photo.key, class:"card-walk-dog-photo" %>
+      <p><%= invitation.walk.dog.name %> vous propose de partir en balade</p>
+    <%= link_to "On y va!", walk_path(invitation.walk), class:"btn btn-primary mt-4" %>
     </div>
-    <% end %>
-  </div>
-  <h4>Spots qui pourraient vous intéresser</h4>
-  <div class="">
-  <% @spots.each do |spot| %>
-      <%= link_to spot_path(spot), class: "card-spot" do %>
-        <div class="card-spot-img">
-          <%= cl_image_tag spot.photo.key, crop: :fill %>
-        </div>
-        <div class="card-spot-info">
-          <div class="card-spot-top">
-            <div class="card-spot-rating">
-              <% spot.rating.floor.times do %>
-                <i class="fa-solid fa-paw text-purple"></i>
-              <% end %>
-              <% if spot.rating < 5 %>
-                <% if (spot.rating * 2.0).round / 2.0 - spot.rating.floor == 0%>
-                  <i class="fa-solid fa-paw-purple"></i>
-                <% else %>
-                  <i class="fa-solid fa-paw-half-stroke text-purple"></i>
+  <% end %>
+
+  <h4 class="mt-5">Spots qui pourraient vous intéresser</h4>
+  <div class="spots-overflow">
+    <div class="spots-wrapper">
+      <% @spots.each do |spot| %>
+        <%= link_to spot_path(spot), class: "card-spot" do %>
+          <div class="card-spot-img">
+            <%= cl_image_tag spot.photo.key, crop: :fill %>
+          </div>
+          <div class="card-spot-info">
+            <div class="card-spot-top">
+              <div class="card-spot-rating">
+                <% spot.rating.floor.times do %>
+                  <i class="fa-solid fa-paw text-purple"></i>
                 <% end %>
-                <% (5 - spot.rating.floor).times do %>
-                  <i class="fa-solid fa-paw text-purple" style="opacity: 0.3"></i>
+                <% if spot.rating < 5 %>
+                  <% if (spot.rating * 2.0).round / 2.0 - spot.rating.floor == 0%>
+                    <i class="fa-solid fa-paw-purple"></i>
+                  <% else %>
+                    <i class="fa-solid fa-paw-half-stroke text-purple"></i>
+                  <% end %>
+                  <% (5 - spot.rating.floor).times do %>
+                    <i class="fa-solid fa-paw text-purple" style="opacity: 0.3"></i>
+                  <% end %>
                 <% end %>
-              <% end %>
+              </div>
+              <div class="card-spot-type">
+                <i class="fa-solid fa-location-dot text-purple me-2"></i>
+                <span class="overtitre text-purple"><%= spot.spot_type %></span>
+              </div>
             </div>
-            <div class="card-spot-type">
-              <i class="fa-solid fa-location-dot text-purple me-2"></i>
-              <span class="overtitre text-purple"><%= spot.spot_type %></span>
+            <div class="card-spot-bot">
+              <div class="card-spot-title">
+                <h3><%= spot.name %></h3>
+                <span>à 2km</span>
+              </div>
+              <div class="card-spot-description">
+                <p><%= spot.description.truncate(100) %></p>
+              </div>
             </div>
           </div>
-          <div class="card-spot-bot">
-            <div class="card-spot-title">
-              <h3><%= spot.name %></h3>
-              <span>à 2km</span>
-            </div>
-            <div class="card-spot-description">
-              <p><%= spot.description.truncate(100) %></p>
-            </div>
-          </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
-  <div class="">
-    <% @posts.each do |post| %>
-    <div class="">
-    <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill %>
-    <p><%= post.content %></p>
     </div>
+  </div>
+  <div class="posts-wrapper">
+    <h4 class="mt-5">Les dernières photos de vos potos</h4>
+    <% @posts.each do |post| %>
+      <div class="post-card">
+        <div class="post-card-info">
+          <h6><%= post.dog.name %></h6>
+          <p><%= post.content %></p>
+        </div>
+        <%= cl_image_tag post.photo.key, height: 300, crop: :fill, class:"post-photo" %>
+      </div>
     <% end %>
   </div>
 </div>
